@@ -31,6 +31,8 @@ import { PostMessagetemplateComponent } from './posts/post-messagetemplate/post-
 import { UserplanFreetrailComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
 import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsubscription/userplan-startsubscription.component';
 import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AdminComponent } from './users/admin/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscri
     UserplanFreetrailComponent,
     UserplanStartsubscriptionComponent,
     UserplanSubscribeduserlistComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class PostsService {
 
   getPosts() {
     this.http
-      .get<{ message: string; posts: any }>("http://localhost:3000/api/posts")
+      .get<{ message: string; posts: any }>("http://localhost:1000/api/posts")
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
@@ -44,7 +44,7 @@ export class PostsService {
 
   getUserDetail() {
     this.http
-      .get<{ message: string; posts: any }>("http://localhost:3000/api/userdetails/freeetrail")
+      .get<{ message: string; posts: any }>("http://localhost:1000/api/userdetails/freeetrail")
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
@@ -68,7 +68,7 @@ export class PostsService {
 
   getSubscribedUserDetail() {
     this.http
-      .get<{ message: string; posts: any }>("http://localhost:3000/api/userdetails/getsubscribeduser")
+      .get<{ message: string; posts: any }>("http://localhost:1000/api/userdetails/getsubscribeduser")
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
@@ -96,7 +96,7 @@ export class PostsService {
 
   getMesageTemplate() {
     this.http
-      .get<{ message: string; posts: any }>("http://localhost:3000/posttemplate")
+      .get<{ message: string; posts: any }>("http://localhost:1000/posttemplate")
       .pipe(
         map(postData => {
           return postData.posts.map(postdf => {
@@ -119,7 +119,7 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://localhost:3000/api/userdetails/aproovetrial",
+        "http://localhost:1000/api/userdetails/aproovetrial",
        {Email: userdetail.email}
       )
       .subscribe(responseData => {
@@ -140,7 +140,7 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://localhost:3000/api/userdetails/intialSusbscription",
+        "http://localhost:1000/api/userdetails/intialSusbscription",
        {Email: userdetail.email, 
         fromdate: userdetail.fromdate,
          totalamount: userdetail.totalamount, 
@@ -170,7 +170,7 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://localhost:3000/api/userdetails/aproveSusbscription",
+        "http://localhost:1000/api/userdetails/aproveSusbscription",
        {Email: userdetail.email, 
         fromdate: userdetail.fromdate,
          totalamount: userdetail.totalamount, 
@@ -210,7 +210,7 @@ export class PostsService {
 
   getPost(id: string) {
     return this.http.get<{ _id: string; title: string; services: [] }>(
-      "http://localhost:3000/api/posts/" + id
+      "http://localhost:1000/api/posts/" + id
     );
   }
 
@@ -218,7 +218,7 @@ export class PostsService {
     const post: Post = { id: null, title: title, services: this.Services };
     this.http
       .post<{ message: string; postId: string }>(
-        "http://localhost:3000/api/posts",
+        "http://localhost:1000/api/posts",
         post
       )
       .subscribe(responseData => {
@@ -240,7 +240,7 @@ export class PostsService {
     const post: Posttemplate = { id: null, message: message, templatename: templatename, preffix: prefix, suffix: sufix };
       this.http
       .post<{ message: string; MessageObjId: string }>(
-        "http://localhost:3000/posttemplate/template",
+        "http://localhost:1000/posttemplate/template",
         post
       )
       .subscribe(responseData => {
@@ -254,7 +254,7 @@ export class PostsService {
   updatePost(id: string, title: string, services: []) {
     const post: Post = { id: id, title: title, services: [] };
     this.http
-      .put("http://localhost:3000/api/posts/" + id, post)
+      .put("http://localhost:1000/api/posts/" + id, post)
       .subscribe(response => {
         const updatedPosts = [...this.posts];
         const oldPostIndex = updatedPosts.findIndex(p => p.id === post.id);
@@ -266,7 +266,7 @@ export class PostsService {
 
   deletePost(postId: string) {
     this.http
-      .delete("http://localhost:3000/api/posts/" + postId)
+      .delete("http://localhost:1000/api/posts/" + postId)
       .subscribe(() => {
         const updatedPosts = this.posts.filter(post => post.id !== postId);
         this.posts = updatedPosts;

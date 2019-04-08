@@ -14,18 +14,7 @@
         #title="ngModel"></textarea>
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
-    <!-- <mat-form-field>
-      <textarea
-        matInput
-        rows="4"
-        name="content"
-        [ngModel]="post?.content"
-        required
-        placeholder="Post Content"
-        #content="ngModel"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
-    </mat-form-field> -->
-
+    
       <mat-form-field>
           <mat-select placeholder="Select Prefix" [(value)]="selectedprefix">
             <mat-option *ngFor="let food of preffixArray" [value]="food">

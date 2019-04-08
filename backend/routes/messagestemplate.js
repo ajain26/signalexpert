@@ -17,9 +17,7 @@ router.post("/template", (req, res, next) => {
           message: "UserDetail added successfully",
           MessageObjId: createdMessageObj._id
         });
-
       });
-
   });
 
   router.get("", (req, res, next) => {

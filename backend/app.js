@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 var userList = [];
+const adminuserRoutes = require("./routes/adminuser");
 
 
 const app = express();
@@ -79,7 +80,7 @@ const messagestemplate = require("./routes/messagestemplate");
 
 mongoose
   .connect(
-    "mongodb://Anshul:A12345678@ds054289.mlab.com:54289/node-angular"
+    "mongodb://superAdmin:admin123@75.98.169.159/admin"
   )
   .then(() => {
     console.log("Connected to database!");
@@ -108,5 +109,6 @@ app.use("/api/posts", postsRoutes);
 app.use("/api/userdetails", userRoutes);
 app.use("/posttemplate", messagestemplate);
 
+app.use("/api/adminuser", adminuserRoutes);
 
 module.exports = app;
