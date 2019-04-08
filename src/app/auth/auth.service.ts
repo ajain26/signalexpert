@@ -32,7 +32,7 @@ export class AuthService {
   createUser(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
     this.http
-      .post("http://localhost:1000/api/user/signup", authData)
+      .post("http://75.98.169.159:1000/api/user/signup", authData)
       .subscribe(response => {
         console.log(response);
       });
@@ -42,7 +42,7 @@ export class AuthService {
     const authData: AuthData = { email: email, password: password };
     this.http
       .post<{ token: string; expiresIn: number }>(
-        "http://localhost:1000/api/adminuser/login",
+        "http://75.98.169.159:1000/api/adminuser/login",
         authData
       )
       .subscribe(response => {
@@ -130,7 +130,7 @@ export class AuthService {
 
   getUserList() {
     this.http
-      .get<{ message: string; posts: any }>("http://localhost:1000/api/adminuser")
+      .get<{ message: string; posts: any }>("http://75.98.169.159:1000/api/adminuser")
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
