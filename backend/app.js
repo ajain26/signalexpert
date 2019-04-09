@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require('path');
 var userList = [];
 const adminuserRoutes = require("./routes/adminuser");
 
 
 const app = express();
+app.use(express.static(__dirname + '/dist/mean-course'));
 
 var http = require('http').Server(app);
 const PORT = process.env.PORT || 1000
@@ -104,7 +106,9 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.get("/html", (req, res, next) => {
+  res.sendFile(path.join(__dirname + '/dist/mean-course/index.html'));
+});
 app.use("/api/posts", postsRoutes);
 app.use("/api/userdetails", userRoutes);
 app.use("/posttemplate", messagestemplate);

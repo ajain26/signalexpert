@@ -106,6 +106,8 @@ router.get("", (req, res, next) => {
 
 
 
+
+
  router.get("/freeetrail", (req, res, next) => {
  let query = {"issubscribed":0}
   Post.find(query).then(documents => {

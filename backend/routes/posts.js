@@ -7,7 +7,7 @@ const router = express.Router();
 const apn = require('apn');
 let options = {
   token: {
-      key: "/Users/anshuljain/Documents/POCS/Angular POC/enhancing-03-finished/backend/routes/AuthKey_PW59LC8R37.p8",
+      key: "AuthKey_PW59LC8R37.p8",
       keyId: "PW59LC8R37",
      teamId: "C6932K24MK"
    },
