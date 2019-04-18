@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist/mean-course'));
 
 var http = require('http').Server(app);
-const PORT = process.env.PORT || 1000
+const PORT = process.env.PORT || 2000
 
 
 var io = require('socket.io')(http);
