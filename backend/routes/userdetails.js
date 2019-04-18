@@ -2,6 +2,8 @@ const express = require("express");
 
 const Post = require("../models/userdetail");
 const router = express.Router();
+var otpgenerate =  require('otp-generator')
+var nodemailer = require('nodemailer');
 
 
 
@@ -128,6 +130,59 @@ res.status(200).json({
 });
 });
 
+router.get("/sendOTP", (req, res, next) => {
+  Post.find({Email:req.query.Email}).then(post => {
+    if (post.length) {
+  var otp = otpgenerate.generate(4, { upperCase: false, specialChars: false, alphabets: false});
+  var transporter  = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'signalexpert.info@gmail.com',      //email ID
+    pass: 'jain@123'      //Password 
+     }
+  });
+
+
+  const mailOptions = {
+  from: 'Verify your Signal Expert Account.', // sender address
+  to: req.query.Email, // list of receivers
+  subject: 'Verify your Signal Expert Account', // Subject line
+  html: `<p>Hi,<br />To verify your account please use the following OTP code in the app:</p>
+  <h2><strong>` + otp + `</strong></h2>
+<p>Please visit our customer care if you have any trouble initiating your account.</p>
+  <p><a href="http://signalexpert.in/out-team">http://signalexpert.in/out-team</a></p>
+  <p>Thanks<br />Signal Expert Team</p>`
+  };
+  transporter.sendMail(mailOptions, function (err, info) {
+  if(err)
+  {
+    console.log(err)
+  }
+  else
+  {
+  res.status(202).json({ message: "success", OTP:otp});
+  }
+  });
+    } else {
+      res.status(202).json({ message: "Email id is not register" });
+    }
+  });
+});
+
+router.post("/changepassword", (req, res, next) => {
+        Post.updateOne({Email:req.body.Email},{$set: {Password:req.body.Password}}).then(post => {
+          if (post.nModified) {
+            res.status(202).json({ message: "success"});
+
+          } else
+          {
+            res.status(202).json({ message: "try different password"});
+
+          }
+        });
+  });
+
+
 
  router.get("/:id", (req, res, next) => {
   Post.findById(req.params.id).then(post => {
@@ -211,14 +266,9 @@ router.post("/aproovetrial", (req, res, next) => {
     });
   });
 
- router.delete("/:id", (req, res, next) => {
-  Post.deleteOne({ _id: req.params.id }).then(result => {
-    console.log(result);
-    res.status(200).json({ message: "Post deleted!" });
-  });
 
 
 
 
-});
+
 module.exports = router
