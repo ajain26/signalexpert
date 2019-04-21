@@ -132,6 +132,7 @@ res.status(200).json({
 
 router.get("/sendOTP", (req, res, next) => {
   Post.find({Email:req.query.Email}).then(post => {
+    
     if (post.length) {
   var otp = otpgenerate.generate(4, { upperCase: false, specialChars: false, alphabets: false});
   var transporter  = nodemailer.createTransport({
@@ -168,6 +169,50 @@ router.get("/sendOTP", (req, res, next) => {
     }
   });
 });
+
+router.get("/sendRegisterOTP", (req, res, next) => {
+  Post.find({Email:req.query.Email}).then(post => {
+    
+    if (post.length) 
+    {
+      res.status(202).json({ message: "User already exists!" });
+    } else {
+      var otp = otpgenerate.generate(4, { upperCase: false, specialChars: false, alphabets: false});
+  var transporter  = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'signalexpert.info@gmail.com',      //email ID
+    pass: 'jain@123'      //Password 
+     }
+  });
+
+
+  const mailOptions = {
+  from: 'Verify your Signal Expert Account.', // sender address
+  to: req.query.Email, // list of receivers
+  subject: 'Verify your Signal Expert Account', // Subject line
+  html: `<p>Hi,<br />To verify your account please use the following OTP code in the app:</p>
+  <h2><strong>` + otp + `</strong></h2>
+<p>Please visit our customer care if you have any trouble initiating your account.</p>
+  <p><a href="http://signalexpert.in/out-team">http://signalexpert.in/out-team</a></p>
+  <p>Thanks<br />Signal Expert Team</p>`
+  };
+  transporter.sendMail(mailOptions, function (err, info) {
+  if(err)
+  {
+    console.log(err)
+  }
+  else
+  {
+  res.status(202).json({ message: "success", OTP:otp});
+  }
+  });
+    }
+  });
+});
+
+
+
 
 router.post("/changepassword", (req, res, next) => {
         Post.updateOne({Email:req.body.Email},{$set: {Password:req.body.Password}}).then(post => {
