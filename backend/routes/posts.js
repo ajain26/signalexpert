@@ -102,7 +102,11 @@ else
 {
   sorted.push({"services":servicesArray})
 }
-  let query = {$or:sorted};
+
+console.log( Date(req.body.date) )
+  let querysor = {$or:sorted};
+  let query =  {$and:[{"date" : { $gte : new Date(req.body.date) }},querysor]};
+ // let query = {"date" : { $gte : new Date(req.body.date) }}
   Post.find(query).sort('-date').skip(parseInt(req.body.skipnumber)).limit(parseInt(req.body.limit)).then(documents => {
     res.status(200).json({
       message: "Posts fetched successfully!",
