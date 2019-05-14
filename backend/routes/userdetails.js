@@ -4,6 +4,11 @@ const Post = require("../models/userdetail");
 const router = express.Router();
 var otpgenerate =  require('otp-generator')
 var nodemailer = require('nodemailer');
+const bodyParser = require("body-parser");
+var braintree = require('braintree');
+var gateway = braintree.connect({
+  accessToken: 'access_token$production$jfryxgvkyj5tcv92$dc0ea8a1952f2462f8937e99dc32e9af'
+});
 
 
 
@@ -106,6 +111,42 @@ router.get("", (req, res, next) => {
   });
 });
 
+router.get("/pay/client_token", function (req, res) {
+  gateway.clientToken.generate({}, function (err, response) {
+    res.send({"ct":response.clientToken});
+  });
+
+
+});
+
+
+router.post("/pay/checkout", function (req, res) {
+
+  var saleRequest = {
+    amount: req.body.amount,
+    merchantAccountId: "USD",
+    paymentMethodNonce: req.body.nonce,
+    // orderId: "123490",
+    options: {
+      submitForSettlement: true,
+      paypal: {
+        customField: "PayPal custom field",
+        description: "Description for PayPal email receipt",
+      },
+    }
+  };
+  
+  gateway.transaction.sale(saleRequest, function (err, result) {
+    if (err) {
+      res.send({"error":err});
+    } else if (result.success) {
+      res.send({"Success":result.success});
+    } else {
+      res.send({"error":result.message});
+    }
+  });
+  // Use payment method nonce here
+});
 
 
 
@@ -293,8 +334,20 @@ router.post("/aproovetrial", (req, res, next) => {
   let query = {$and:[{Email:req.body.Email},{Password:req.body.Password}]}
     Post.find(query).then(post => {
       if (post.length>0) {
+        var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+        var freeetraildays = 100
+        if((post[0].isfreetrailaproove) && (!post[0].isSubscriptionaproove))
+        {
+var firstDate =    post[0].createddate
+var secondDate =  new Date()
+var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
+freeetraildays   =  parseInt(7 - diffDays)
+        }
+
+      
         res.status(200).json({
           message: "Posts fetched successfully!",
+          freeetraildays: freeetraildays,
           posts: post
         });
 
@@ -311,7 +364,7 @@ router.post("/aproovetrial", (req, res, next) => {
     });
   });
 
-
+  
 
 
 
