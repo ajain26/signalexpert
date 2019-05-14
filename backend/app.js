@@ -109,6 +109,9 @@ app.use((req, res, next) => {
 app.get("/html", (req, res, next) => {
   res.sendFile(path.join(__dirname + '/dist/mean-course/index.html'));
 });
+app.get("/private", (req, res, next) => {
+  res.sendFile(path.join(__dirname + '/dist/mean-course/private.html'));
+});
 app.use("/api/posts", postsRoutes);
 app.use("/api/userdetails", userRoutes);
 app.use("/posttemplate", messagestemplate);
