@@ -8,26 +8,62 @@ var PostCreateComponent = /** @class */ (function () {
     function PostCreateComponent(postsService, route) {
         this.postsService = postsService;
         this.route = route;
+        this.selectedprefix = '';
+        this.selectedSuffix = '';
+        this.messagetemplate = '';
         this.enteredTitle = "";
+        this.preffixArray = [];
+        this.suffixArray = [];
+        this.templateNameArray = [];
+        this.bottomspace = "\n\n\n";
         this.enteredContent = "";
+        this.posttemplate = [];
         this.isLoading = false;
         this.mode = "create";
+        this.foods = [
+            { value: 'steak-0', viewValue: 'Steak' },
+            { value: 'pizza-1', viewValue: 'Pizza' },
+            { value: 'tacos-2', viewValue: 'Tacos' }
+        ];
     }
     PostCreateComponent.prototype.ngOnInit = function () {
+        // this.route.paramMap.subscribe((paramMap: ParamMap) => {
+        //   if (paramMap.has("postId")) {
+        //     this.mode = "edit";
+        //     this.postId = paramMap.get("postId");
+        //     this.isLoading = true;
+        //     this.postsService.getPost(this.postId).subscribe(postData => {
+        //       this.isLoading = false;
+        //       this.post = {id: postData._id, title: postData.title, services: postData.services};
+        //     });
+        //   } else {
+        //     this.isLoading = false;
+        //     alert("remove alert")
+        //     this.mode = "create";
+        //     this.postId = null;
+        //   }
+        // });
         var _this = this;
-        this.route.paramMap.subscribe(function (paramMap) {
-            if (paramMap.has("postId")) {
-                _this.mode = "edit";
-                _this.postId = paramMap.get("postId");
-                _this.isLoading = true;
-                _this.postsService.getPost(_this.postId).subscribe(function (postData) {
-                    _this.isLoading = false;
-                    _this.post = { id: postData._id, title: postData.title, content: postData.content };
-                });
-            }
-            else {
-                _this.mode = "create";
-                _this.postId = null;
+        this.postsService.getPostUpdateListener()
+            .subscribe(function (posts) {
+            _this.isLoading = false;
+        });
+        this.postsService.getMesageTemplate();
+        this.postsSub = this.postsService.getPostTemplateUpdateListener()
+            .subscribe(function (poststemp) {
+            _this.isLoading = false;
+            _this.posttemplate = poststemp;
+            for (var _i = 0, _a = _this.posttemplate; _i < _a.length; _i++) {
+                var val = _a[_i];
+                if (val.preffix) {
+                    _this.preffixArray.push(val.preffix);
+                }
+                if (val.suffix) {
+                    _this.suffixArray.push(val.suffix);
+                }
+                if (val.templatename) {
+                    _this.templateNameArray.push({ 'name': val.templatename, 'message': val.message });
+                }
             }
         });
     };
@@ -36,13 +72,23 @@ var PostCreateComponent = /** @class */ (function () {
             return;
         }
         this.isLoading = true;
-        if (this.mode === "create") {
-            this.postsService.addPost(form.value.title, form.value.content);
-        }
-        else {
-            this.postsService.updatePost(this.postId, form.value.title, form.value.content);
-        }
+        this.postsService.addPost(form.value.title.replace(/\s+/, ""), []);
+        // if (this.mode === "create") {
+        //   this.postsService.addPost(form.value.title, []);
+        // } else {
+        //   this.postsService.updatePost(
+        //     this.postId,
+        //     form.value.title,
+        //     []
+        //   );
+        // }
+        this.selectedprefix = '';
+        this.messagetemplate = '';
+        this.selectedSuffix = '';
         form.resetForm();
+    };
+    PostCreateComponent.prototype.ngOnDestroy = function () {
+        this.postsSub.unsubscribe();
     };
     PostCreateComponent = tslib_1.__decorate([
         core_1.Component({

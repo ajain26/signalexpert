@@ -10,11 +10,17 @@
         [ngModel]="selectedprefix + messagetemplate + bottomspace + selectedSuffix"
         required
         minlength="3"
-        placeholder="Post Title"
+        placeholder="Signal Message"
         #title="ngModel"></textarea>
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
-    
+    <mat-form-field>
+      <mat-select placeholder="Select message template" [(value)]="messagetemplate">
+        <mat-option *ngFor="let food of templateNameArray" [value]="food.message">
+          {{food.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
       <mat-form-field>
           <mat-select placeholder="Select Prefix" [(value)]="selectedprefix">
             <mat-option *ngFor="let food of preffixArray" [value]="food">
@@ -29,13 +35,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field>
-              <mat-select placeholder="Select message template" [(value)]="messagetemplate">
-                <mat-option *ngFor="let food of templateNameArray" [value]="food.message">
-                  {{food.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+         
             <button
             mat-raised-button
             color="accent"

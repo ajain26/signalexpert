@@ -27,7 +27,7 @@ export class AdminService {
 
   getUserDetail() {
     this.http
-      .get<{ users: any }>("http://localhost:1000/api/adminuser")
+      .get<{ users: any }>("http://75.98.169.159:1000/api/adminuser")
       .pipe(
         map(postData => {
           return postData.users.map(post => {
@@ -57,7 +57,7 @@ getUserDetailListener()
   createUser(email: string, password: string, type: string) {
     const authData: AdminData = { email: email, password: password, type: type };
     this.http
-      .post("http://localhost:1000/api/adminuser/signup", authData)
+      .post("http://75.98.169.159:1000/api/adminuser/signup", authData)
       .subscribe(response => {
         alert("user added")
         this.userdetails.push(authData);
@@ -69,7 +69,7 @@ getUserDetailListener()
     const authData: AdminData = { email: email, password: password, type:"admin" };
     this.http
       .post<{ token: string; expiresIn: number }>(
-        "http://localhost:1000/api/adminuser/login",
+        "http://75.98.169.159:1000/api/adminuser/login",
         authData
       )
       .subscribe(response => {

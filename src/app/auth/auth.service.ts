@@ -9,11 +9,14 @@ import { AuthData } from "./auth-data.model";
 @Injectable({ providedIn: "root" })
 export class AuthService {
   private isAuthenticated = false;
+  private isSadmin = false;
+userEmail = ""
   private token: string;
   private tokenTimer: any;
   userdetails:[AuthData]
   private authStatusListener = new Subject<boolean>();
   private userdetailUpdated = new Subject<AuthData[]>();
+  private userTypeListener = new Subject<boolean>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -25,8 +28,15 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
+  getIsSAdmin() {
+    return this.isSadmin;
+  }
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
+  }
+  getUserTypeListener()
+  {
+    return this.userTypeListener.asObservable();
   }
 
   createUser(email: string, password: string) {
@@ -40,8 +50,9 @@ export class AuthService {
 
   login(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
+    this.userEmail = email
     this.http
-      .post<{ token: string; expiresIn: number }>(
+      .post<{ token: string; expiresIn: number, type: string }>(
         "http://75.98.169.159:1000/api/adminuser/login",
         authData
       )
@@ -50,11 +61,15 @@ export class AuthService {
         {
         const token = response.token;
         this.token = token;
-        
         if (token) {
           const expiresInDuration = response.expiresIn;
           this.setAuthTimer(expiresInDuration);
           this.isAuthenticated = true;
+          if(response.type == "sadmin")
+          {
+            this.isSadmin = true;
+            this.userTypeListener.next(true);
+          }
           this.authStatusListener.next(true);
           const now = new Date();
           const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
