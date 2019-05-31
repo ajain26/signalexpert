@@ -38,7 +38,14 @@ userEmail = ""
   }
 
   getIsSAdmin() {
-    return this.isSadmin;
+    if(this.getUSer())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
@@ -132,12 +139,18 @@ userEmail = ""
 
   private saveAuthData(token: string, expirationDate: Date) {
     localStorage.setItem("token", token);
+    if(this.isSadmin)
+    {
+    localStorage.setItem("isSadmin", "1");
+    }
     localStorage.setItem("expiration", expirationDate.toISOString());
   }
 
   private clearAuthData() {
     localStorage.removeItem("token");
     localStorage.removeItem("expiration");
+    localStorage.removeItem("isSadmin");
+
   }
 
   private getAuthData() {
@@ -149,6 +162,24 @@ userEmail = ""
     return {
       token: token,
       expirationDate: new Date(expirationDate)
+    }
+  }
+
+  private getUSer() {
+    const token = localStorage.getItem("isSadmin");
+    if (!token) {
+      return;
+    }
+    else if(token == "1")
+    {
+
+      return true
+
+    }
+    else
+    {
+      return false
+
     }
   }
 
