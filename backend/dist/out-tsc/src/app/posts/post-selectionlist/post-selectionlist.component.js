@@ -6,10 +6,10 @@ var core_1 = require("@angular/core");
 var PostSelectionlistComponent = /** @class */ (function () {
     function PostSelectionlistComponent(postsService) {
         this.postsService = postsService;
-        this.typesOfService = ['Basic Forex Pack', 'Premium Comex Pack', 'HNI Comex Pack',
-            'Basic KLSE Pack', 'Premium KLSE Pack',
-            'HNI KLSE Pack', 'Basic SGX Pack',
-            'Premium SGX Pack', 'HNI SGX Pack'];
+        this.typesOfService = ['Basic Forex Pack', 'Premium Forex Pack', 'HNI Forex Pack',
+            'Basic Comex Pack', 'Premium Comex Pack',
+            'HNI Comex Pack', 'Basic KLSE Pack',
+            'Premium KLSE Pack', 'HNI KLSE Pack', 'Basic SGX Pack', 'Premium SGX Pack', 'HNI SGX Pack'];
         this.selectedService = [];
     }
     PostSelectionlistComponent.prototype.ngOnInit = function () { };

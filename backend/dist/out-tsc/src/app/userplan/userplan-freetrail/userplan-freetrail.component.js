@@ -98,9 +98,10 @@ var UserplanFreetrailComponent = /** @class */ (function () {
     UserplanFreetrailComponent.prototype.dismiss = function () {
         this.isSubscriptionClicked = false;
     };
+    var _a;
     tslib_1.__decorate([
         core_1.ViewChild(material_1.MatPaginator),
-        tslib_1.__metadata("design:type", material_1.MatPaginator)
+        tslib_1.__metadata("design:type", typeof (_a = typeof material_1.MatPaginator !== "undefined" && material_1.MatPaginator) === "function" ? _a : Object)
     ], UserplanFreetrailComponent.prototype, "paginator", void 0);
     UserplanFreetrailComponent = tslib_1.__decorate([
         core_1.Component({

@@ -7,14 +7,19 @@ var HeaderComponent = /** @class */ (function () {
     function HeaderComponent(authService) {
         this.authService = authService;
         this.userIsAuthenticated = false;
+        this.userIsSadmin = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userIsAuthenticated = this.authService.getIsAuth();
+        this.userIsSadmin = this.authService.getIsSAdmin();
         this.authListenerSubs = this.authService
             .getAuthStatusListener()
             .subscribe(function (isAuthenticated) {
             _this.userIsAuthenticated = isAuthenticated;
+        });
+        this.authUserTpye = this.authService.getUserTypeListener().subscribe(function (isSadmin) {
+            _this.userIsSadmin = isSadmin;
         });
     };
     HeaderComponent.prototype.onLogout = function () {

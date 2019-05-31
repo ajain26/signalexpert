@@ -16,9 +16,10 @@ var AuthGuard = /** @class */ (function () {
         }
         return isAuth;
     };
+    var _a;
     AuthGuard = tslib_1.__decorate([
         core_1.Injectable(),
-        tslib_1.__metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+        tslib_1.__metadata("design:paramtypes", [auth_service_1.AuthService, typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" ? _a : Object])
     ], AuthGuard);
     return AuthGuard;
 }());

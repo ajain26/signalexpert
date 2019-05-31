@@ -124,9 +124,10 @@ var AdminService = /** @class */ (function () {
             expirationDate: new Date(expirationDate)
         };
     };
+    var _a, _b;
     AdminService = tslib_1.__decorate([
         core_1.Injectable({ providedIn: "root" }),
-        tslib_1.__metadata("design:paramtypes", [http_1.HttpClient, router_1.Router])
+        tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" ? _a : Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" ? _b : Object])
     ], AdminService);
     return AdminService;
 }());

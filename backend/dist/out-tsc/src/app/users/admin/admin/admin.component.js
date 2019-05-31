@@ -65,9 +65,10 @@ var AdminComponent = /** @class */ (function () {
         this.isAddUser = false;
         this.authService.createUser(form.value.email, form.value.password, "admin");
     };
+    var _a;
     tslib_1.__decorate([
         core_1.ViewChild(material_1.MatPaginator),
-        tslib_1.__metadata("design:type", material_1.MatPaginator)
+        tslib_1.__metadata("design:type", typeof (_a = typeof material_1.MatPaginator !== "undefined" && material_1.MatPaginator) === "function" ? _a : Object)
     ], AdminComponent.prototype, "paginator", void 0);
     AdminComponent = tslib_1.__decorate([
         core_1.Component({

@@ -90,14 +90,14 @@ var PostCreateComponent = /** @class */ (function () {
     PostCreateComponent.prototype.ngOnDestroy = function () {
         this.postsSub.unsubscribe();
     };
+    var _a;
     PostCreateComponent = tslib_1.__decorate([
         core_1.Component({
             selector: "app-post-create",
             templateUrl: "./post-create.component.html",
             styleUrls: ["./post-create.component.css"]
         }),
-        tslib_1.__metadata("design:paramtypes", [posts_service_1.PostsService,
-            router_1.ActivatedRoute])
+        tslib_1.__metadata("design:paramtypes", [posts_service_1.PostsService, typeof (_a = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" ? _a : Object])
     ], PostCreateComponent);
     return PostCreateComponent;
 }());

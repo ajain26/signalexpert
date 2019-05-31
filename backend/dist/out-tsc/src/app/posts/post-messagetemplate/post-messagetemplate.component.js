@@ -24,14 +24,14 @@ var PostMessagetemplateComponent = /** @class */ (function () {
         this.isLoading = true;
         this.postsService.addTemplate(form.value.message, form.value.name, form.value.preffix, form.value.suffix);
     };
+    var _a;
     PostMessagetemplateComponent = tslib_1.__decorate([
         core_1.Component({
             selector: 'app-post-messagetemplate',
             templateUrl: './post-messagetemplate.component.html',
             styleUrls: ['./post-messagetemplate.component.css']
         }),
-        tslib_1.__metadata("design:paramtypes", [posts_service_1.PostsService,
-            router_1.ActivatedRoute])
+        tslib_1.__metadata("design:paramtypes", [posts_service_1.PostsService, typeof (_a = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" ? _a : Object])
     ], PostMessagetemplateComponent);
     return PostMessagetemplateComponent;
 }());

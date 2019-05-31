@@ -25,7 +25,16 @@ userEmail = ""
   }
 
   getIsAuth() {
-    return this.isAuthenticated;
+    if(this.getAuthData())
+    {
+      return true
+
+    }
+    else
+    {
+      return false
+
+    }
   }
 
   getIsSAdmin() {
