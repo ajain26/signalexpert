@@ -216,6 +216,7 @@ export class PostsService {
 
   addPost(title: string, services: []) {
     const post: Post = { id: null, title: title, services: this.Services };
+    console.log({ id: null, title: title, services: this.Services})
     this.http
       .post<{ message: string; postId: string }>(
         "http://75.98.169.159:1000/api/posts",
@@ -223,6 +224,7 @@ export class PostsService {
       )
       .subscribe(responseData => {
         const id = responseData.postId;
+        console.log()
         post.id = id;
         this.posts.push(post);
         this.postsUpdated.next([...this.posts]);

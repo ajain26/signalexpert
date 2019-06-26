@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
   title: { type: String, required: true },
-  from: { type: String, required: true },
+  from: { type: String, required: false },
   services: { type: [] , required: true },
   date: { type: Date, default: Date.now }
 
