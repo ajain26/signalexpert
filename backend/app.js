@@ -7,7 +7,6 @@ const adminuserRoutes = require("./routes/adminuser");
 
 
 const app = express();
-app.use(express.static(__dirname + '/dist/mean-course'));
 
 var http = require('http').Server(app);
 const PORT = process.env.PORT || 1000
@@ -106,16 +105,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/html", (req, res, next) => {
-  res.sendFile(path.join(__dirname + '/dist/mean-course/index.html'));
-});
-app.get("/private", (req, res, next) => {
-  res.sendFile(path.join(__dirname + '/dist/mean-course/private.html'));
-});
 app.use("/api/posts", postsRoutes);
 app.use("/api/userdetails", userRoutes);
 app.use("/posttemplate", messagestemplate);
 
 app.use("/api/adminuser", adminuserRoutes);
+app.use("/", express.static(path.join(__dirname,"angular")))
 
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "angular" , "index.html"));
+})
 module.exports = app;
