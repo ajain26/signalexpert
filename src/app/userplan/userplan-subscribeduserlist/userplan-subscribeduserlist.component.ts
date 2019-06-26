@@ -19,7 +19,7 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['select', 'email', 'services', 'phone', 'expired',
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'IP',
   'Subscription Aprroved',
   'Total Amount Recieved', 'Amount Recieved'];
   dataSource = new MatTableDataSource<Userdetails>();

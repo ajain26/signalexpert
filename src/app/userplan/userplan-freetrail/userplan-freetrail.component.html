@@ -81,7 +81,7 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Checkbox Column -->
-  <ng-container matColumnDef="select">
+  <ng-container matColumnDef="Select">
     <th mat-header-cell *matHeaderCellDef>
       <mat-checkbox (change)="$event ? masterToggle() : null"
                     [checked]="selection.hasValue() && isAllSelected()"
@@ -103,38 +103,38 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
   </ng-container> -->
 
   <!-- Name Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> email </th>
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="services">
-    <th mat-header-cell *matHeaderCellDef> services </th>
+  <ng-container matColumnDef="Services">
+    <th mat-header-cell *matHeaderCellDef> Services </th>
     <td mat-cell *matCellDef="let element" > {{element.services}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="phone">
-    <th mat-header-cell *matHeaderCellDef> phone </th>
+  <ng-container matColumnDef="Phone">
+    <th mat-header-cell *matHeaderCellDef> Phone </th>
     <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
-  <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef> country </th>
+  <ng-container matColumnDef="Country">
+    <th mat-header-cell *matHeaderCellDef> Country </th>
     <td mat-cell *matCellDef="let element"> {{element.country}} </td>
   </ng-container>
    <!-- Symbol Column -->
 
-   <ng-container matColumnDef="Free trial Aprroved">
-    <th mat-header-cell *matHeaderCellDef> Free trial Aprroved </th>
+   <ng-container matColumnDef="Free Trial Aprroved">
+    <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>
     <td mat-cell *matCellDef="let element"> {{element.isfreetrailaproove}} </td>
   </ng-container>
   
-  <ng-container matColumnDef="Free trial expired">
-    <th mat-header-cell *matHeaderCellDef> Free trial expired </th>
-    <td mat-cell *matCellDef="let element"> {{element.isexpire}} </td>
+  <ng-container matColumnDef="IP">
+    <th mat-header-cell *matHeaderCellDef>IP</th>
+    <td mat-cell *matCellDef="let element"> {{element.IP}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

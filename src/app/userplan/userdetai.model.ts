@@ -11,5 +11,6 @@ export interface Userdetails {
     enddate: Date;
     startdate: Date;
     amountrecive: string;
+    IP: string;
     totalamount: string;
   }

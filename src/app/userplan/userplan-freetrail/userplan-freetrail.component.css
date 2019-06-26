@@ -30,7 +30,7 @@ table {
     flex: 10;
   }
 
-  .mat-column-email {
+  .mat-column-Email {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 15% !important;
@@ -45,7 +45,7 @@ table {
     -webkit-hyphens: auto;
     hyphens: auto;
   }
-  .mat-column-services {
+  .mat-column-Services {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 20% !important;
@@ -63,7 +63,7 @@ table {
   
   
   
-  .mat-column-phone {
+  .mat-column-Phone {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 17% !important;
@@ -79,7 +79,7 @@ table {
     hyphens: auto;
   }
   
-  .mat-column-country {
+  .mat-column-Country {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 8% !important;
@@ -95,7 +95,7 @@ table {
     hyphens: auto;
   }
   
-  .mat-column-select {
+  .mat-column-Select {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 10% !important;
@@ -111,7 +111,7 @@ table {
     hyphens: auto;
   }
 
-  .Free trial Aprroved {
+  .Free Trial Aprroved {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 3% !important;
@@ -127,7 +127,7 @@ table {
     hyphens: auto;
   }
 
-  .Free trial expired {
+  .IP {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 3% !important;

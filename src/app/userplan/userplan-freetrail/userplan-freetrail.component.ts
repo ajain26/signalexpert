@@ -21,7 +21,7 @@ export class UserplanFreetrailComponent implements OnInit {
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['select', 'email', 'services', 'phone', 'country', 'Free trial Aprroved', 'Free trial expired'];
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country', 'Free Trial Aprroved','IP'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
