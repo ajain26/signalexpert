@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = require("tslib");
+var userplannotapproove_freetrail_component_1 = require("./userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component");
+var userplannotsubscribed_subscribeduserlist_component_1 = require("./userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component");
 var admin_component_1 = require("./users/admin/admin/admin.component");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -17,6 +19,8 @@ var routes = [
     { path: 'create', component: post_create_component_1.PostCreateComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'freetrial', component: userplan_freetrail_component_1.UserplanFreetrailComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'subscribed', component: userplan_subscribeduserlist_component_1.UserplanSubscribeduserlistComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'notfreetrial', component: userplannotapproove_freetrail_component_1.UserplannotapprooveFreetrailComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'notsubscribed', component: userplannotsubscribed_subscribeduserlist_component_1.UserplannotsubscribedSubscribeduserlistComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: "", component: login_component_1.LoginComponent },
     { path: 'edit/:postId', component: post_create_component_1.PostCreateComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'Admin List', component: admin_component_1.AdminComponent, canActivate: [auth_guard_1.AuthGuard] }

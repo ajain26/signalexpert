@@ -12,7 +12,7 @@ var UserplanFreetrailComponent = /** @class */ (function () {
         this.stardate = "";
         this.isSubscriptionClicked = false;
         this.userdetails = [];
-        this.displayedColumns = ['Select', 'Email', 'Services', 'Phone', 'Country', 'Free Trial Aprroved', 'IP'];
+        this.displayedColumns = ['Select', 'Email', 'Services', 'Phone', 'Country', 'IP'];
         this.dataSource = new material_1.MatTableDataSource();
         this.selection = new collections_1.SelectionModel(true, []);
     }
@@ -37,7 +37,7 @@ var UserplanFreetrailComponent = /** @class */ (function () {
             .subscribe(function (userdetails) {
             _this.userdetails = userdetails;
             _this.isLoading = false;
-            _this.dataSource.data = _this.userdetails;
+            _this.dataSource.data = _this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === true; });
             _this.dismiss();
         });
     };
@@ -49,25 +49,35 @@ var UserplanFreetrailComponent = /** @class */ (function () {
         //  this.postsService.sendAprroveTrialRequest(this.selection)
     };
     UserplanFreetrailComponent.prototype.trial = function () {
-        if (this.selection.selected.length > 0) {
-            if (this.selection.selected.length == 1) {
-                var res = this.selection.selected;
-                var userde = res[0];
-                if (!userde.isfreetrailaproove) {
-                    this.isLoading = true;
-                    this.postsService.sendAprroveTrialRequest(userde);
-                }
-                else {
-                    alert("free trail already aprroved for the record");
-                }
-            }
-            else {
-                alert("you can not select more then one record");
-            }
-        }
-        else {
-            alert("Please select any record for approval");
-        }
+        var res = this.selection.selected;
+        //let userde: Userdetails =   res[0] 
+        this.isLoading = true;
+        this.postsService.sendAprroveTrialRequest(res);
+        //  if(this.selection.selected.length>0)
+        //  {
+        //    if(this.selection.selected.length == 1)
+        //    {
+        //    let res =  this.selection.selected;
+        //    let userde: Userdetails =   res[0] 
+        //   if(!userde.isfreetrailaproove)
+        //   {
+        //   this.isLoading = true
+        //   this.postsService.sendAprroveTrialRequest(res);
+        //   }
+        //   else
+        //   {
+        //     alert("free trail already aprroved for the record");
+        //   }
+        //    }
+        //    else
+        //    {
+        //    alert("you can not select more then one record");
+        //    }
+        //  }
+        //  else
+        //  {
+        //    alert("Please select any record for approval");
+        //  }
         // this.postsService.
     };
     UserplanFreetrailComponent.prototype.subscribe = function () {

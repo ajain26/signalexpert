@@ -78,6 +78,7 @@ export class PostsService {
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
+              isSubscriptionaproove: post.isSubscriptionaproove,
               isfreetrailaproove: post.isfreetrailaproove,
               isexpire: post.isexpire,
               startdate: post.startdate,
@@ -115,19 +116,19 @@ export class PostsService {
       });
   }
 
-  sendAprroveTrialRequest(userdetail: Userdetails)
+  sendAprroveTrialRequest(userdetail: Userdetails[])
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://75.98.169.159:1000/api/userdetails/aproovetrial",
-       {Email: userdetail.email}
+        "http://localhost:1000/api/userdetails/aproovetrial",
+       {Email: userdetail.map(t=>t.email).join(",")}
       )
       .subscribe(responseData => {
-        console.log(responseData)
         if(responseData.posts['nModified'])
         {
-          userdetail.isfreetrailaproove = true
-          this.userdetailUpdated.next([...this.userdetails]);
+          // this.userdetailUpdated.next([...this.userdetails]);
+
+          this.getUserDetail()
         }
         else
         {

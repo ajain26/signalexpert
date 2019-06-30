@@ -20,7 +20,6 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
   displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'IP',
-  'Subscription Aprroved',
   'Total Amount Recieved', 'Amount Recieved'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
@@ -48,7 +47,7 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.dataSource.data = this.userdetails;
+      this.dataSource.data = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === true)
       this.dismiss();
     });
 
@@ -63,31 +62,31 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
    }
    trial()
    { 
-     if(this.selection.selected.length>0)
-     {
-       if(this.selection.selected.length == 1)
-       {
-       let res =  this.selection.selected;
-       let userde: Userdetails =   res[0] 
-      if(!userde.isSubscriptionaproove)
-      {
-      this.isLoading = true
-      this.postsService.sendAprroveTrialRequest(userde);
-      }
-      else
-      { 
-        alert("free trail already aprroved for the record");
-      }
-       }
-       else
-       {
-       alert("you can not select more then one record");
-       }
-     }
-     else
-     {
-       alert("Please select any record for approval");
-     }
+    //  if(this.selection.selected.length>0)
+    //  {
+    //    if(this.selection.selected.length == 1)
+    //    {
+    //    let res =  this.selection.selected;
+    //    let userde: Userdetails =   res[0] 
+    //   if(!userde.isSubscriptionaproove)
+    //   {
+    //   this.isLoading = true
+    //   this.postsService.sendAprroveTrialRequest(userde);
+    //   }
+    //   else
+    //   { 
+    //     alert("free trail already aprroved for the record");
+    //   }
+    //    }
+    //    else
+    //    {
+    //    alert("you can not select more then one record");
+    //    }
+    //  }
+    //  else
+    //  {
+    //    alert("Please select any record for approval");
+    //  }
     // this.postsService.
    }
    subscribe()

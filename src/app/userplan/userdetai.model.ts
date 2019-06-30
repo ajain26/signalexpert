@@ -3,6 +3,7 @@ export interface Userdetails {
     phone: number;
     country: string;
     services: [string];
+    newServices:string;
     issubscribed: boolean;
     isfreetrailaproove: boolean;
     isexpire: boolean;

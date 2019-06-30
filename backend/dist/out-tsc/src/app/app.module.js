@@ -19,6 +19,8 @@ var userplan_startsubscription_component_1 = require("./userplan/userplan-starts
 var userplan_subscribeduserlist_component_1 = require("./userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component");
 var login_component_1 = require("./auth/login/login.component");
 var admin_component_1 = require("./users/admin/admin/admin.component");
+var userplannotapproove_freetrail_component_1 = require("./userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component");
+var userplannotsubscribed_subscribeduserlist_component_1 = require("./userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -36,6 +38,8 @@ var AppModule = /** @class */ (function () {
                 userplan_subscribeduserlist_component_1.UserplanSubscribeduserlistComponent,
                 login_component_1.LoginComponent,
                 admin_component_1.AdminComponent,
+                userplannotapproove_freetrail_component_1.UserplannotapprooveFreetrailComponent,
+                userplannotsubscribed_subscribeduserlist_component_1.UserplannotsubscribedSubscribeduserlistComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,

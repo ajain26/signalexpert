@@ -42,11 +42,18 @@
      <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
       </li>
       <li *ngIf="userIsAuthenticated && userIsSadmin">
-      <a mat-button routerLink="/freetrial" routerLinkActive="mat-accent">Free trial</a>
+      <a mat-button routerLink="/freetrial" routerLinkActive="mat-accent">Free Trial</a>
+    </li>
+    <li *ngIf="userIsAuthenticated && userIsSadmin">
+      <a mat-button routerLink="/notfreetrial" routerLinkActive="mat-accent">Free Trial Pending</a>
     </li>
       <li *ngIf="userIsAuthenticated && userIsSadmin">
       <a mat-button routerLink="/subscribed" routerLinkActive="mat-accent">Subscribed User</a>
     </li>
+  
+  <li *ngIf="userIsAuthenticated && userIsSadmin">
+  <a mat-button routerLink="/notsubscribed" routerLinkActive="mat-accent">Subscription Pending</a>
+</li>
     <li *ngIf="userIsAuthenticated">
         <a mat-button routerLink="/Messages" routerLinkActive="mat-accent">Messages</a>
       </li>

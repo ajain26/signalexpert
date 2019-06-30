@@ -282,8 +282,10 @@ router.post("/changepassword", (req, res, next) => {
 
 
 router.post("/aproovetrial", (req, res, next) => {
-  console.log(req.body.Email)
-    Post.updateOne({Email:req.body.Email},{$set: {"isfreetrailaproove":1}}).then(post => {
+let strings = req.body.Email
+var array = strings.split(',');
+  // {Email: {$in: ['serg.737@icloud.com', 'raviagrawal26@gmail.com']}}
+    Post.updateMany({Email: {$in: array}},{$set: {"isfreetrailaproove":1}}).then(post => {
       if (post.nModified) {
         res.status(200).json({
           message: "Posts fetched successfully!",
@@ -293,6 +295,7 @@ router.post("/aproovetrial", (req, res, next) => {
         res.status(404).json({ message: "User not found!" });
       }
     });
+    
   });
 
 

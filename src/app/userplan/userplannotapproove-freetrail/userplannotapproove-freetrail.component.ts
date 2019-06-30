@@ -5,18 +5,14 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 
 
 @Component({
-  selector: 'app-userplan-freetrail',
-  templateUrl: './userplan-freetrail.component.html',
-  styleUrls: ['./userplan-freetrail.component.css']
+  selector: 'app-userplannotapproove-freetrail',
+  templateUrl: './userplannotapproove-freetrail.component.html',
+  styleUrls: ['./userplannotapproove-freetrail.component.css']
 })
-
-
-
-export class UserplanFreetrailComponent implements OnInit {
+export class UserplannotapprooveFreetrailComponent implements OnInit {
   isLoading = true;
   stardate = ""
   isSubscriptionClicked = false;
@@ -50,7 +46,7 @@ export class UserplanFreetrailComponent implements OnInit {
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true)
+      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === false)
       this.dataSource.data = this.userdetails
       this.dismiss();
     });
@@ -61,36 +57,17 @@ export class UserplanFreetrailComponent implements OnInit {
   }
    edit()
    {
-  
+    // this.isLoading = true;
+  //  this.postsService.sendAprroveTrialRequest(this.selection)
    }
 
-   exportRecord()
+   trial()
    { 
-    const  csvOptions = { 
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true, 
-      showTitle: true,
-      title: 'Your Holiday List :',
-      useBom: true,
-      noDownload: false,
-      headers: ["Email", "Country", "Phone","Expire","Free Trail Aproove","Subscribed","Services"]
-    };
- var arrayfilter =    (this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true))
- arrayfilter.forEach(function(part, index, theArray) {
-  //  let arr = theArray.map(t=>t.services) 
-  //  part.services= arr.join(",")
-    part.newServices =  part.services.join(",")
-    delete part.services
-   console.log(theArray)
-   console.log(arrayfilter)
+    let res =  this.selection.selected;
+   this.isLoading = true
+   this.postsService.sendAprroveTrialRequest(res);
+   this.selection.clear()
 
-
-});
-delete arrayfilter["services"]
-console.log(arrayfilter)
- new  AngularCsv(arrayfilter, "HolidayList", csvOptions);
 
     //  if(this.selection.selected.length>0)
     //  {
@@ -101,7 +78,7 @@ console.log(arrayfilter)
     //   if(!userde.isfreetrailaproove)
     //   {
     //   this.isLoading = true
-    //   this.postsService.sendAprroveTrialRequest(res);
+    //   this.postsService.sendAprroveTrialRequest(userde);
     //   }
     //   else
     //   {
@@ -157,3 +134,5 @@ console.log(arrayfilter)
     this.isSubscriptionClicked = false
    }
 }
+
+

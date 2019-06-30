@@ -70,6 +70,7 @@ var PostsService = /** @class */ (function () {
                     country: post.Country,
                     phone: post.PhoneNumber,
                     issubscribed: post.issubscribed,
+                    isSubscriptionaproove: post.isSubscriptionaproove,
                     isfreetrailaproove: post.isfreetrailaproove,
                     isexpire: post.isexpire,
                     startdate: post.startdate,
@@ -106,11 +107,10 @@ var PostsService = /** @class */ (function () {
     PostsService.prototype.sendAprroveTrialRequest = function (userdetail) {
         var _this = this;
         this.http
-            .post("http://75.98.169.159:1000/api/userdetails/aproovetrial", { Email: userdetail.email })
+            .post("http://75.98.169.159:1000/api/userdetails/aproovetrial", { Email: userdetail.map(function (t) { return t.email; }) })
             .subscribe(function (responseData) {
-            console.log(responseData);
             if (responseData.posts['nModified']) {
-                userdetail.isfreetrailaproove = true;
+                //  userdetail.isfreetrailaproove = true
                 _this.userdetailUpdated.next(_this.userdetails.slice());
             }
             else {

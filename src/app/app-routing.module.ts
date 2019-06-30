@@ -1,3 +1,5 @@
+import { UserplannotapprooveFreetrailComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
+import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component';
 import { AdminComponent } from './users/admin/admin/admin.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'create', component: PostCreateComponent, canActivate: [AuthGuard] },
   { path: 'freetrial', component: UserplanFreetrailComponent, canActivate: [AuthGuard] },
   { path: 'subscribed', component: UserplanSubscribeduserlistComponent, canActivate: [AuthGuard] },
+  { path: 'notfreetrial', component: UserplannotapprooveFreetrailComponent, canActivate: [AuthGuard]},
+  { path: 'notsubscribed', component: UserplannotsubscribedSubscribeduserlistComponent, canActivate: [AuthGuard] },
   { path: "", component: LoginComponent },
   { path: 'edit/:postId', component: PostCreateComponent, canActivate: [AuthGuard] },
   {  path: 'Admin List', component: AdminComponent, canActivate: [AuthGuard] }

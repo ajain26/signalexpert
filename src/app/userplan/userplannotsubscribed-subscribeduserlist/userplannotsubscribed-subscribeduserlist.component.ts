@@ -5,24 +5,20 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
-
-
 @Component({
-  selector: 'app-userplan-freetrail',
-  templateUrl: './userplan-freetrail.component.html',
-  styleUrls: ['./userplan-freetrail.component.css']
+  selector: 'app-userplannotsubscribed-subscribeduserlist',
+  templateUrl: './userplannotsubscribed-subscribeduserlist.component.html',
+  styleUrls: ['./userplannotsubscribed-subscribeduserlist.component.css']
 })
+export class UserplannotsubscribedSubscribeduserlistComponent implements OnInit {
 
-
-
-export class UserplanFreetrailComponent implements OnInit {
   isLoading = true;
   stardate = ""
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP'];
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'IP',
+  'Total Amount Recieved', 'Amount Recieved'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -41,17 +37,15 @@ export class UserplanFreetrailComponent implements OnInit {
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
   constructor(  public postsService: PostsService) {}
-
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.postsService.getUserDetail()
+    this.postsService.getSubscribedUserDetail()
 
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true)
-      this.dataSource.data = this.userdetails
+      this.dataSource.data = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === false)
       this.dismiss();
     });
 
@@ -61,50 +55,27 @@ export class UserplanFreetrailComponent implements OnInit {
   }
    edit()
    {
-  
+    // this.isLoading = true;
+  //  this.postsService.sendAprroveTrialRequest(this.selection)
    }
-
-   exportRecord()
+   trial()
    { 
-    const  csvOptions = { 
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true, 
-      showTitle: true,
-      title: 'Your Holiday List :',
-      useBom: true,
-      noDownload: false,
-      headers: ["Email", "Country", "Phone","Expire","Free Trail Aproove","Subscribed","Services"]
-    };
- var arrayfilter =    (this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true))
- arrayfilter.forEach(function(part, index, theArray) {
-  //  let arr = theArray.map(t=>t.services) 
-  //  part.services= arr.join(",")
-    part.newServices =  part.services.join(",")
-    delete part.services
-   console.log(theArray)
-   console.log(arrayfilter)
-
-
-});
-delete arrayfilter["services"]
-console.log(arrayfilter)
- new  AngularCsv(arrayfilter, "HolidayList", csvOptions);
-
+    // let userde: Userdetails =   res[0] 
+    this.isLoading = true
+    this.postsService.sendAprroveTrialRequest(this.selection.selected);
     //  if(this.selection.selected.length>0)
     //  {
     //    if(this.selection.selected.length == 1)
     //    {
     //    let res =  this.selection.selected;
     //    let userde: Userdetails =   res[0] 
-    //   if(!userde.isfreetrailaproove)
+    //   if(!userde.isSubscriptionaproove)
     //   {
     //   this.isLoading = true
-    //   this.postsService.sendAprroveTrialRequest(res);
+    //   this.postsService.sendAprroveTrialRequest(userde);
     //   }
     //   else
-    //   {
+    //   { 
     //     alert("free trail already aprroved for the record");
     //   }
     //    }
@@ -125,7 +96,6 @@ console.log(arrayfilter)
     let res =  this.selection.selected;
     this.selectedUser =   res[0] 
    }
-
    onsendDetail(form: NgForm) {
      if(!this.selectedUser.fromdate)
      {
@@ -137,21 +107,24 @@ console.log(arrayfilter)
      }
      else
      {
-      this.isLoading = true
+    
+      this.isLoading = true;
+      this.selectedUser.isSubscriptionaproove = true;
       this.selectedUser.amountrecive = form.value.amountrecive;
-      this.selectedUser.totalamount = form.value.amountrecive;
-      this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
-
+      alert(+this.selectedUser.amountrecive);
+      alert(+this.selectedUser.totalamount);
+      let respo =  +this.selectedUser.totalamount +  +this.selectedUser.amountrecive;
+      alert(respo.toString());
+     this.selectedUser.totalamount = respo.toString();
+     this.postsService.sendaproovalSubscriptionRequest(this.selectedUser);
      }
-   
    }
   addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
      this.selectedUser.fromdate =  event.value;
   }
   addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
-    
       this.selectedUser.enddate =  event.value;
- }
+   }
    dismiss()
    {
     this.isSubscriptionClicked = false

@@ -33,6 +33,8 @@ import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsub
 import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminComponent } from './users/admin/admin/admin.component';
+import { UserplannotapprooveFreetrailComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
+import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { AdminComponent } from './users/admin/admin/admin.component';
     UserplanSubscribeduserlistComponent,
     LoginComponent,
     AdminComponent,
+    UserplannotapprooveFreetrailComponent,
+    UserplannotsubscribedSubscribeduserlistComponent,
   ],
   imports: [
     BrowserModule,
