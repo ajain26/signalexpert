@@ -104,14 +104,16 @@ var PostsService = /** @class */ (function () {
             _this.postsTemplateUpdated.next(_this.posttemplate.slice());
         });
     };
-    PostsService.prototype.sendAprroveTrialRequest = function (userdetail) {
+    PostsService.prototype.sendAprroveTrialRequest = function (userdetail, startDate, endDate) {
         var _this = this;
         this.http
-            .post("http://75.98.169.159:1000/api/userdetails/aproovetrial", { Email: userdetail.map(function (t) { return t.email; }) })
+            .post("http://localhost:1000/api/userdetails/aproovetrial", { Email: userdetail.map(function (t) { return t.email; }).join(","),
+            startdate: startDate,
+            endate: endDate })
             .subscribe(function (responseData) {
             if (responseData.posts['nModified']) {
-                //  userdetail.isfreetrailaproove = true
-                _this.userdetailUpdated.next(_this.userdetails.slice());
+                // this.userdetailUpdated.next([...this.userdetails]);
+                _this.getUserDetail();
             }
             else {
             }

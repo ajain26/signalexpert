@@ -51,8 +51,13 @@ var UserplannotsubscribedSubscribeduserlistComponent = /** @class */ (function (
     };
     UserplannotsubscribedSubscribeduserlistComponent.prototype.trial = function () {
         // let userde: Userdetails =   res[0] 
-        this.isLoading = true;
-        this.postsService.sendAprroveTrialRequest(this.selection.selected);
+        if (this.selection.selected.length > 0) {
+            this.isLoading = true;
+            this.postsService.sendAprroveTrialRequest(this.selection.selected, "", "");
+        }
+        else {
+            alert("Please select any record for approval");
+        }
         //  if(this.selection.selected.length>0)
         //  {
         //    if(this.selection.selected.length == 1)

@@ -72,8 +72,10 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
       {
         this.startdate = result[0]
         this.enddate = result[1]
-        console.log(this.startdate)
-
+        let res =  this.selection.selected;
+        this.isLoading = true
+        this.postsService.sendAprroveTrialRequest(res, this.startdate, this.enddate);
+        this.selection.clear()
       }
       console.log('The dialog was closed');
     });
@@ -82,10 +84,7 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
    { 
     if(this.selection.selected.length>0)
     {
-    let res =  this.selection.selected;
-    this.isLoading = true
-    this.postsService.sendAprroveTrialRequest(res, this.startdate, this.enddate);
-     this.selection.clear()
+    this.openDialog()
     }
     else
     {

@@ -40,6 +40,7 @@ var AppModule = /** @class */ (function () {
                 admin_component_1.AdminComponent,
                 userplannotapproove_freetrail_component_1.UserplannotapprooveFreetrailComponent,
                 userplannotsubscribed_subscribeduserlist_component_1.UserplannotsubscribedSubscribeduserlistComponent,
+                userplannotapproove_freetrail_component_1.DilogdateStartendComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -60,9 +61,11 @@ var AppModule = /** @class */ (function () {
                 material_1.MatTableModule,
                 material_1.MatCheckboxModule,
                 material_1.MatPaginatorModule,
-                material_1.MatDatepickerModule
+                material_1.MatDatepickerModule,
+                material_1.MatDialogModule,
             ],
             providers: [],
+            entryComponents: [userplannotapproove_freetrail_component_1.UserplannotapprooveFreetrailComponent, userplannotapproove_freetrail_component_1.DilogdateStartendComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

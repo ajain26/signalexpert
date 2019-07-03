@@ -5,6 +5,7 @@ var posts_service_1 = require("./../../posts/posts.service");
 var core_1 = require("@angular/core");
 var collections_1 = require("@angular/cdk/collections");
 var material_1 = require("@angular/material");
+var Angular_csv_1 = require("angular7-csv/dist/Angular-csv");
 var UserplanFreetrailComponent = /** @class */ (function () {
     function UserplanFreetrailComponent(postsService) {
         this.postsService = postsService;
@@ -37,7 +38,8 @@ var UserplanFreetrailComponent = /** @class */ (function () {
             .subscribe(function (userdetails) {
             _this.userdetails = userdetails;
             _this.isLoading = false;
-            _this.dataSource.data = _this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === true; });
+            _this.userdetails = _this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === true; });
+            _this.dataSource.data = _this.userdetails;
             _this.dismiss();
         });
     };
@@ -45,14 +47,31 @@ var UserplanFreetrailComponent = /** @class */ (function () {
         this.dataSource.filter = filterValue.trim().toLowerCase();
     };
     UserplanFreetrailComponent.prototype.edit = function () {
-        // this.isLoading = true;
-        //  this.postsService.sendAprroveTrialRequest(this.selection)
     };
-    UserplanFreetrailComponent.prototype.trial = function () {
-        var res = this.selection.selected;
-        //let userde: Userdetails =   res[0] 
-        this.isLoading = true;
-        this.postsService.sendAprroveTrialRequest(res);
+    UserplanFreetrailComponent.prototype.exportRecord = function () {
+        var csvOptions = {
+            fieldSeparator: ',',
+            quoteStrings: '"',
+            decimalseparator: '.',
+            showLabels: true,
+            showTitle: true,
+            title: 'Your Holiday List :',
+            useBom: true,
+            noDownload: false,
+            headers: ["Email", "Country", "Phone", "Expire", "Free Trail Aproove", "Subscribed", "Services"]
+        };
+        var arrayfilter = (this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === true; }));
+        arrayfilter.forEach(function (part, index, theArray) {
+            //  let arr = theArray.map(t=>t.services) 
+            //  part.services= arr.join(",")
+            part.newServices = part.services.join(",");
+            delete part.services;
+            console.log(theArray);
+            console.log(arrayfilter);
+        });
+        delete arrayfilter["services"];
+        console.log(arrayfilter);
+        new Angular_csv_1.AngularCsv(arrayfilter, "HolidayList", csvOptions);
         //  if(this.selection.selected.length>0)
         //  {
         //    if(this.selection.selected.length == 1)

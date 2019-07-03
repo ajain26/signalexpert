@@ -24,8 +24,6 @@ const userSchema = mongoose.Schema({
     amountrecive: { type: String },
     totalamount: { type: String},
     isedit: { type: String,default: false }
-    
-
 });
 
 module.exports = mongoose.model('Userdetail', userSchema);
