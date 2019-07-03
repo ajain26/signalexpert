@@ -17,7 +17,8 @@ import {
   MatTableModule,
   MatCheckboxModule,
   MatPaginatorModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatDialogModule
 } from "@angular/material";
 
 
@@ -33,7 +34,7 @@ import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsub
 import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminComponent } from './users/admin/admin/admin.component';
-import { UserplannotapprooveFreetrailComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
+import { UserplannotapprooveFreetrailComponent, DilogdateStartendComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
 import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component';
 
 @NgModule({
@@ -51,6 +52,7 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     AdminComponent,
     UserplannotapprooveFreetrailComponent,
     UserplannotsubscribedSubscribeduserlistComponent,
+    DilogdateStartendComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +73,12 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule,
     ],
   providers: [],
+  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

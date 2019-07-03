@@ -17,10 +17,14 @@ const userSchema = mongoose.Schema({
     isexpire: { type: Boolean, default: false },
     isSubscriptionaproove: { type: Boolean, default: false },
     startdate: { type: Date },
+    enddate:{ type: Date },
+    startsubscdate: { type: Date },
+    endsubscdate:{ type: Date },
     fromdate: { type: Date },
     amountrecive: { type: String },
     totalamount: { type: String},
     isedit: { type: String,default: false }
+    
 
 });
 

@@ -285,7 +285,7 @@ router.post("/aproovetrial", (req, res, next) => {
 let strings = req.body.Email
 var array = strings.split(',');
   // {Email: {$in: ['serg.737@icloud.com', 'raviagrawal26@gmail.com']}}
-    Post.updateMany({Email: {$in: array}},{$set: {"isfreetrailaproove":1}}).then(post => {
+    Post.updateMany({Email: {$in: array}},{$set: {"isfreetrailaproove":1,"startdate":req.body.startdate,"endate":req.body.endate}}).then(post => {
       if (post.nModified) {
         res.status(200).json({
           message: "Posts fetched successfully!",

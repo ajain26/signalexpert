@@ -116,18 +116,20 @@ export class PostsService {
       });
   }
 
-  sendAprroveTrialRequest(userdetail: Userdetails[])
+  sendAprroveTrialRequest(userdetail: Userdetails[], startDate: String, endDate: String)
   {
     this.http
       .post<{ message: string; posts: {string} }>(
         "http://75.98.169.159:1000/api/userdetails/aproovetrial",
-       {Email: userdetail.map(t=>t.email).join(",")}
+       {Email: userdetail.map(t=>t.email).join(","),
+       startdate: startDate,
+       endate: endDate}
+       
       )
       .subscribe(responseData => {
         if(responseData.posts['nModified'])
         {
           // this.userdetailUpdated.next([...this.userdetails]);
-
           this.getUserDetail()
         }
         else

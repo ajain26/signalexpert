@@ -13,7 +13,7 @@
         </p>
   <p>
 <mat-form-field>
-  <input matInput #fromInput [matDatepicker]="picker" placeholder="fromdate"   (dateInput)="addStartDate('input', $event)" (dateChange)="addStartDate('change', $event)" disabled>
+  <input matInput #fromInput [matDatepicker]="picker" placeholder="fromdate"   [min]="selectedUser.fromdate"  (dateInput)="addStartDate('input', $event)" (dateChange)="addStartDate('change', $event)" disabled>
   <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
   <mat-datepicker #picker disabled="false"></mat-datepicker>
 </mat-form-field>
@@ -73,7 +73,7 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
   <button class = "buttonright3"
   mat-raised-button
   color="accent"
-  type="trial" (click)="trial()">Aproove trial</button>
+  type="trial" (click)="openDialog()">Aproove trial</button>
 </form>
 
 

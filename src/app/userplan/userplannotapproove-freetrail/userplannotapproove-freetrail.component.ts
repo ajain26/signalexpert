@@ -1,20 +1,22 @@
 import { PostsService } from './../../posts/posts.service';
 import { Userdetails } from './../userdetai.model';
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+ 
 @Component({
   selector: 'app-userplannotapproove-freetrail',
   templateUrl: './userplannotapproove-freetrail.component.html',
   styleUrls: ['./userplannotapproove-freetrail.component.css']
 })
+
 export class UserplannotapprooveFreetrailComponent implements OnInit {
   isLoading = true;
-  stardate = ""
+  startdate = ""
+  enddate = ""
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
@@ -36,12 +38,11 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-  constructor(  public postsService: PostsService) {}
+  constructor(  public postsService: PostsService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getUserDetail()
-
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
@@ -60,41 +61,36 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
     // this.isLoading = true;
   //  this.postsService.sendAprroveTrialRequest(this.selection)
    }
+   openDialog(): void {
+    const dialogRef = this.dialog.open(DilogdateStartendComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.length > 1)
+      {
+        this.startdate = result[0]
+        this.enddate = result[1]
+        console.log(this.startdate)
+
+      }
+      console.log('The dialog was closed');
+    });
+  }
    trial()
    { 
+    if(this.selection.selected.length>0)
+    {
     let res =  this.selection.selected;
-   this.isLoading = true
-   this.postsService.sendAprroveTrialRequest(res);
-   this.selection.clear()
-
-
-    //  if(this.selection.selected.length>0)
-    //  {
-    //    if(this.selection.selected.length == 1)
-    //    {
-    //    let res =  this.selection.selected;
-    //    let userde: Userdetails =   res[0] 
-    //   if(!userde.isfreetrailaproove)
-    //   {
-    //   this.isLoading = true
-    //   this.postsService.sendAprroveTrialRequest(userde);
-    //   }
-    //   else
-    //   {
-    //     alert("free trail already aprroved for the record");
-    //   }
-    //    }
-    //    else
-    //    {
-    //    alert("you can not select more then one record");
-    //    }
-    //  }
-    //  else
-    //  {
-    //    alert("Please select any record for approval");
-    //  }
-    // this.postsService.
+    this.isLoading = true
+    this.postsService.sendAprroveTrialRequest(res, this.startdate, this.enddate);
+     this.selection.clear()
+    }
+    else
+    {
+      alert("Please select any record for approval");
+    }
    }
    subscribe()
    {
@@ -118,21 +114,46 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
       this.selectedUser.amountrecive = form.value.amountrecive;
       this.selectedUser.totalamount = form.value.amountrecive;
       this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
-
      }
-   
    }
-  addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
-     this.selectedUser.fromdate =  event.value;
-  }
-  addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
-    
-      this.selectedUser.enddate =  event.value;
- }
+  
    dismiss()
    {
     this.isSubscriptionClicked = false
    }
 }
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 
+@Component({
+  selector: 'app-dilogdate-startend',
+  templateUrl: '../../custom/dilogdate-startend/dilogdate-startend.component.html',
+})
+export class DilogdateStartendComponent {
+  stardate = new Date()
+  enddate = new Date();
+
+  constructor(
+    public dialogRef: MatDialogRef<DilogdateStartendComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close([]);
+  }
+  saveClick(): void 
+  {
+    this.dialogRef.close([this.stardate, this.enddate]);
+
+  }
+
+  addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.stardate =  event.value
+ }
+ addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
+     //this.selectedUser.enddate =  event.value;
+     this.enddate = event.value
+}
+}
