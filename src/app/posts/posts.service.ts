@@ -120,7 +120,7 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://localhost:1000/api/userdetails/aproovetrial",
+        "http://75.98.169.159:1000/api/userdetails/aproovetrial",
        {Email: userdetail.map(t=>t.email).join(","),
        startdate: startDate,
        endate: endDate}
