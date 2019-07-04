@@ -37,6 +37,12 @@ userEmail = ""
     }
   }
 
+  navToMessage()
+  {
+    this.router.navigate(['/Messages']);
+
+  }
+
   getIsSAdmin() {
     if(this.getUSer())
     {

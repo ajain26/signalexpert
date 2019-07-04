@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { DatePipe } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import {
   MatInputModule,
@@ -29,7 +30,7 @@ import { PostListComponent } from "./posts/post-list/post-list.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { PostSelectionlistComponent } from './posts/post-selectionlist/post-selectionlist.component';
 import { PostMessagetemplateComponent } from './posts/post-messagetemplate/post-messagetemplate.component';
-import { UserplanFreetrailComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
+import { UserplanFreetrailComponent, DilogSubscribeComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
 import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsubscription/userplan-startsubscription.component';
 import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -52,8 +53,9 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     AdminComponent,
     UserplannotapprooveFreetrailComponent,
     UserplannotsubscribedSubscribeduserlistComponent,
-    DilogdateStartendComponent
-  ],
+    DilogdateStartendComponent,
+    DilogSubscribeComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -76,8 +78,8 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     MatDatepickerModule,
     MatDialogModule,
     ],
-  providers: [],
-  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent],
+  providers: [DatePipe],
+  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, DilogSubscribeComponent],
 
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,12 @@
 import { PostsService } from './../../posts/posts.service';
 import { Userdetails } from './../userdetai.model';
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -22,11 +23,10 @@ export class UserplanFreetrailComponent implements OnInit {
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP'];
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP','Start Date', 'End Date'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -40,12 +40,31 @@ export class UserplanFreetrailComponent implements OnInit {
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-  constructor(  public postsService: PostsService) {}
+  constructor(  public postsService: PostsService, public dialog: MatDialog) {}
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DilogSubscribeComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.length > 1)
+      {
+  
+         this.isLoading = true
+         console.log(this.selectedUser)
+         this.selectedUser.startdate = result[0];
+         this.selectedUser.enddate = result[1];
+         this.selectedUser.amountrecive = result[2];
+         this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
+         this.selection.clear()
+      }
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getUserDetail()
-
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
@@ -75,55 +94,37 @@ export class UserplanFreetrailComponent implements OnInit {
       title: 'Your Holiday List :',
       useBom: true,
       noDownload: false,
-      headers: ["Email", "Country", "Phone","Expire","Free Trail Aproove","Subscribed","Services"]
+      headers: ["Email", "Country", "Phone","Expire","Free Trail Aproove","Subscribed","Start Date", "End Date", "IP","Services"]
     };
  var arrayfilter =    (this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true))
  arrayfilter.forEach(function(part, index, theArray) {
-  //  let arr = theArray.map(t=>t.services) 
-  //  part.services= arr.join(",")
     part.newServices =  part.services.join(",")
     delete part.services
    console.log(theArray)
    console.log(arrayfilter)
-
-
 });
 delete arrayfilter["services"]
 console.log(arrayfilter)
- new  AngularCsv(arrayfilter, "HolidayList", csvOptions);
-
-    //  if(this.selection.selected.length>0)
-    //  {
-    //    if(this.selection.selected.length == 1)
-    //    {
-    //    let res =  this.selection.selected;
-    //    let userde: Userdetails =   res[0] 
-    //   if(!userde.isfreetrailaproove)
-    //   {
-    //   this.isLoading = true
-    //   this.postsService.sendAprroveTrialRequest(res);
-    //   }
-    //   else
-    //   {
-    //     alert("free trail already aprroved for the record");
-    //   }
-    //    }
-    //    else
-    //    {
-    //    alert("you can not select more then one record");
-    //    }
-    //  }
-    //  else
-    //  {
-    //    alert("Please select any record for approval");
-    //  }
-    // this.postsService.
+ new  AngularCsv(arrayfilter, "Userdata", csvOptions);
    }
    subscribe()
    {
-    this.isSubscriptionClicked = true
-    let res =  this.selection.selected;
-    this.selectedUser =   res[0] 
+    if(this.selection.selected.length == 1)
+    {
+      this.isSubscriptionClicked = true
+      let res =  this.selection.selected;
+      this.selectedUser =   res[0] 
+      this.openDialog()
+    }
+    else if (this.selection.selected.length == 0)
+    {
+      alert("Please select record to subscribe")
+    }
+    else if (this.selection.selected.length >1)
+    {
+      alert("You can not subscribe more then 1 record")
+    }
+ 
    }
 
    onsendDetail(form: NgForm) {
@@ -141,7 +142,6 @@ console.log(arrayfilter)
       this.selectedUser.amountrecive = form.value.amountrecive;
       this.selectedUser.totalamount = form.value.amountrecive;
       this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
-
      }
    
    }
@@ -149,11 +149,42 @@ console.log(arrayfilter)
      this.selectedUser.fromdate =  event.value;
   }
   addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
-    
       this.selectedUser.enddate =  event.value;
  }
    dismiss()
    {
     this.isSubscriptionClicked = false
    }
+}
+export interface AmountData {
+  amount: string;
+}
+@Component({
+  selector: 'app-dilog-subscribe',
+  templateUrl: '../../custom/dilog-subscribe/dilog-subscribe.component.html',
+})
+
+export class DilogSubscribeComponent {
+  stardate = new Date()
+  enddate = new Date();
+
+  constructor(
+    public dialogRef: MatDialogRef<DilogSubscribeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: AmountData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close([]);
+  }
+  saveClick(): void 
+  {
+    //alert(this.data.amount)
+    this.dialogRef.close([this.stardate, this.enddate,this.data.amount]);
+  }
+  addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.stardate =  event.value
+ }
+ addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
+     //this.selectedUser.enddate =  event.value;
+     this.enddate = event.value
+}
 }

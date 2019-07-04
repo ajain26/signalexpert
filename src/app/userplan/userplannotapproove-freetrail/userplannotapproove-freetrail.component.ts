@@ -6,7 +6,8 @@ import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
- 
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+
 @Component({
   selector: 'app-userplannotapproove-freetrail',
   templateUrl: './userplannotapproove-freetrail.component.html',
@@ -80,6 +81,34 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  exportRecord()
+   { 
+    const  csvOptions = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true, 
+      showTitle: true,
+      title: 'User Data :',
+      useBom: true,
+      noDownload: false,
+      headers: ["Email", "Country", "Phone","Expire","Free Trail Aproove","Subscribed", "IP","Services"]
+    };
+ var arrayfilter =   this.userdetails
+ arrayfilter.forEach(function(part, index, theArray) {
+    part.newServices =  part.services.join(",")
+    delete part.services
+    delete part.startdate
+    delete part.enddate
+   console.log(theArray)
+   console.log(arrayfilter)
+});
+delete arrayfilter["services"]
+console.log(arrayfilter)
+ new  AngularCsv(arrayfilter, "Userdata", csvOptions);
+   }
+
    trial()
    { 
     if(this.selection.selected.length>0)

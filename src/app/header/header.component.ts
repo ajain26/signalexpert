@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.authUserTpye = this.authService.getUserTypeListener().subscribe(isSadmin=> {
         this.userIsSadmin = isSadmin;
       });
+      if(this.userIsAuthenticated)
+      {
+        this.authService.navToMessage()
+      }
   }
 
   onLogout() {

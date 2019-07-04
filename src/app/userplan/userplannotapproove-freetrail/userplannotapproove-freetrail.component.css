@@ -23,7 +23,7 @@ table {
 
   .buttonright3{
     position: absolute;
-    right: 270px;
+    right: 290px;
     margin: 0;
   }
   .spacerright {
@@ -142,3 +142,4 @@ table {
     -webkit-hyphens: auto;
     hyphens: auto;
   }
+ 

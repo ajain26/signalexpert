@@ -7,19 +7,19 @@ import { Router } from "@angular/router";
 
 import { Post } from "./post.model";
 import { Posttemplate } from "./messagetemplate.model";
+import { DatePipe } from '@angular/common';
 
 @Injectable({ providedIn: "root" })
 export class PostsService {
   private posts: Post[] = [];
   private posttemplate: Posttemplate[] = [];
   private userdetails: Userdetails[] = [];
-
   private userdetailUpdated = new Subject<Userdetails[]>();
   private postsUpdated = new Subject<Post[]>();
   private postsTemplateUpdated = new Subject<Posttemplate[]>();
   private Services: string[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private datepipe: DatePipe) {}
 
   getPosts() {
     this.http
@@ -56,6 +56,9 @@ export class PostsService {
               issubscribed: post.issubscribed,
               isfreetrailaproove: post.isfreetrailaproove,
               isexpire: post.isexpire,
+              startdate:this.datepipe.transform(post.startdate, 'yyyy-MM-dd') ? this.datepipe.transform(post.startdate, 'yyyy-MM-dd'):'',
+              enddate: this.datepipe.transform(post.enddate, 'yyyy-MM-dd') ? this.datepipe.transform(post.enddate, 'yyyy-MM-dd'):'',
+              IP: post.IP,
             };
           });
         })
@@ -120,11 +123,10 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "http://75.98.169.159:1000/api/userdetails/aproovetrial",
+        "http://localhost:1000/api/userdetails/aproovetrial",
        {Email: userdetail.map(t=>t.email).join(","),
        startdate: startDate,
        endate: endDate}
-       
       )
       .subscribe(responseData => {
         if(responseData.posts['nModified'])
