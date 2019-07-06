@@ -1,16 +1,16 @@
 <mat-card>
     <mat-spinner *ngIf="isLoading"></mat-spinner>
     <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
-  <mat-form-field class="example-full-width">
+  <!-- <mat-form-field class="example-full-width">
     <input matInput type="text"
     name="preffix" placeholder="preffix" [ngModel]="post?.preffix"
     #preffix = "ngModel">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
+  </mat-form-field> -->
+  <!-- <mat-form-field class="example-full-width">
     <input matInput  placeholder="suffix" type="text"
     name="suffix"  [ngModel]="post?.suffix"
     #suffix = "ngModel">
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="Template Name" type="text"
     name="name"  [ngModel]="post?.templatename"

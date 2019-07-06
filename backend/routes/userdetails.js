@@ -43,7 +43,7 @@ router.post("/register", (req, res, next) => {
 
 });
 
-router.post("/registerupdate", (req, res, next) => {
+router.post("/registerupdatxe", (req, res, next) => {
 
   if(req.body.isedit == 1)
   {

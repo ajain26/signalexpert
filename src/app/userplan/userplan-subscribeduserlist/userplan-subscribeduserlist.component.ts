@@ -5,6 +5,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 
 
 @Component({
@@ -19,8 +20,7 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'IP',
-  'Total Amount Recieved', 'Amount Recieved'];
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP','Start Date','End Date'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,12 +42,12 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getSubscribedUserDetail()
-
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.dataSource.data = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === true)
+      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === true)
+      this.dataSource.data  = this.userdetails
       this.dismiss();
     });
 
@@ -88,6 +88,34 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
     //    alert("Please select any record for approval");
     //  }
     // this.postsService.
+   }
+   exportRecord()
+   { 
+    const  csvOptions = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true, 
+      showTitle: true,
+      title: 'User Data',
+      useBom: true,
+      noDownload: false,
+      headers: ["Email", "Country", "Phone","Start Date", "End Date", "IP","Amount","Services"]
+    };
+ var arrayfilter = (this.userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === true))
+ arrayfilter.forEach(function(part, index, theArray) {
+    part.newServices =  part.services.join(",")
+    delete part.services
+    delete part.isexpire
+    delete part.isfreetrailaproove
+    delete part.issubscribed
+    delete part.isSubscriptionaproove
+   console.log(theArray)
+   console.log(arrayfilter)
+});
+delete arrayfilter["services"]
+console.log(arrayfilter)
+ new  AngularCsv(arrayfilter, "Userdata", csvOptions);
    }
    subscribe()
    {

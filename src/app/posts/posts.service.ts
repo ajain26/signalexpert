@@ -84,10 +84,10 @@ export class PostsService {
               isSubscriptionaproove: post.isSubscriptionaproove,
               isfreetrailaproove: post.isfreetrailaproove,
               isexpire: post.isexpire,
-              startdate: post.startdate,
-              fromdate: post.fromdate,
+              startdate:this.datepipe.transform(post.startdate, 'yyyy-MM-dd') ? this.datepipe.transform(post.startdate, 'yyyy-MM-dd'):'',
+              enddate: this.datepipe.transform(post.enddate, 'yyyy-MM-dd') ? this.datepipe.transform(post.enddate, 'yyyy-MM-dd'):'',
+              IP: post.IP,
               amountrecive: post.amountrecive,
-              totalamount: post.totalamount,
             };
           });
         })
@@ -151,8 +151,9 @@ export class PostsService {
          totalamount: userdetail.totalamount, 
          amountrecive: userdetail.amountrecive,
          enddate: userdetail.enddate,
-         startdate:  userdetail.fromdate,
-         issubscribed: true
+         startdate:  userdetail.startdate,
+         issubscribed: true,
+         isSubscriptionaproove: true
         }
       )
       .subscribe(responseData => {
