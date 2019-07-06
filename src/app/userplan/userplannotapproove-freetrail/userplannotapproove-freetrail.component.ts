@@ -67,7 +67,6 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
       width: '250px',
       data: {name: "", animal: ""}
     });
-
     dialogRef.afterClosed().subscribe(result => {
       if(result.length > 1)
       {
@@ -108,7 +107,6 @@ delete arrayfilter["services"]
 console.log(arrayfilter)
  new  AngularCsv(arrayfilter, "Userdata", csvOptions);
    }
-
    trial()
    { 
     if(this.selection.selected.length>0)

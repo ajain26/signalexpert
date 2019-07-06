@@ -10,7 +10,7 @@ export interface Userdetails {
     isSubscriptionaproove: boolean;
     fromdate: Date;
     enddate: Date;
-    startdate: Date;
+    startdate: Date ;
     amountrecive: string;
     IP: string;
     totalamount: string;
