@@ -163,7 +163,9 @@ export class DilogdateStartendComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DilogdateStartendComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      
+    }
 
   onNoClick(): void {
     this.dialogRef.close([]);

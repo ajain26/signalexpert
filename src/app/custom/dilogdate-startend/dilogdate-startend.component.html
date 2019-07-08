@@ -2,7 +2,7 @@
   <p>
       <mat-form-field>
 
-    <input matInput #fromInput [matDatepicker]="picker" placeholder="fromdate"   (dateInput)="addStartDate('input', $event)" (dateChange)="addStartDate('change', $event)" disabled>
+    <input matInput #fromInput [matDatepicker]="picker" placeholder="From Date"  [(ngModel)]="stardate" (dateInput)="addStartDate('input', $event)" (dateChange)="addStartDate('change', $event)" disabled>
   <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
   <mat-datepicker #picker disabled="false"></mat-datepicker>
 </mat-form-field>
@@ -10,7 +10,8 @@
 
 <p>
 <mat-form-field>
-    <input matInput #endInput [min]="stardate" [matDatepicker]="picker2" placeholder="enddate" (dateInput)="addEnddate('input', $event)" (dateChange)="addEnddate('change', $event)"disabled>
+    <input matInput #endInput [min]="stardate" name="enddate" [(ngModel)]="enddate"
+   [matDatepicker]="picker2" placeholder="End Date" (dateInput)="addEnddate('input', $event)" (dateChange)="addEnddate('change', $event)"disabled>
     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
     <mat-datepicker #picker2 disabled="false"></mat-datepicker>
      
