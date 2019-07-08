@@ -185,6 +185,7 @@ export class DilogSubscribeComponent {
   }
   addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.stardate =  event.value
+    this.enddate  =  event.value
  }
  addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
      //this.selectedUser.enddate =  event.value;
