@@ -343,7 +343,7 @@ var array = strings.split(',');
         {
 var firstDate =    post[0].enddate
 var secondDate =  new Date()
-var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
+var diffDays =  parseInt((firstDate - secondDate) / (1000 * 60 * 60 * 24)); 
 if(diffDays < 0)
 {
   freeetraildays = 0
@@ -358,7 +358,7 @@ freeetraildays   =   Math.abs(diffDays+1)
 
           var firstDate =    post[0].enddate
           var secondDate =  new Date()
-          var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
+          var diffDays =  parseInt((firstDate - secondDate) / (1000 * 60 * 60 * 24)); 
           if(diffDays < 0)
           {
             freeetraildays = 0
