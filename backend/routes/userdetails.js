@@ -339,12 +339,34 @@ var array = strings.split(',');
       if (post.length>0) {
         var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
         var freeetraildays = 100
-        if((post[0].isfreetrailaproove) && (!post[0].isSubscriptionaproove))
+        if((post[0].isfreetrailaproove) && (!post[0].isSubscriptionaproove) && (!post[0].issubscribed))
         {
 var firstDate =    post[0].enddate
 var secondDate =  new Date()
 var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
-freeetraildays   =   Math.abs(diffDays)
+if(diffDays < 0)
+{
+  freeetraildays = 0
+}
+else
+{
+freeetraildays   =   Math.abs(diffDays+1)
+}
+        }
+        else if(post[0].issubscribed)
+        {
+
+          var firstDate =    post[0].enddate
+          var secondDate =  new Date()
+          var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
+          if(diffDays < 0)
+          {
+            subscriptiondays = 0
+          }
+          else
+          {
+            subscriptiondays   =   Math.abs(diffDays+1)
+          }
         }
 
       

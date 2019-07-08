@@ -54,6 +54,7 @@ export class PostsService {
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
+              isSubscriptionaproove: post.isSubscriptionaproove,
               isfreetrailaproove: post.isfreetrailaproove,
               isexpire: post.isexpire,
               startdate:this.datepipe.transform(post.startdate, 'yyyy-MM-dd') ? this.datepipe.transform(post.startdate, 'yyyy-MM-dd'):'',
@@ -93,6 +94,7 @@ export class PostsService {
         })
       )
       .subscribe(transformedPosts => {
+        console.log(transformedPosts)
         this.userdetails = transformedPosts;
         this.userdetailUpdated.next([...this.userdetails]);
       });

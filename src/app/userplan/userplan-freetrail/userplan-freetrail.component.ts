@@ -69,7 +69,7 @@ export class UserplanFreetrailComponent implements OnInit {
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true )
+      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === true && userdetails.isSubscriptionaproove === false )
   //    this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === false )
       // this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === false )
 

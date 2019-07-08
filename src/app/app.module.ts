@@ -79,7 +79,7 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     MatDialogModule,
     ],
   providers: [DatePipe],
-  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, DilogSubscribeComponent],
+  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, UserplannotsubscribedSubscribeduserlistComponent,DilogSubscribeComponent],
 
   bootstrap: [AppComponent]
 })
