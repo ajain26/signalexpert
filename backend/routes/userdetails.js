@@ -361,11 +361,11 @@ freeetraildays   =   Math.abs(diffDays+1)
           var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
           if(diffDays < 0)
           {
-            subscriptiondays = 0
+            freeetraildays = 0
           }
           else
           {
-            subscriptiondays   =   Math.abs(diffDays+1)
+            freeetraildays   =   Math.abs(diffDays+1)
           }
         }
 
