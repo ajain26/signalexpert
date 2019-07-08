@@ -341,10 +341,10 @@ var array = strings.split(',');
         var freeetraildays = 100
         if((post[0].isfreetrailaproove) && (!post[0].isSubscriptionaproove))
         {
-var firstDate =    post[0].createddate
+var firstDate =    post[0].enddate
 var secondDate =  new Date()
 var diffDays =  parseInt((secondDate - firstDate) / (1000 * 60 * 60 * 24)); 
-freeetraildays   =  parseInt(7 - diffDays)
+freeetraildays   =   Math.abs(diffDays)
         }
 
       

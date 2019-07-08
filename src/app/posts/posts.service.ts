@@ -161,8 +161,9 @@ export class PostsService {
         if(responseData.posts['nModified'])
         {
           alert("record updated succesfully");
-           userdetail.issubscribed = true
-           this.userdetailUpdated.next([...this.userdetails]);
+          this.getUserDetail()
+         // userdetail.issubscribed = true
+          //this.userdetailUpdated.next([...this.userdetails]);
         }
         else
         {

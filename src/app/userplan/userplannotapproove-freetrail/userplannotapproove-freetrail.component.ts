@@ -142,7 +142,6 @@ console.log(arrayfilter)
       this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
      }
    }
-  
    dismiss()
    {
     this.isSubscriptionClicked = false
