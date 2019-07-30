@@ -10,8 +10,6 @@ var gateway = braintree.connect({
   accessToken: 'access_token$production$jfryxgvkyj5tcv92$dc0ea8a1952f2462f8937e99dc32e9af'
 });
 
-
-
 router.post("/register", (req, res, next) => {
 
   Post.find({Email:req.body.Email}).then(post => {
@@ -19,17 +17,38 @@ router.post("/register", (req, res, next) => {
       res.status(200).json({ message: "user already exists!" });
     } else {
 
-      const post = new Post({
-        Email: req.body.Email,
-        Password: req.body.Password,
-        Country: req.body.Country,
-        PhoneNumber: req.body.PhoneNumber,
-        Location: req.body.Location,
-        IP: req.body.IP,
-        services: req.body["services[]"],
-        devicetoken: req.body.devicetoken,
-        devicetype: req.body.devicetype
-      });
+      var jsonRest = {}
+      if (req.body.devicetype == "Android")
+      {
+        jsonRest =  {
+          Email: req.body.Email,
+          Password: req.body.Password,
+          Country: req.body.Country,
+          PhoneNumber: req.body.PhoneNumber,
+          Location: req.body.Location,
+          IP: req.body.IP,
+          services: req.body.services,
+          devicetoken: req.body.devicetoken,
+          devicetype: req.body.devicetype
+        }
+
+      }
+      else
+      {
+        jsonRest =  {
+          Email: req.body.Email,
+          Password: req.body.Password,
+          Country: req.body.Country,
+          PhoneNumber: req.body.PhoneNumber,
+          Location: req.body.Location,
+          IP: req.body.IP,
+          services: req.body["services[]"],
+          devicetoken: req.body.devicetoken,
+          devicetype: req.body.devicetype
+        }
+      }
+      const post = new Post(jsonRest);
+
       post.save().then(createdPost => {
         res.status(201).json({
           message: "UserDetail added successfully",
@@ -101,7 +120,6 @@ router.put("/:id", (req, res, next) => {
   });
 });
 
-
 router.get("", (req, res, next) => {
   Post.find().then(documents => {
     res.status(200).json({
@@ -110,7 +128,6 @@ router.get("", (req, res, next) => {
     });
   });
 });
-
 router.get("/pay/client_token", function (req, res) {
   gateway.clientToken.generate({}, function (err, response) {
     res.send({"ct":response.clientToken});
@@ -118,7 +135,6 @@ router.get("/pay/client_token", function (req, res) {
 
 
 });
-
 
 router.post("/pay/checkout", function (req, res) {
 
@@ -147,10 +163,6 @@ router.post("/pay/checkout", function (req, res) {
   });
   // Use payment method nonce here
 });
-
-
-
-
  router.get("/freeetrail", (req, res, next) => {
  let query = {"issubscribed":0}
   Post.find(query).then(documents => {
@@ -252,9 +264,6 @@ router.get("/sendRegisterOTP", (req, res, next) => {
   });
 });
 
-
-
-
 router.post("/changepassword", (req, res, next) => {
         Post.updateOne({Email:req.body.Email},{$set: {Password:req.body.Password}}).then(post => {
           if (post.nModified) {
@@ -267,9 +276,6 @@ router.post("/changepassword", (req, res, next) => {
           }
         });
   });
-
-
-
  router.get("/:id", (req, res, next) => {
   Post.findById(req.params.id).then(post => {
     if (post) {
@@ -279,8 +285,6 @@ router.post("/changepassword", (req, res, next) => {
     }
   });
 });
-
-
 router.post("/aproovetrial", (req, res, next) => {
 let strings = req.body.Email
 var array = strings.split(',');
@@ -297,8 +301,6 @@ var array = strings.split(',');
     });
     
   });
-
-
  router.post("/intialSusbscription", (req, res, next) => {
     console.log(req.body.Email)
       Post.updateOne({Email:req.body.Email},{$set: {"fromdate":req.body.fromdate,"enddate":req.body.enddate,"startdate":req.body.startdate,
@@ -315,7 +317,6 @@ var array = strings.split(',');
         }
       });
     });
-
  router.post("/aproveSusbscription", (req, res, next) => {
       console.log(req.body.Email)
         Post.updateOne({Email:req.body.Email},{$set: {"fromdate":req.body.fromdate,"enddate":req.body.enddate,"startdate":req.body.startdate,
@@ -332,7 +333,6 @@ var array = strings.split(',');
           }
         });
       });
-
  router.post("/verifyemail", (req, res, next) => {
   let query = {$and:[{Email:req.body.Email},{Password:req.body.Password}]}
     Post.find(query).then(post => {
@@ -388,10 +388,4 @@ freeetraildays   =   Math.abs(diffDays+1)
       }
     });
   });
-
-  
-
-
-
-
 module.exports = router
