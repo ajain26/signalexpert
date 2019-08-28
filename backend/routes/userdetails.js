@@ -29,7 +29,9 @@ router.post("/register", (req, res, next) => {
           IP: req.body.IP,
           services: req.body.services,
           devicetoken: req.body.devicetoken,
-          devicetype: req.body.devicetype
+          devicetype: req.body.devicetype,
+          issubscribed: req.body.issubscribed,
+        amountrecive: req.body.amountrecive
         }
 
       }
@@ -44,7 +46,9 @@ router.post("/register", (req, res, next) => {
           IP: req.body.IP,
           services: req.body["services[]"],
           devicetoken: req.body.devicetoken,
-          devicetype: req.body.devicetype
+          devicetype: req.body.devicetype,
+          issubscribed: req.body.issubscribed,
+          amountrecive: req.body.amountrecive
         }
       }
       const post = new Post(jsonRest);
@@ -62,15 +66,15 @@ router.post("/register", (req, res, next) => {
 
 });
 
-router.post("/registerupdatxe", (req, res, next) => {
+router.post("/registerupdate", (req, res, next) => {
 
   if(req.body.isedit == 1)
   {
-    let query = {$and:[{Email:req.body.Email,isedit:1}]}
+    let query = {Email:req.body.Email}
 
-    let services =  req.body["services[]"]
-    delete req.body["services[]"]
-    req.body.services = services
+    // let services =  req.body["services[]"]
+    // delete req.body["services[]"]
+    // req.body.services = services
 
     Post.updateOne(query,{$set: req.body}).then(result => {
       if (result.nModified) {
@@ -78,33 +82,15 @@ router.post("/registerupdatxe", (req, res, next) => {
       }
       else
       {
-        const post = new Post({
-          Email: req.body.Email,
-          Password: req.body.Password,
-          Country: req.body.Country,
-          PhoneNumber: req.body.PhoneNumber,
-          Location: req.body.Location,
-          IP: req.body.IP,
-          services: req.body["services[]"],
-          devicetoken: req.body.devicetoken,
-          devicetype: req.body.devicetype,
-          isedit: req.body.isedit
-        });
-        post.save().then(createdPost => {
-          res.status(201).json({
-            message: "UserDetail added successfully",
-            postId: createdPost._id
+        res.status(200).json({ message: "fail" });
 
-          });
-
-        });
       }
     });
   }
  else
  {
   Post.updateOne({Email:req.body.Email},{$set: req.body}).then(result => {
-    res.status(200).json({ message: "Update successful!" });
+    res.status(200).json({ message: "fail" });
   });
 }
 });
