@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostSelectionlistComponent implements OnInit {
 
-  typesOfService: string[] = ['Basic Forex Pack', 'Premium Forex Pack', 'HNI Forex Pack',
-   'Basic Comex Pack', 'Premium Comex Pack'
-   , 'HNI Comex Pack', 'Basic KLSE Pack',
-    'Premium KLSE Pack', 'HNI KLSE Pack', 'Basic SGX Pack', 'Premium SGX Pack', 'HNI SGX Pack'];
+  typesOfService: string[] = ['basic forex pack', 'premium forex pack', 'hni forex pack',
+   'basic comex pack', 'premium comex pack'
+   , 'Hhni comex pack'];
   selectedService: string[] = [];
     constructor( public postsService: PostsService){}
 

@@ -1,6 +1,6 @@
 <mat-selection-list #shoes>
   <mat-list-option *ngFor="let shoe of typesOfService" (click)="onAreaListControlChanged(shoe)" [value]="shoe" checkboxPosition="before">
-    {{shoe}}
+    {{shoe.toUpperCase()}}
   </mat-list-option>
 </mat-selection-list>
 
