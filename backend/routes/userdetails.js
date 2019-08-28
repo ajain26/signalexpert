@@ -6,6 +6,7 @@ var otpgenerate =  require('otp-generator')
 var nodemailer = require('nodemailer');
 const bodyParser = require("body-parser");
 var braintree = require('braintree');
+var Services = require("../models/services")
 var gateway = braintree.connect({
   accessToken: 'access_token$production$jfryxgvkyj5tcv92$dc0ea8a1952f2462f8937e99dc32e9af'
 });
@@ -16,11 +17,12 @@ router.post("/register", (req, res, next) => {
     if (post.length) {
       res.status(200).json({ message: "user already exists!" });
     } else {
-
-      var jsonRest = {}
-      if (req.body.devicetype == "Android")
+      if (req.body.devicetype == "ios")
       {
-        jsonRest =  {
+        console.log(JSON.parse(req.body.services))
+        req.body.services =  JSON.parse(req.body.services)
+      }
+       const jsonRest =  {
           Email: req.body.Email,
           Password: req.body.Password,
           Country: req.body.Country,
@@ -32,27 +34,8 @@ router.post("/register", (req, res, next) => {
           devicetype: req.body.devicetype,
           issubscribed: req.body.issubscribed,
         amountrecive: req.body.amountrecive
-        }
-
-      }
-      else
-      {
-        jsonRest =  {
-          Email: req.body.Email,
-          Password: req.body.Password,
-          Country: req.body.Country,
-          PhoneNumber: req.body.PhoneNumber,
-          Location: req.body.Location,
-          IP: req.body.IP,
-          services: req.body["services[]"],
-          devicetoken: req.body.devicetoken,
-          devicetype: req.body.devicetype,
-          issubscribed: req.body.issubscribed,
-          amountrecive: req.body.amountrecive
-        }
-      }
+       }
       const post = new Post(jsonRest);
-
       post.save().then(createdPost => {
         res.status(201).json({
           message: "UserDetail added successfully",
@@ -114,6 +97,12 @@ router.get("", (req, res, next) => {
     });
   });
 });
+router.get("/services", (req, res, next) => {
+  Services.find().then(documents => {
+    res.send(documents.length > 0 ? documents[0] : [])
+  });
+});
+
 router.get("/pay/client_token", function (req, res) {
   gateway.clientToken.generate({}, function (err, response) {
     res.send({"ct":response.clientToken});
