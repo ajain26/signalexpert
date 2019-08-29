@@ -115,7 +115,7 @@ router.post("/pay/checkout", function (req, res) {
 
   var saleRequest = {
     amount: req.body.amount,
-    merchantAccountId: "USD",
+    merchantAccountId: "INR",
     paymentMethodNonce: req.body.nonce,
     // orderId: "123490",
     options: {

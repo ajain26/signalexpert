@@ -10,7 +10,7 @@ export class PostSelectionlistComponent implements OnInit {
 
   typesOfService: string[] = ['basic forex pack', 'premium forex pack', 'hni forex pack',
    'basic comex pack', 'premium comex pack'
-   , 'Hhni comex pack'];
+   , 'hni comex pack'];
   selectedService: string[] = [];
     constructor( public postsService: PostsService){}
 
