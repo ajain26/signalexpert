@@ -33,7 +33,7 @@ router.post("/register", (req, res, next) => {
           devicetoken: req.body.devicetoken,
           devicetype: req.body.devicetype,
           issubscribed: req.body.issubscribed,
-        amountrecive: req.body.amountrecive
+          amountrecive: req.body.amountrecive
        }
       const post = new Post(jsonRest);
       post.save().then(createdPost => {
@@ -115,7 +115,7 @@ router.post("/pay/checkout", function (req, res) {
 
   var saleRequest = {
     amount: req.body.amount,
-    merchantAccountId: "INR",
+    merchantAccountId: "USD",
     paymentMethodNonce: req.body.nonce,
     // orderId: "123490",
     options: {
