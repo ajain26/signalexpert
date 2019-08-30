@@ -328,7 +328,7 @@ else
 freeetraildays   =   Math.abs(diffDays+1)
 }
         }
-        else if(post[0].issubscribed)
+        else if(post[0].isSubscriptionaproove)
         {
 
           var firstDate =    post[0].enddate
