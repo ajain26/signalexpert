@@ -278,10 +278,7 @@ var array = strings.split(',');
   });
  router.post("/intialSusbscription", (req, res, next) => {
     console.log(req.body.Email)
-      Post.updateOne({Email:req.body.Email},{$set: {"fromdate":req.body.fromdate,"enddate":req.body.enddate,"startdate":req.body.startdate,
-      "amountrecive":req.body.amountrecive,
-      "totalamount":req.body.totalamount,
-    "issubscribed":true}}).then(post => {
+      Post.updateOne({Email:req.body.Email},{$set: req.body}).then(post => {
         if (post.nModified) {
           res.status(200).json({
             message: "Posts fetched successfully!",

@@ -1002,7 +1002,7 @@ var PostSelectionlistComponent = /** @class */ (function () {
         this.postsService = postsService;
         this.typesOfService = ['basic forex pack', 'premium forex pack', 'hni forex pack',
             'basic comex pack', 'premium comex pack',
-            'Hhni comex pack'];
+            'hni comex pack'];
         this.selectedService = [];
     }
     PostSelectionlistComponent.prototype.ngOnInit = function () { };
@@ -1653,9 +1653,8 @@ var UserplanSubscribeduserlistComponent = /** @class */ (function () {
         this.postsService.getSubscribedUserDetail();
         this.postsService.getUserDetailListener()
             .subscribe(function (userdetails) {
-            _this.userdetails = userdetails;
+            _this.userdetails = userdetails.filter(function (userdetails) { return userdetails.issubscribed === true && userdetails.isSubscriptionaproove === true; });
             _this.isLoading = false;
-            _this.userdetails = _this.userdetails.filter(function (userdetails) { return userdetails.issubscribed === true; });
             _this.dataSource.data = _this.userdetails;
             _this.dismiss();
         });
@@ -1668,32 +1667,6 @@ var UserplanSubscribeduserlistComponent = /** @class */ (function () {
         //  this.postsService.sendAprroveTrialRequest(this.selection)
     };
     UserplanSubscribeduserlistComponent.prototype.trial = function () {
-        //  if(this.selection.selected.length>0)
-        //  {
-        //    if(this.selection.selected.length == 1)
-        //    {
-        //    let res =  this.selection.selected;
-        //    let userde: Userdetails =   res[0] 
-        //   if(!userde.isSubscriptionaproove)
-        //   {
-        //   this.isLoading = true
-        //   this.postsService.sendAprroveTrialRequest(userde);
-        //   }
-        //   else
-        //   { 
-        //     alert("free trail already aprroved for the record");
-        //   }
-        //    }
-        //    else
-        //    {
-        //    alert("you can not select more then one record");
-        //    }
-        //  }
-        //  else
-        //  {
-        //    alert("Please select any record for approval");
-        //  }
-        // this.postsService.
     };
     UserplanSubscribeduserlistComponent.prototype.exportRecord = function () {
         var csvOptions = {
@@ -2069,12 +2042,14 @@ var UserplannotsubscribedSubscribeduserlistComponent = /** @class */ (function (
     UserplannotsubscribedSubscribeduserlistComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.dataSource.paginator = this.paginator;
-        this.postsService.getUserDetail();
+        this.postsService.getSubscribedUserDetail();
         this.postsService.getUserDetailListener()
             .subscribe(function (userdetails) {
-            _this.userdetails = userdetails;
+            console.log("hello");
+            console.log(userdetails);
+            _this.userdetails = userdetails.filter(function (userdetails) { return userdetails.isSubscriptionaproove === false && userdetails.issubscribed === true; });
             _this.isLoading = false;
-            _this.dataSource.data = _this.userdetails.filter(function (userdetails) { return userdetails.isSubscriptionaproove === true && userdetails.issubscribed === false; });
+            _this.dataSource.data = _this.userdetails;
             _this.dismiss();
         });
     };

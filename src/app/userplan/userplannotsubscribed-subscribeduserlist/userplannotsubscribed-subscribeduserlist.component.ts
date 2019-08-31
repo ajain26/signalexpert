@@ -42,13 +42,15 @@ export class UserplannotsubscribedSubscribeduserlistComponent implements OnInit 
   constructor(  public postsService: PostsService, public dialog: MatDialog) {}
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.postsService.getUserDetail()
+    this.postsService.getSubscribedUserDetail()
 
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
-      this.userdetails = userdetails;
+      console.log("hello")
+      console.log(userdetails)
+      this.userdetails = userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === false && userdetails.issubscribed === true);
       this.isLoading = false
-      this.dataSource.data = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === true && userdetails.issubscribed === false)
+      this.dataSource.data = this.userdetails
       this.dismiss();
     });
 

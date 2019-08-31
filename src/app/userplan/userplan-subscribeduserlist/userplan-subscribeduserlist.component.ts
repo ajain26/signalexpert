@@ -44,9 +44,8 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
     this.postsService.getSubscribedUserDetail()
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
-      this.userdetails = userdetails;
+      this.userdetails = userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === true && userdetails.isSubscriptionaproove === true) ;
       this.isLoading = false
-      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === true)
       this.dataSource.data  = this.userdetails
       this.dismiss();
     });
@@ -62,32 +61,7 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
    }
    trial()
    { 
-    //  if(this.selection.selected.length>0)
-    //  {
-    //    if(this.selection.selected.length == 1)
-    //    {
-    //    let res =  this.selection.selected;
-    //    let userde: Userdetails =   res[0] 
-    //   if(!userde.isSubscriptionaproove)
-    //   {
-    //   this.isLoading = true
-    //   this.postsService.sendAprroveTrialRequest(userde);
-    //   }
-    //   else
-    //   { 
-    //     alert("free trail already aprroved for the record");
-    //   }
-    //    }
-    //    else
-    //    {
-    //    alert("you can not select more then one record");
-    //    }
-    //  }
-    //  else
-    //  {
-    //    alert("Please select any record for approval");
-    //  }
-    // this.postsService.
+   
    }
    exportRecord()
    { 
@@ -134,7 +108,6 @@ console.log(arrayfilter)
      }
      else
      {
-    
       this.isLoading = true;
       this.selectedUser.isSubscriptionaproove = true;
       this.selectedUser.amountrecive = form.value.amountrecive;
