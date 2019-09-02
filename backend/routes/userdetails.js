@@ -352,7 +352,9 @@ freeetraildays   =   Math.abs(diffDays+1)
           }
         });
       } else {
-        res.status(404).json({ message: "User not found!" });
+        res.status(404).json({ message: "User not found!",
+        freeetraildays: 0,
+        posts: [] });
       }
     });
   });
