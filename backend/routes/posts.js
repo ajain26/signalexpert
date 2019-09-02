@@ -95,15 +95,22 @@ router.post("/uniquePost", (req, res, next) => {
   {
   for(var i = 0 ; i < servicesArray.length ; i++)
   {
-    sorted.push({"services":servicesArray[i]})
+    sorted.push({"services.":servicesArray[i].toUpperCase()})
   }
 }
 else
 {
-  sorted.push({"services":servicesArray})
+
+  let array =  JSON.parse(servicesArray)
+  for(var i = 0 ; i < array.length ; i++)
+  {
+    sorted.push({"services.":array[i]})
+  }
 }
 
 console.log( Date(req.body.date) )
+console.log( sorted )
+
   let querysor = {$or:sorted};
   let query =  {$and:[{"date" : { $gte : new Date(req.body.date) }},querysor]};
  // let query = {"date" : { $gte : new Date(req.body.date) }}
