@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { DilogSubscribeComponent } from './../userplan-freetrail/userplan-freetrail.component';
 import { PostsService } from './../../posts/posts.service';
 import { Userdetails } from './../userdetai.model';
@@ -43,19 +44,18 @@ export class UserplannotsubscribedSubscribeduserlistComponent implements OnInit 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getSubscribedUserDetail()
-
     this.postsService.getUserDetailListener()
     .subscribe((userdetails: Userdetails[]) => {
-      console.log("hello")
-      console.log(userdetails)
       this.userdetails = userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === false && userdetails.issubscribed === true);
       this.isLoading = false
       this.dataSource.data = this.userdetails
       this.dismiss();
     });
+    
 
   }
   applyFilter(filterValue: string) {
+    console.log("hello")
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
    edit()

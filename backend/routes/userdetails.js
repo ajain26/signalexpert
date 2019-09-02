@@ -17,11 +17,7 @@ router.post("/register", (req, res, next) => {
     if (post.length) {
       res.status(200).json({ message: "user already exists!" });
     } else {
-      if (req.body.devicetype == "ios")
-      {
-        console.log(JSON.parse(req.body.services))
         req.body.services =  JSON.parse(req.body.services)
-      }
        const jsonRest =  {
           Email: req.body.Email,
           Password: req.body.Password,

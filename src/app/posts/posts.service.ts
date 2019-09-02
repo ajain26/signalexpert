@@ -51,6 +51,7 @@ export class PostsService {
             return {
               email: post.Email,
               services: post.services,
+              servicesname: post.services.map(model => model.name.toUpperCase()),
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
@@ -79,6 +80,7 @@ export class PostsService {
             return {
               email: post.Email,
               services: post.services,
+              servicesname: post.services.map(model => model.name.toUpperCase()),
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
