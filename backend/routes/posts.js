@@ -95,7 +95,7 @@ router.post("/uniquePost", (req, res, next) => {
   {
   for(var i = 0 ; i < servicesArray.length ; i++)
   {
-    sorted.push({"services.":servicesArray[i].toUpperCase()})
+    sorted.push({"services.":servicesArray[i]})
   }
 }
 else

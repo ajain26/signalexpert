@@ -1096,7 +1096,7 @@ var PostsService = /** @class */ (function () {
                 return {
                     email: post.Email,
                     services: post.services,
-                    servicesname: post.services.map(function (model) { return model.name.toUpperCase(); }),
+                    servicesname: post.services.map(function (model) { return model.name; }),
                     country: post.Country,
                     phone: post.PhoneNumber,
                     issubscribed: post.issubscribed,
@@ -1123,7 +1123,7 @@ var PostsService = /** @class */ (function () {
                 return {
                     email: post.Email,
                     services: post.services,
-                    servicesname: post.services.map(function (model) { return model.name.toUpperCase(); }),
+                    servicesname: post.services.map(function (model) { return model.name; }),
                     country: post.Country,
                     phone: post.PhoneNumber,
                     issubscribed: post.issubscribed,
@@ -1164,6 +1164,7 @@ var PostsService = /** @class */ (function () {
     };
     PostsService.prototype.sendAprroveTrialRequest = function (userdetail, startDate, endDate) {
         var _this = this;
+        console.log(userdetail);
         this.http
             .post("http://75.98.169.159:1000/api/userdetails/aproovetrial", { Email: userdetail.map(function (t) { return t.email; }).join(","),
             startdate: startDate,

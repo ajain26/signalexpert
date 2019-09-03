@@ -51,7 +51,7 @@ export class PostsService {
             return {
               email: post.Email,
               services: post.services,
-              servicesname: post.services.map(model => model.name.toUpperCase()),
+              servicesname: post.services.map(model => model.name),
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
@@ -80,7 +80,7 @@ export class PostsService {
             return {
               email: post.Email,
               services: post.services,
-              servicesname: post.services.map(model => model.name.toUpperCase()),
+              servicesname: post.services.map(model => model.name),
               country: post.Country,
               phone: post.PhoneNumber,
               issubscribed: post.issubscribed,
@@ -125,6 +125,7 @@ export class PostsService {
 
   sendAprroveTrialRequest(userdetail: Userdetails[], startDate: String, endDate: String)
   {
+    console.log(userdetail)
     this.http
       .post<{ message: string; posts: {string} }>(
         "http://75.98.169.159:1000/api/userdetails/aproovetrial",
