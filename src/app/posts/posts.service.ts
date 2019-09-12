@@ -231,7 +231,7 @@ export class PostsService {
     console.log({ id: null, title: title, services: this.Services})
     this.http
       .post<{ message: string; postId: string }>(
-        "http://75.98.169.159:1000/api/posts",
+        "https://05aa241b.ngrok.io/api/posts",
         post
       )
       .subscribe(responseData => {

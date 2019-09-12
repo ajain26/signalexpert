@@ -107,9 +107,9 @@ function sendPushNotificationandroid(title, services)
           {
           deviceTokenArray.push(documents[i]["devicetoken"])
           }
-          }
+         
           var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-            to: deviceTokenArray, 
+            to: documents[i]["devicetoken"], 
             
             notification: {
                 title: 'Push', 
@@ -126,6 +126,7 @@ function sendPushNotificationandroid(title, services)
             }
           });
         } 
+      }
       });
   
 
