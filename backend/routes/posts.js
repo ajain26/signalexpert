@@ -5,6 +5,9 @@ const objUserDetail = require("../models/userdetail");
 
 const router = express.Router();
 const apn = require('apn');
+var FCM = require('fcm-node');
+var serverKey = 'AAAAYbnoXeY:APA91bE9R8T1_GPESyM8U6dRZSKD0mVE7A71E1YLPFMSxEtaxQg3njATyM_Obfz5NTO3iQSBQoBkl-aT-qdjE4aQjCNqSTDv2RzpT2JXJw7pmdGjBertgd5RIdrNmUBhuaYGIIFbzK3I'; //put your server key here
+var fcm = new FCM(serverKey);
 let options = {
   token: {
       key: "AuthKey_PW59LC8R37.p8",
@@ -47,7 +50,7 @@ function sendPushNotificationiOS(title, services)
   for (var i=0; i<userList.length; i++) {
     emailArray.push(userList[i]["nickname"])
     }
-     let query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"ios"},{"services":{$in:services}},{"devicetoken":{$ne:""}}]};
+     let query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"ios"},{"services":{$in:services}}]};
      objUserDetail.find(query).then(documents => {
       var deviceTokenArray = []
       if(documents.length > 0)
@@ -83,7 +86,48 @@ function sendPushNotificationiOS(title, services)
 
 function sendPushNotificationandroid(title, services)
 {
+  var emailArray = []
 
+  var sorted = []
+  for (var i=0; i<userList.length; i++) {
+    emailArray.push(userList[i]["nickname"])
+    }
+    var query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"Android"},{"services":{$in:services}}]};
+
+    if (emailArray.length == 0)
+    {
+      query = {"devicetype":"Android"}
+    }
+     objUserDetail.find(query).then(documents => {
+      var deviceTokenArray = []
+      if(documents.length > 0)
+      {
+        for (var i=0; i<documents.length; i++) {
+          if(documents[i]["devicetoken"])
+          {
+          deviceTokenArray.push(documents[i]["devicetoken"])
+          }
+          }
+          var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
+            to: deviceTokenArray, 
+            
+            notification: {
+                title: 'Push', 
+                body: {'title': title,'services':services}
+            },
+          };
+          fcm.send(message, function(err, response){
+            if (err) {
+            } else {
+             
+            
+          
+
+            }
+          });
+        } 
+      });
+  
 
 }
 
