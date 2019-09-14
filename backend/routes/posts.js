@@ -107,9 +107,11 @@ function sendPushNotificationandroid(title, services)
           {
           deviceTokenArray.push(documents[i]["devicetoken"])
           }
+        }
+
          
           var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-            to: documents[i]["devicetoken"], 
+            registration_ids: deviceTokenArray, 
             
             notification: {
                 title: 'Tips', 
@@ -120,13 +122,10 @@ function sendPushNotificationandroid(title, services)
           fcm.send(message, function(err, response){
             if (err) {
             } else {
-             
-            
-          
 
             }
           });
-        } 
+        
       }
       });
   

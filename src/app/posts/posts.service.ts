@@ -231,12 +231,11 @@ export class PostsService {
     console.log({ id: null, title: title, services: this.Services})
     this.http
       .post<{ message: string; postId: string }>(
-        "https://05aa241b.ngrok.io/api/posts",
+        "http://75.98.169.159:1000/api/posts",
         post
       )
       .subscribe(responseData => {
         const id = responseData.postId;
-        console.log()
         post.id = id;
         this.posts.push(post);
         this.postsUpdated.next([...this.posts]);
