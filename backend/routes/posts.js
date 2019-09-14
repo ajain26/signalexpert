@@ -113,8 +113,9 @@ function sendPushNotificationandroid(title, services)
             
             notification: {
                 title: 'Tips', 
-                body: title}
-            },
+                body: title
+              }
+            
           };
           fcm.send(message, function(err, response){
             if (err) {
