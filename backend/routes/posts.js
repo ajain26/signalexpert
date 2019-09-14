@@ -112,8 +112,8 @@ function sendPushNotificationandroid(title, services)
             to: documents[i]["devicetoken"], 
             
             notification: {
-                title: 'Push', 
-                body: {'title': title,'services':services}
+                title: 'Tips', 
+                body: title}
             },
           };
           fcm.send(message, function(err, response){
