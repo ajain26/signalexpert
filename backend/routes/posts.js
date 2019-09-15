@@ -87,16 +87,15 @@ function sendPushNotificationiOS(title, services)
 function sendPushNotificationandroid(title, services)
 {
   var emailArray = []
-
   var sorted = []
   for (var i=0; i<userList.length; i++) {
     emailArray.push(userList[i]["nickname"])
     }
-    var query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"Android"},{"services":{$in:services}}]};
+    var query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"Android"},{"services.name":{$in:services}}]};
 
     if (emailArray.length == 0)
     {
-      query = {"devicetype":"Android"}
+      query =  {$and:[{"devicetype":"Android"},{"services.name":{$in:services}}]}
     }
      objUserDetail.find(query).then(documents => {
       var deviceTokenArray = []
@@ -112,12 +111,10 @@ function sendPushNotificationandroid(title, services)
          
           var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
             registration_ids: deviceTokenArray, 
-            
             notification: {
                 title: 'Tips', 
                 body: title
               }
-            
           };
           fcm.send(message, function(err, response){
             if (err) {
