@@ -10,6 +10,7 @@ var serverKey = 'AAAAYbnoXeY:APA91bE9R8T1_GPESyM8U6dRZSKD0mVE7A71E1YLPFMSxEtaxQg
 var fcm = new FCM(serverKey);
 let options = {
   token: {
+    
       key: "AuthKey_PW59LC8R37.p8",
       keyId: "PW59LC8R37",
      teamId: "C6932K24MK"
@@ -47,10 +48,15 @@ function sendPushNotificationiOS(title, services)
 {
   var emailArray = []
   var sorted = []
-  for (var i=0; i<userList.length; i++) {
-    emailArray.push(userList[i]["nickname"])
-    }
-     let query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"ios"},{"services":{$in:services}}]};
+    for (var i=0; i<userList.length; i++) {
+      emailArray.push(userList[i]["nickname"])
+      }
+      var query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"ios"},{"services.name":{$in:services}}]};
+  
+      if (emailArray.length == 0)
+      {
+        query =  {$and:[{"devicetype":"ios"},{"services.name":{$in:services}}]}
+      }
      objUserDetail.find(query).then(documents => {
       var deviceTokenArray = []
       if(documents.length > 0)
@@ -68,7 +74,7 @@ function sendPushNotificationiOS(title, services)
        let notification = new apn.Notification();
        notification.expiry = Math.floor(Date.now() / 1000) + 24 * 3600; // will expire in 24 hours from now
       //   notification.badge = 2;
-       notification.alert = "Push Notfication Message";
+       notification.alert = "Tips: " + title;
        notification.payload = {'title': title,'services':services};
       // Replace this with your app bundle ID:
        notification.topic = "com.Mesaging.expert";
@@ -76,6 +82,7 @@ function sendPushNotificationiOS(title, services)
       // Send the actual notification
        apnProvider.send(notification, deviceToken).then( result => {
         // Show the result of the send operation:
+       console.log(result)
         apnProvider.shutdown
         });
       }
