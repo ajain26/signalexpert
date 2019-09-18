@@ -1,8 +1,8 @@
 const express = require("express");
-
+var app = express();
+var path = require('path');
 const Post = require("../models/post");
 const objUserDetail = require("../models/userdetail");
-
 const router = express.Router();
 const apn = require('apn');
 var FCM = require('fcm-node');
@@ -11,7 +11,7 @@ var fcm = new FCM(serverKey);
 let options = {
   token: {
     
-      key: "AuthKey_PW59LC8R37.p8",
+      key: path.join(__dirname, 'AuthKey_PW59LC8R37.p8'),
       keyId: "PW59LC8R37",
      teamId: "C6932K24MK"
    },
