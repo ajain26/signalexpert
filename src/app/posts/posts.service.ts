@@ -155,9 +155,9 @@ export class PostsService {
       )
       .subscribe(responseData => {
         console.log(responseData)
-          alert("record delted succesfully");
+          alert("Record Deleted Succesfully");
           this.getUserDetail()
-          this.getSubscribedUserDetail
+          this.getSubscribedUserDetail()
       });
 
   }

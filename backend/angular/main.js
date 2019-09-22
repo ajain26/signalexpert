@@ -1196,9 +1196,9 @@ var PostsService = /** @class */ (function () {
             .delete("http://75.98.169.159:1000/api/userdetails/deleteuser?Email=" + userdetail)
             .subscribe(function (responseData) {
             console.log(responseData);
-            alert("record delted succesfully");
+            alert("Record Deleted Succesfully");
             _this.getUserDetail();
-            _this.getSubscribedUserDetail;
+            _this.getSubscribedUserDetail();
         });
     };
     PostsService.prototype.sendinitialSubscriptionRequest = function (userdetail) {
