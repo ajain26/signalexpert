@@ -1,11 +1,13 @@
 import { PostsService } from './../../posts/posts.service';
 import { Userdetails } from './../userdetai.model';
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild,Inject} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
 import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DilogDeleteComponent } from '../userplan-freetrail/userplan-freetrail.component';
 
 
 @Component({
@@ -31,14 +33,14 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
-
+  
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-  constructor(  public postsService: PostsService) {}
+  constructor(  public postsService: PostsService, public dialog: MatDialog) {}
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getSubscribedUserDetail()
@@ -50,6 +52,34 @@ export class UserplanSubscribeduserlistComponent implements OnInit {
       this.dismiss();
     });
 
+  }
+
+  deleteUser()
+  {
+   if (this.selection.selected.length == 0)
+   {
+     alert("Please select record to subscribe")
+   }
+   else 
+   {
+     this.isSubscriptionClicked = true
+     let res =  this.selection.selected;
+     this.openDialogDelete()
+   }
+  }
+  openDialogDelete(): void {
+    const dialogRef = this.dialog.open(DilogDeleteComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+         if (result.length > 0)
+         {
+         this.isLoading = true
+         this.postsService.sendDeleteUsersRequest(this.selection.selected.map(t=>t.email).join(","));
+         this.selection.clear()
+         }
+    });
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -130,3 +160,5 @@ console.log(arrayfilter)
     this.isSubscriptionClicked = false
    }
 }
+
+

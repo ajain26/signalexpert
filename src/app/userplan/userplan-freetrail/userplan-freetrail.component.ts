@@ -33,7 +33,6 @@ export class UserplanFreetrailComponent implements OnInit {
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
-
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
@@ -61,7 +60,33 @@ export class UserplanFreetrailComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-
+  openDialogDelete(): void {
+    const dialogRef = this.dialog.open(DilogDeleteComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+         if (result.length > 0)
+         {
+         this.isLoading = true
+         this.postsService.sendDeleteUsersRequest(this.selection.selected.map(t=>t.email).join(","));
+         this.selection.clear()
+         }
+    });
+  }
+  deleteUser()
+   {
+    if (this.selection.selected.length == 0)
+    {
+      alert("Please select record to subscribe")
+    }
+    else 
+    {
+      this.isSubscriptionClicked = true
+      let res =  this.selection.selected;
+      this.openDialogDelete()
+    }
+   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.postsService.getUserDetail()
@@ -85,7 +110,6 @@ export class UserplanFreetrailComponent implements OnInit {
    {
   
    }
-
    exportRecord()
    { 
     const  csvOptions = { 
@@ -130,6 +154,7 @@ console.log(arrayfilter)
  
    }
 
+   
    onsendDetail(form: NgForm) {
      if(!this.selectedUser.fromdate)
      {
@@ -191,4 +216,29 @@ export class DilogSubscribeComponent {
      //this.selectedUser.enddate =  event.value;
      this.enddate = event.value
 }
+}
+
+@Component({
+  selector: 'app-dilog-delete',
+  templateUrl: '../../custom/dilog-delete/dilog-delete.component.html'
+})
+
+export class DilogDeleteComponent {
+  message: string;
+
+  constructor(
+    public dialogRef: MatDialogRef<DilogDeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: AmountData) {
+      this.message = "Are you sure you want to delete the user?"
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close([]);
+  }
+  saveClick(): void 
+  {
+    //alert(this.data.amount)
+    this.dialogRef.close(["OK"]);
+  }
+
 }

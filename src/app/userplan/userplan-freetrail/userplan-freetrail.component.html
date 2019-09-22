@@ -64,6 +64,11 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
   <input  matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
+<button class = "buttonright1"
+  mat-raised-button
+  color="accent"
+  type="Subscribe" (click)="deleteUser()">Delete User</button>
+
   <button class = "buttonright2"
   mat-raised-button
   color="accent"
@@ -74,6 +79,7 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
   color="accent"
   type="trial" (click)="exportRecord()">Export All Record</button>
 </form>
+
 
 
 <div class="mat-elevation-z8">

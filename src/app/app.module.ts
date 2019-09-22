@@ -30,9 +30,9 @@ import { PostListComponent } from "./posts/post-list/post-list.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { PostSelectionlistComponent } from './posts/post-selectionlist/post-selectionlist.component';
 import { PostMessagetemplateComponent } from './posts/post-messagetemplate/post-messagetemplate.component';
-import { UserplanFreetrailComponent, DilogSubscribeComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
+import { UserplanFreetrailComponent, DilogSubscribeComponent, DilogDeleteComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
 import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsubscription/userplan-startsubscription.component';
-import { UserplanSubscribeduserlistComponent } from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
+import { UserplanSubscribeduserlistComponent} from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminComponent } from './users/admin/admin/admin.component';
 import { UserplannotapprooveFreetrailComponent, DilogdateStartendComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
@@ -54,7 +54,8 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     UserplannotapprooveFreetrailComponent,
     UserplannotsubscribedSubscribeduserlistComponent,
     DilogdateStartendComponent,
-    DilogSubscribeComponent
+    DilogSubscribeComponent,
+    DilogDeleteComponent
     ],
   imports: [
     BrowserModule,
@@ -79,7 +80,7 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     MatDialogModule,
     ],
   providers: [DatePipe],
-  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, UserplannotsubscribedSubscribeduserlistComponent,DilogSubscribeComponent],
+  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, UserplannotsubscribedSubscribeduserlistComponent,DilogSubscribeComponent,DilogDeleteComponent],
 
   bootstrap: [AppComponent]
 })

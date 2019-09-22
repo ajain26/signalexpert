@@ -1,63 +1,9 @@
 
 
-<mat-card  *ngIf="isSubscriptionClicked">
-  <form (submit) = onsendDetail(postForm)  #postForm="ngForm">
-    <p>
-        <mat-form-field>
-            <input
-        matInput
-        rows="1"
-        type="text"
-            disabled [value] = "selectedUser.email" />
-        </mat-form-field>
-        </p>
-  <p>
-<mat-form-field>
-  <input matInput #fromInput [matDatepicker]="picker" placeholder="fromdate"   (dateInput)="addStartDate('input', $event)" (dateChange)="addStartDate('change', $event)" disabled>
-  <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
-  <mat-datepicker #picker disabled="false"></mat-datepicker>
-</mat-form-field>
-</p>
-
-<p>
-<mat-form-field>
-    <input matInput #endInput [min]="selectedUser.fromdate"  [matDatepicker]="picker2" placeholder="enddate" (dateInput)="addEnddate('input', $event)" (dateChange)="addEnddate('change', $event)"disabled>
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2 disabled="false"></mat-datepicker>
-     
-  </mat-form-field>
-</p>
-
-<p>
-<mat-form-field>
-<input
-[ngModel]="selectedUser?.amountrecive"
-matInput
-rows="1"
-type="number"
-name="amountrecive"
-required
-placeholder="Amount Recieved" #amountrecive="ngModel"/>
-<mat-error *ngIf="amountrecive.invalid">Please enter a post title.</mat-error>
-</mat-form-field>
-</p>
-
-<button
-mat-raised-button
-color="accent"
-type="submit">Send Detail</button>
-
-
-<button
-mat-raised-button class = "dismissbutton"
-color="accent"
-type="dismiss" (click)="dismiss()">Dismiss</button>
-</form>
-</mat-card>
 
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<mat-card  *ngIf="!isLoading && !isSubscriptionClicked">
+<mat-card  *ngIf="!isLoading">
   
 <form>
 <mat-form-field class="filter">
@@ -70,7 +16,10 @@ type="dismiss" (click)="dismiss()">Dismiss</button>
   mat-raised-button
   color="accent"
   type="Subscribe" (click)="trial()">Approve Trail</button>
-
+  <button class = "buttonright1"
+  mat-raised-button
+  color="accent"
+  type="Subscribe" (click)="deleteUser()">Delete User</button>
   <button class = "buttonright3"
   mat-raised-button
   color="accent"

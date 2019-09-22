@@ -7,6 +7,7 @@ import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+import { DilogDeleteComponent } from '../userplan-freetrail/userplan-freetrail.component';
 
 @Component({
   selector: 'app-userplannotapproove-freetrail',
@@ -80,7 +81,33 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-
+  openDialogDelete(): void {
+    const dialogRef = this.dialog.open(DilogDeleteComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+         if (result.length > 0)
+         {
+         this.isLoading = true
+         this.postsService.sendDeleteUsersRequest(this.selection.selected.map(t=>t.email).join(","));
+         this.selection.clear()
+         }
+    });
+  }
+  deleteUser()
+   {
+    if (this.selection.selected.length == 0)
+    {
+      alert("Please select record to delete")
+    }
+    else 
+    {
+      this.isSubscriptionClicked = true
+      let res =  this.selection.selected;
+      this.openDialogDelete()
+    }
+   }
   exportRecord()
    { 
     const  csvOptions = { 

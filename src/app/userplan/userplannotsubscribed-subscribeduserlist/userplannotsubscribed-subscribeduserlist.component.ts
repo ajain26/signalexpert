@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { DilogSubscribeComponent } from './../userplan-freetrail/userplan-freetrail.component';
+import { DilogSubscribeComponent, DilogDeleteComponent } from './../userplan-freetrail/userplan-freetrail.component';
 import { PostsService } from './../../posts/posts.service';
 import { Userdetails } from './../userdetai.model';
 import { Component, OnInit, ViewChild, Inject} from '@angular/core';
@@ -104,6 +104,33 @@ export class UserplannotsubscribedSubscribeduserlistComponent implements OnInit 
     //  }
     // this.postsService.
    }
+   openDialogDelete(): void {
+    const dialogRef = this.dialog.open(DilogDeleteComponent, {
+      width: '250px',
+      data: {name: "", animal: ""}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+         if (result.length > 0)
+         {
+         this.isLoading = true
+         this.postsService.sendDeleteUsersRequest(this.selection.selected.map(t=>t.email).join(","));
+         this.selection.clear()
+         }
+    });
+  }
+  deleteUser()
+   {
+    if (this.selection.selected.length == 0)
+    {
+      alert("Please select record to delete")
+    }
+    else 
+    {
+      this.isSubscriptionClicked = true
+      let res =  this.selection.selected;
+      this.openDialogDelete()
+    }
+   }
    exportRecord()
    { 
     const  csvOptions = { 
@@ -171,6 +198,7 @@ console.log(arrayfilter)
       console.log('The dialog was closed');
     });
   }
+  
    onsendDetail(form: NgForm) {
      if(!this.selectedUser.fromdate)
      {

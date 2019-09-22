@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <div class="message">
+    <p>
+      {{message}}
+    </p>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="onNoClick()">Cancel</button>
+  <button mat-button color="accent" (click)="saveClick()"  cdkFocusInitial>Delete</button>
+</div>
+

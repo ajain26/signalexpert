@@ -146,6 +146,21 @@ export class PostsService {
       });
 
   }
+
+  sendDeleteUsersRequest(userdetail: String)
+  {
+    this.http
+      .delete<{ message: string}>(
+        "http://75.98.169.159:1000/api/userdetails/deleteuser?Email="+ userdetail,
+      )
+      .subscribe(responseData => {
+        console.log(responseData)
+          alert("record delted succesfully");
+          this.getUserDetail()
+          this.getSubscribedUserDetail
+      });
+
+  }
   sendinitialSubscriptionRequest(userdetail: Userdetails)
   {
     this.http

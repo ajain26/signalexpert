@@ -10,7 +10,6 @@ var Services = require("../models/services")
 var gateway = braintree.connect({
   accessToken: 'access_token$production$jfryxgvkyj5tcv92$dc0ea8a1952f2462f8937e99dc32e9af'
 });
-
 router.post("/register", (req, res, next) => {
 
   Post.find({Email:req.body.Email}).then(post => {
@@ -44,7 +43,6 @@ router.post("/register", (req, res, next) => {
   });
 
 });
-
 router.post("/registerupdate", (req, res, next) => {
 
   if(req.body.isedit == 1)
@@ -73,7 +71,6 @@ router.post("/registerupdate", (req, res, next) => {
   });
 }
 });
-
 router.put("/:id", (req, res, next) => {
   const post = new Post({
     _id: req.body.id,
@@ -84,7 +81,6 @@ router.put("/:id", (req, res, next) => {
     res.status(200).json({ message: "Update successful!" });
   });
 });
-
 router.get("", (req, res, next) => {
   Post.find().then(documents => {
     res.status(200).json({
@@ -98,7 +94,6 @@ router.get("/services", (req, res, next) => {
     res.send(documents.length > 0 ? documents[0] : [])
   });
 });
-
 router.get("/pay/client_token", function (req, res) {
   gateway.clientToken.generate({}, function (err, response) {
     res.send({"ct":response.clientToken});
@@ -356,6 +351,13 @@ freeetraildays   =   Math.abs(diffDays+1)
         freeetraildays: 0,
         posts: [] });
       }
+    });
+  });
+  router.delete("/deleteuser", (req, res, next) => {
+    let arrayEmail = req.query.Email.split(',')
+    Post.deleteMany({ Email: {$in:arrayEmail} }).then(result => {
+      console.log(result);
+      res.status(200).json({ message: "ok" });
     });
   });
 module.exports = router
