@@ -78,7 +78,7 @@ export class UserplanFreetrailComponent implements OnInit {
    {
     if (this.selection.selected.length == 0)
     {
-      alert("Please select record to subscribe")
+      alert("Please select record to delete")
     }
     else 
     {

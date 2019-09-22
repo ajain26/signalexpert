@@ -1432,7 +1432,7 @@ var UserplanFreetrailComponent = /** @class */ (function () {
     };
     UserplanFreetrailComponent.prototype.deleteUser = function () {
         if (this.selection.selected.length == 0) {
-            alert("Please select record to subscribe");
+            alert("Please select record to delete");
         }
         else {
             this.isSubscriptionClicked = true;
@@ -1740,7 +1740,7 @@ var UserplanSubscribeduserlistComponent = /** @class */ (function () {
     };
     UserplanSubscribeduserlistComponent.prototype.deleteUser = function () {
         if (this.selection.selected.length == 0) {
-            alert("Please select record to subscribe");
+            alert("Please select record to delete");
         }
         else {
             this.isSubscriptionClicked = true;
