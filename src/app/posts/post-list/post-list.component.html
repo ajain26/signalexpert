@@ -3,11 +3,18 @@
 
 
   <!-- <mat-expansion-panel *ngFor="let post of posts"> -->
-      <mat-list role="list" *ngFor="let post of posts" >
+      <!-- <mat-list role="list" *ngFor="let post of posts" >
           <mat-list-item role="listitem">{{ post.title }}</mat-list-item>
           <mat-divider></mat-divider>
+        </mat-list> -->
+        <mat-list>
+          <mat-list-item role="list" *ngFor="let post of posts">
+            <h3 matLine> Message: {{post.title}} </h3>
+            <p matLine>
+              <span> Services: {{post.services}} </span>
+            </p>
+          </mat-list-item>
         </mat-list>
-
     <!-- <mat-expansion-panel-header>
 
     </mat-expansion-panel-header> -->

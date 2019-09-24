@@ -186,12 +186,14 @@ export interface DialogData {
 })
 export class DilogdateStartendComponent {
   stardate = new Date()
-  enddate = new Date();
+  date = new Date()
+  enddate = this.date
 
   constructor(
     public dialogRef: MatDialogRef<DilogdateStartendComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      
+      this.date.setDate(this.date.getDate() + 7)
+      this.enddate = this.date
     }
 
   onNoClick(): void {

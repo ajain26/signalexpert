@@ -22,7 +22,7 @@ export class UserplannotsubscribedSubscribeduserlistComponent implements OnInit 
   isSubscriptionClicked = false;
   selectedUser: Userdetails;
   userdetails: Userdetails[] = [];
-  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP','Start Date','End Date','Amount'];
+  displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP','Amount'];
   dataSource = new MatTableDataSource<Userdetails>();
   selection = new SelectionModel<Userdetails>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;

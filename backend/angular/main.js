@@ -833,7 +833,7 @@ module.exports = ":host {\n  display: block;\n  margin-top: 1rem;\n}\n\nmat-spin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<!-- <mat-accordion multi=\"true\" *ngIf=\"posts.length > 0 && !isLoading\" > -->\n\n\n  <!-- <mat-expansion-panel *ngFor=\"let post of posts\"> -->\n      <mat-list role=\"list\" *ngFor=\"let post of posts\" >\n          <mat-list-item role=\"listitem\">{{ post.title }}</mat-list-item>\n          <mat-divider></mat-divider>\n        </mat-list>\n\n    <!-- <mat-expansion-panel-header>\n\n    </mat-expansion-panel-header> -->\n    <!-- <p>{{ post.content }}</p> -->\n    <!-- <mat-action-row>\n      <a mat-button color=\"primary\" [routerLink]=\"['/edit', post.id]\">EDIT</a>\n      <button mat-button color=\"warn\" (click)=\"onDelete(post.id)\">DELETE</button>\n    </mat-action-row> -->\n  <!-- </mat-expansion-panel> -->\n<!-- </mat-accordion> -->\n<p class=\"info-text mat-body-1\" *ngIf=\"posts.length <= 0 && !isLoading\">No posts added yet!</p>\n"
+module.exports = "<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<!-- <mat-accordion multi=\"true\" *ngIf=\"posts.length > 0 && !isLoading\" > -->\n\n\n  <!-- <mat-expansion-panel *ngFor=\"let post of posts\"> -->\n      <!-- <mat-list role=\"list\" *ngFor=\"let post of posts\" >\n          <mat-list-item role=\"listitem\">{{ post.title }}</mat-list-item>\n          <mat-divider></mat-divider>\n        </mat-list> -->\n        <mat-list>\n          <mat-list-item role=\"list\" *ngFor=\"let post of posts\">\n            <h3 matLine> Message: {{post.title}} </h3>\n            <p matLine>\n              <span> Services: {{post.services}} </span>\n            </p>\n          </mat-list-item>\n        </mat-list>\n    <!-- <mat-expansion-panel-header>\n\n    </mat-expansion-panel-header> -->\n    <!-- <p>{{ post.content }}</p> -->\n    <!-- <mat-action-row>\n      <a mat-button color=\"primary\" [routerLink]=\"['/edit', post.id]\">EDIT</a>\n      <button mat-button color=\"warn\" (click)=\"onDelete(post.id)\">DELETE</button>\n    </mat-action-row> -->\n  <!-- </mat-expansion-panel> -->\n<!-- </mat-accordion> -->\n<p class=\"info-text mat-body-1\" *ngIf=\"posts.length <= 0 && !isLoading\">No posts added yet!</p>\n"
 
 /***/ }),
 
@@ -1089,7 +1089,10 @@ var PostsService = /** @class */ (function () {
             return postData.posts.map(function (post) {
                 return {
                     title: post.title,
-                    services: post.services,
+                    services: post.services.map(function (element) {
+                        console.log(element.toUpperCase());
+                        return _this.titleCase(element);
+                    }),
                     id: post._id
                 };
             });
@@ -1098,6 +1101,13 @@ var PostsService = /** @class */ (function () {
             _this.posts = transformedPosts;
             _this.postsUpdated.next(_this.posts.slice());
         });
+    };
+    PostsService.prototype.titleCase = function (str) {
+        str = str.toLowerCase().split(' ');
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join(' ');
     };
     PostsService.prototype.getUserDetail = function () {
         var _this = this;
@@ -1540,7 +1550,10 @@ var DilogSubscribeComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         this.stardate = new Date();
-        this.enddate = new Date();
+        this.date = new Date();
+        this.enddate = this.date;
+        this.date.setDate(this.date.getDate() + 7);
+        this.enddate = this.date;
     }
     DilogSubscribeComponent.prototype.onNoClick = function () {
         this.dialogRef.close([]);
@@ -2063,7 +2076,10 @@ var DilogdateStartendComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         this.stardate = new Date();
-        this.enddate = new Date();
+        this.date = new Date();
+        this.enddate = this.date;
+        this.date.setDate(this.date.getDate() + 7);
+        this.enddate = this.date;
     }
     DilogdateStartendComponent.prototype.onNoClick = function () {
         this.dialogRef.close([]);
@@ -2112,7 +2128,7 @@ module.exports = "table {\n  width: 100%;\n}\n.filter {\n  font-size: 14px;\n  w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<mat-card  *ngIf=\"!isLoading\">\n    <form>\n        <mat-form-field class=\"filter\">\n        \n          <input  matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n        </mat-form-field>\n\n<button class = \"buttonright1\"\nmat-raised-button\ncolor=\"accent\"\ntype=\"Subscribe\" (click)=\"deleteUser()\">Delete User</button>\n          <button class = \"buttonright3\"\n          mat-raised-button\n          color=\"accent\"\n          type=\"trial\" (click)=\"exportRecord()\">Export All Record</button>\n          <button class = \"buttonright2\"\n          mat-raised-button\n          color=\"accent\"\n          type=\"Subscribe\" (click)=\"subscribe()\">Subscribe</button>\n        </form>\n        \n\n        <div class=\"mat-elevation-z8\">\n            <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n            \n              <!-- Checkbox Column -->\n              <ng-container matColumnDef=\"Select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\"\n                                [checked]=\"selection.isSelected(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n            \n              <!-- Position Column -->\n              <!-- <ng-container matColumnDef=\"position\">\n                <th mat-header-cell *matHeaderCellDef> No. </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n              </ng-container> -->\n            \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"Email\">\n                <th mat-header-cell *matHeaderCellDef> Email </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"Services\">\n                <th mat-header-cell *matHeaderCellDef> Services </th>\n                <td mat-cell *matCellDef=\"let element\" > {{element.servicesname}} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"Phone\">\n                <th mat-header-cell *matHeaderCellDef> Phone </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n              </ng-container>\n            \n              <!-- Symbol Column -->\n              <ng-container matColumnDef=\"Country\">\n                <th mat-header-cell *matHeaderCellDef> Country </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.country}} </td>\n              </ng-container>\n               <!-- Symbol Column -->\n            \n               <!-- <ng-container matColumnDef=\"Free Trial Aprroved\">\n                <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.isfreetrailaproove}} </td>\n              </!--> -->\n              \n              <ng-container matColumnDef=\"IP\">\n                <th mat-header-cell *matHeaderCellDef>IP</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.IP}} </td>\n              </ng-container>\n            \n              <ng-container matColumnDef=\"Start Date\">\n                <th mat-header-cell *matHeaderCellDef>Start Date</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.startdate}} </td>\n              </ng-container>\n              <ng-container matColumnDef=\"End Date\">\n                <th mat-header-cell *matHeaderCellDef>End Date</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.enddate}} </td>\n              </ng-container>\n              <ng-container matColumnDef=\"Amount\">\n                <th mat-header-cell *matHeaderCellDef>Amount</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.amountrecive}} </td>\n              </ng-container>\n            \n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                  (click)=\"selection.toggle(row)\">\n              </tr>\n            </table>\n            <!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator> -->\n            </div>\n</mat-card>\n\n"
+module.exports = "\n<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<mat-card  *ngIf=\"!isLoading\">\n    <form>\n        <mat-form-field class=\"filter\">\n        \n          <input  matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n        </mat-form-field>\n\n<button class = \"buttonright1\"\nmat-raised-button\ncolor=\"accent\"\ntype=\"Subscribe\" (click)=\"deleteUser()\">Delete User</button>\n          <button class = \"buttonright3\"\n          mat-raised-button\n          color=\"accent\"\n          type=\"trial\" (click)=\"exportRecord()\">Export All Record</button>\n          <button class = \"buttonright2\"\n          mat-raised-button\n          color=\"accent\"\n          type=\"Subscribe\" (click)=\"subscribe()\">Subscribe</button>\n        </form>\n        \n\n        <div class=\"mat-elevation-z8\">\n            <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n            \n              <!-- Checkbox Column -->\n              <ng-container matColumnDef=\"Select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\"\n                                [checked]=\"selection.isSelected(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n            \n              <!-- Position Column -->\n              <!-- <ng-container matColumnDef=\"position\">\n                <th mat-header-cell *matHeaderCellDef> No. </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n              </ng-container> -->\n            \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"Email\">\n                <th mat-header-cell *matHeaderCellDef> Email </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"Services\">\n                <th mat-header-cell *matHeaderCellDef> Services </th>\n                <td mat-cell *matCellDef=\"let element\" > {{element.servicesname}} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"Phone\">\n                <th mat-header-cell *matHeaderCellDef> Phone </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n              </ng-container>\n            \n              <!-- Symbol Column -->\n              <ng-container matColumnDef=\"Country\">\n                <th mat-header-cell *matHeaderCellDef> Country </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.country}} </td>\n              </ng-container>\n               <!-- Symbol Column -->\n            \n               <!-- <ng-container matColumnDef=\"Free Trial Aprroved\">\n                <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.isfreetrailaproove}} </td>\n              </!--> -->\n              \n              <ng-container matColumnDef=\"IP\">\n                <th mat-header-cell *matHeaderCellDef>IP</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.IP}} </td>\n              </ng-container>\n            \n              <!-- <ng-container matColumnDef=\"Start Date\">\n                <th mat-header-cell *matHeaderCellDef>Start Date</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.startdate}} </td>\n              </ng-container>\n              <ng-container matColumnDef=\"End Date\">\n                <th mat-header-cell *matHeaderCellDef>End Date</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.enddate}} </td>\n              </ng-container> -->\n              <ng-container matColumnDef=\"Amount\">\n                <th mat-header-cell *matHeaderCellDef>Amount</th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.amountrecive}} </td>\n              </ng-container>\n            \n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                  (click)=\"selection.toggle(row)\">\n              </tr>\n            </table>\n            <!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator> -->\n            </div>\n</mat-card>\n\n"
 
 /***/ }),
 
@@ -2151,7 +2167,7 @@ var UserplannotsubscribedSubscribeduserlistComponent = /** @class */ (function (
         this.stardate = "";
         this.isSubscriptionClicked = false;
         this.userdetails = [];
-        this.displayedColumns = ['Select', 'Email', 'Services', 'Phone', 'Country', 'IP', 'Start Date', 'End Date', 'Amount'];
+        this.displayedColumns = ['Select', 'Email', 'Services', 'Phone', 'Country', 'IP', 'Amount'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"]();
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
     }

@@ -29,10 +29,13 @@ export class PostsService {
           return postData.posts.map(post => {
             return {
               title: post.title,
-              services: post.services,
+              services:post.services.map(element => {
+                console.log(element.toUpperCase())
+               return this.titleCase(element)
+              }),
               id: post._id
             };
-          });
+          }); 
         })
       )
       .subscribe(transformedPosts => {
@@ -41,7 +44,13 @@ export class PostsService {
       });
   }
 
-
+   titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+    }
+    return str.join(' ');
+  }
   getUserDetail() {
     this.http
       .get<{ message: string; posts: any }>("http://75.98.169.159:1000/api/userdetails/freeetrail")

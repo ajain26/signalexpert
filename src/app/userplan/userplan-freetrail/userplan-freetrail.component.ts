@@ -194,11 +194,18 @@ export interface AmountData {
 
 export class DilogSubscribeComponent {
   stardate = new Date()
-  enddate = new Date();
+  date = new Date()
+  enddate = this.date
 
   constructor(
+    
     public dialogRef: MatDialogRef<DilogSubscribeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: AmountData) {}
+    @Inject(MAT_DIALOG_DATA) public data: AmountData) {
+      this.date.setDate(this.date.getDate() + 7); 
+      this.enddate = this.date
+
+
+    }
 
   onNoClick(): void {
     this.dialogRef.close([]);
@@ -210,7 +217,9 @@ export class DilogSubscribeComponent {
   }
   addStartDate(type: string, event: MatDatepickerInputEvent<Date>) {
     this.stardate =  event.value
-    this.enddate  =  event.value
+     this.enddate  =  event.value
+
+
  }
  addEnddate(type: string, event: MatDatepickerInputEvent<Date>) {
      //this.selectedUser.enddate =  event.value;
