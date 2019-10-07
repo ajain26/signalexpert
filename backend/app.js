@@ -9,7 +9,7 @@ const adminuserRoutes = require("./routes/adminuser");
 const app = express();
 
 var http = require('http').Server(app);
-const PORT = process.env.PORT || 2000
+const PORT = process.env.PORT || 1000
 
 
 var io = require('socket.io')(http);

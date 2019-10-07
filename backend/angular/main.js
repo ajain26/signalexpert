@@ -41,11 +41,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
 /* harmony import */ var _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./posts/post-list/post-list.component */ "./src/app/posts/post-list/post-list.component.ts");
-/* harmony import */ var _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./posts/post-create/post-create.component */ "./src/app/posts/post-create/post-create.component.ts");
-/* harmony import */ var _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./posts/post-messagetemplate/post-messagetemplate.component */ "./src/app/posts/post-messagetemplate/post-messagetemplate.component.ts");
-/* harmony import */ var _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./userplan/userplan-freetrail/userplan-freetrail.component */ "./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component */ "./src/app/userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component.ts");
+/* harmony import */ var _users_client_users_client_users_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./users/client-users/client-users.component */ "./src/app/users/client-users/client-users.component.ts");
+/* harmony import */ var _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./posts/post-create/post-create.component */ "./src/app/posts/post-create/post-create.component.ts");
+/* harmony import */ var _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./posts/post-messagetemplate/post-messagetemplate.component */ "./src/app/posts/post-messagetemplate/post-messagetemplate.component.ts");
+/* harmony import */ var _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./userplan/userplan-freetrail/userplan-freetrail.component */ "./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component */ "./src/app/userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component.ts");
+
 
 
 
@@ -60,16 +62,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'Messages', component: _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_7__["PostListComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'createtemp', component: _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_9__["PostMessagetemplateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'create', component: _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_8__["PostCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'freetrial', component: _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_10__["UserplanFreetrailComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'subscribed', component: _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_12__["UserplanSubscribeduserlistComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'notfreetrial', component: _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_1__["UserplannotapprooveFreetrailComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'notsubscribed', component: _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_2__["UserplannotsubscribedSubscribeduserlistComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
+    { path: 'Messages', component: _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_7__["PostListComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'createtemp', component: _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_10__["PostMessagetemplateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'create', component: _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_9__["PostCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'freetrial', component: _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_11__["UserplanFreetrailComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'subscribed', component: _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_13__["UserplanSubscribeduserlistComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'notfreetrial', component: _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_1__["UserplannotapprooveFreetrailComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'notsubscribed', component: _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_2__["UserplannotsubscribedSubscribeduserlistComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
     { path: "", component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"] },
-    { path: 'edit/:postId', component: _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_8__["PostCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'Admin List', component: _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] }
+    { path: 'edit/:postId', component: _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_9__["PostCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'Admin List', component: _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'All Users', component: _users_client_users_client_users_component__WEBPACK_IMPORTED_MODULE_8__["ClientUsersComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -78,7 +81,7 @@ var AppRoutingModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({
             imports: [_angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes)],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"]],
-            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]]
+            providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -157,22 +160,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./posts/post-create/post-create.component */ "./src/app/posts/post-create/post-create.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./posts/post-list/post-list.component */ "./src/app/posts/post-list/post-list.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _posts_post_selectionlist_post_selectionlist_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./posts/post-selectionlist/post-selectionlist.component */ "./src/app/posts/post-selectionlist/post-selectionlist.component.ts");
-/* harmony import */ var _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./posts/post-messagetemplate/post-messagetemplate.component */ "./src/app/posts/post-messagetemplate/post-messagetemplate.component.ts");
-/* harmony import */ var _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./userplan/userplan-freetrail/userplan-freetrail.component */ "./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts");
-/* harmony import */ var _userplan_userplan_startsubscription_userplan_startsubscription_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./userplan/userplan-startsubscription/userplan-startsubscription.component */ "./src/app/userplan/userplan-startsubscription/userplan-startsubscription.component.ts");
-/* harmony import */ var _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component */ "./src/app/userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component.ts");
-/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
-/* harmony import */ var _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./users/admin/admin/admin.component */ "./src/app/users/admin/admin/admin.component.ts");
-/* harmony import */ var _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component */ "./src/app/userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component.ts");
-/* harmony import */ var _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component */ "./src/app/userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component.ts");
+/* harmony import */ var _ncstate_sat_popover__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ncstate/sat-popover */ "./node_modules/@ncstate/sat-popover/fesm5/ncstate-sat-popover.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./posts/post-create/post-create.component */ "./src/app/posts/post-create/post-create.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./posts/post-list/post-list.component */ "./src/app/posts/post-list/post-list.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _posts_post_selectionlist_post_selectionlist_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./posts/post-selectionlist/post-selectionlist.component */ "./src/app/posts/post-selectionlist/post-selectionlist.component.ts");
+/* harmony import */ var _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./posts/post-messagetemplate/post-messagetemplate.component */ "./src/app/posts/post-messagetemplate/post-messagetemplate.component.ts");
+/* harmony import */ var _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./userplan/userplan-freetrail/userplan-freetrail.component */ "./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts");
+/* harmony import */ var _userplan_userplan_startsubscription_userplan_startsubscription_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./userplan/userplan-startsubscription/userplan-startsubscription.component */ "./src/app/userplan/userplan-startsubscription/userplan-startsubscription.component.ts");
+/* harmony import */ var _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component */ "./src/app/userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component.ts");
+/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
+/* harmony import */ var _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./users/admin/admin/admin.component */ "./src/app/users/admin/admin/admin.component.ts");
+/* harmony import */ var _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component */ "./src/app/userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component.ts");
+/* harmony import */ var _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component */ "./src/app/userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component.ts");
+/* harmony import */ var _users_client_users_client_users_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./users/client-users/client-users.component */ "./src/app/users/client-users/client-users.component.ts");
+/* harmony import */ var _custom_inline_edit_inline_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./custom/inline-edit/inline-edit.component */ "./src/app/custom/inline-edit/inline-edit.component.ts");
+
+
+
 
 
 
@@ -201,48 +210,53 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-                _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_9__["PostCreateComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
-                _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__["PostListComponent"],
-                _posts_post_selectionlist_post_selectionlist_component__WEBPACK_IMPORTED_MODULE_13__["PostSelectionlistComponent"],
-                _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_14__["PostMessagetemplateComponent"],
-                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["UserplanFreetrailComponent"],
-                _userplan_userplan_startsubscription_userplan_startsubscription_component__WEBPACK_IMPORTED_MODULE_16__["UserplanStartsubscriptionComponent"],
-                _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_17__["UserplanSubscribeduserlistComponent"],
-                _auth_login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
-                _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_19__["AdminComponent"],
-                _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_20__["UserplannotapprooveFreetrailComponent"],
-                _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_21__["UserplannotsubscribedSubscribeduserlistComponent"],
-                _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_20__["DilogdateStartendComponent"],
-                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["DilogSubscribeComponent"],
-                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["DilogDeleteComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
+                _posts_post_create_post_create_component__WEBPACK_IMPORTED_MODULE_10__["PostCreateComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"],
+                _posts_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_12__["PostListComponent"],
+                _posts_post_selectionlist_post_selectionlist_component__WEBPACK_IMPORTED_MODULE_14__["PostSelectionlistComponent"],
+                _posts_post_messagetemplate_post_messagetemplate_component__WEBPACK_IMPORTED_MODULE_15__["PostMessagetemplateComponent"],
+                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["UserplanFreetrailComponent"],
+                _userplan_userplan_startsubscription_userplan_startsubscription_component__WEBPACK_IMPORTED_MODULE_17__["UserplanStartsubscriptionComponent"],
+                _userplan_userplan_subscribeduserlist_userplan_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_18__["UserplanSubscribeduserlistComponent"],
+                _auth_login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"],
+                _users_admin_admin_admin_component__WEBPACK_IMPORTED_MODULE_20__["AdminComponent"],
+                _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_21__["UserplannotapprooveFreetrailComponent"],
+                _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_22__["UserplannotsubscribedSubscribeduserlistComponent"],
+                _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_21__["DilogdateStartendComponent"],
+                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogSubscribeComponent"],
+                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogDeleteComponent"],
+                _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogUpdateServiceComponent"],
+                _users_client_users_client_users_component__WEBPACK_IMPORTED_MODULE_23__["ClientUsersComponent"],
+                _custom_inline_edit_inline_edit_component__WEBPACK_IMPORTED_MODULE_24__["InlineEditComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatProgressSpinnerModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatOptionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatOptionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"],
+                _ncstate_sat_popover__WEBPACK_IMPORTED_MODULE_6__["SatPopoverModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"]
             ],
             providers: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
-            entryComponents: [_userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_20__["UserplannotapprooveFreetrailComponent"], _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_20__["DilogdateStartendComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["UserplanFreetrailComponent"], _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_21__["UserplannotsubscribedSubscribeduserlistComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["DilogSubscribeComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_15__["DilogDeleteComponent"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            entryComponents: [_userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_21__["UserplannotapprooveFreetrailComponent"], _userplan_userplannotapproove_freetrail_userplannotapproove_freetrail_component__WEBPACK_IMPORTED_MODULE_21__["DilogdateStartendComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["UserplanFreetrailComponent"], _userplan_userplannotsubscribed_subscribeduserlist_userplannotsubscribed_subscribeduserlist_component__WEBPACK_IMPORTED_MODULE_22__["UserplannotsubscribedSubscribeduserlistComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogSubscribeComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogDeleteComponent"], _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_16__["DilogUpdateServiceComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -565,7 +579,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div mat-dialog-content>\n  <div class=\"message\">\n    <p>\n      {{message}}\n    </p>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-button color=\"accent\" (click)=\"onNoClick()\">Cancel</button>\n  <button mat-button color=\"accent\" (click)=\"saveClick()\"  cdkFocusInitial>Delete</button>\n</div>\n\n"
+module.exports = "<div mat-dialog-content>\n  <div class=\"message\">\n    <p>\n      <mat-selection-list #shoes>\n          <mat-list-option *ngFor=\"let shoe of typesOfService\" (click)=\"onAreaListControlChanged(shoe)\" [value]=\"shoe\" checkboxPosition=\"before\">\n            {{shoe.toUpperCase()}}\n          </mat-list-option>\n        </mat-selection-list>\n    </p>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-button color=\"accent\" (click)=\"onNoClick()\">Cancel</button>\n  <button mat-button color=\"accent\" (click)=\"saveClick()\"  cdkFocusInitial>Delete</button>\n</div>\n\n"
 
 /***/ }),
 
@@ -580,6 +594,17 @@ module.exports = "<div mat-dialog-content>\n\n  <p>\n      <mat-form-field>\n\n 
 
 /***/ }),
 
+/***/ "./src/app/custom/dilog-updateservice/dilog-updateservice.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/custom/dilog-updateservice/dilog-updateservice.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div mat-dialog-content>\n    <div class=\"message\">\n      <p>\n        <mat-selection-list #shoes [(ngModel)]=\"selectedOptions\">\n            <mat-list-option *ngFor=\"let shoe of typesOfService\" (click)=\"onAreaListControlChanged(shoe)\" [value]=\"shoe\" checkboxPosition=\"before\">\n              \n                <h3 matLine> {{shoe.name.toUpperCase()}} </h3>\n                <p matLine>\n                  <span> {{shoe.servicetype}} </span>\n                </p>\n            </mat-list-option>\n          </mat-selection-list>\n          \n      </p>\n    </div>\n  </div>\n  <div mat-dialog-actions>\n    <button mat-button color=\"accent\" (click)=\"onNoClick()\">Cancel</button>\n    <button mat-button color=\"accent\" (click)=\"saveClick()\"  cdkFocusInitial>Update</button>\n  </div>\n  \n  "
+
+/***/ }),
+
 /***/ "./src/app/custom/dilogdate-startend/dilogdate-startend.component.html":
 /*!*****************************************************************************!*\
   !*** ./src/app/custom/dilogdate-startend/dilogdate-startend.component.html ***!
@@ -588,6 +613,90 @@ module.exports = "<div mat-dialog-content>\n\n  <p>\n      <mat-form-field>\n\n 
 /***/ (function(module, exports) {
 
 module.exports = "<div mat-dialog-content>\n  <p>\n      <mat-form-field>\n\n    <input matInput #fromInput [matDatepicker]=\"picker\" placeholder=\"From Date\"  [(ngModel)]=\"stardate\" (dateInput)=\"addStartDate('input', $event)\" (dateChange)=\"addStartDate('change', $event)\" disabled>\n  <mat-datepicker-toggle matSuffix [for]=\"picker\" ></mat-datepicker-toggle>\n  <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\n</mat-form-field>\n</p>\n\n<p>\n<mat-form-field>\n    <input matInput #endInput [min]=\"stardate\" name=\"enddate\" [(ngModel)]=\"enddate\"\n   [matDatepicker]=\"picker2\" placeholder=\"End Date\" (dateInput)=\"addEnddate('input', $event)\" (dateChange)=\"addEnddate('change', $event)\"disabled>\n    <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n    <mat-datepicker #picker2 disabled=\"false\"></mat-datepicker>\n     \n  </mat-form-field>\n</p>\n\n\n\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">Cancel</button>\n  <button mat-button (click)=\"saveClick()\" cdkFocusInitial>Save</button>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/custom/inline-edit/inline-edit.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/custom/inline-edit/inline-edit.component.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: block;\n  background: #f9f9f9;\n  border-radius: 2px;\n  padding: 16px 24px 8px;\n  min-width: 240px;\n}\n\n.mat-subheading-2 {\n  margin: 0;\n  font-weight: 500;\n}\n\n.mat-form-field {\n  width: 100%;\n  font-size: 14px;\n}\n\n.actions {\n  display: flex;\n  justify-content: flex-end;\n  margin-top: 8px;\n  margin-right: -16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY3VzdG9tL2lubGluZS1lZGl0L2lubGluZS1lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFjO0VBQ2QsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixzQkFBc0I7RUFDdEIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsU0FBUztFQUNULGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHlCQUF5QjtFQUN6QixlQUFlO0VBQ2YsbUJBQW1CO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvY3VzdG9tL2lubGluZS1lZGl0L2lubGluZS1lZGl0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBiYWNrZ3JvdW5kOiAjZjlmOWY5O1xuICBib3JkZXItcmFkaXVzOiAycHg7XG4gIHBhZGRpbmc6IDE2cHggMjRweCA4cHg7XG4gIG1pbi13aWR0aDogMjQwcHg7XG59XG5cbi5tYXQtc3ViaGVhZGluZy0yIHtcbiAgbWFyZ2luOiAwO1xuICBmb250LXdlaWdodDogNTAwO1xufVxuXG4ubWF0LWZvcm0tZmllbGQge1xuICB3aWR0aDogMTAwJTtcbiAgZm9udC1zaXplOiAxNHB4O1xufVxuXG4uYWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gIG1hcmdpbi10b3A6IDhweDtcbiAgbWFyZ2luLXJpZ2h0OiAtMTZweDtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/custom/inline-edit/inline-edit.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/custom/inline-edit/inline-edit.component.ts ***!
+  \*************************************************************/
+/*! exports provided: InlineEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InlineEditComponent", function() { return InlineEditComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ncstate_sat_popover__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ncstate/sat-popover */ "./node_modules/@ncstate/sat-popover/fesm5/ncstate-sat-popover.js");
+/* harmony import */ var rxjs_operators_filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators/filter */ "./node_modules/rxjs-compat/_esm5/operators/filter.js");
+
+
+
+
+var InlineEditComponent = /** @class */ (function () {
+    function InlineEditComponent(popover) {
+        this.popover = popover;
+        this._value = '';
+        /** Form model for the input. */
+        this.comment = '';
+    }
+    Object.defineProperty(InlineEditComponent.prototype, "value", {
+        /** Overrides the comment and provides a reset value when changes are cancelled. */
+        get: function () { return this._value; },
+        set: function (x) {
+            this.comment = this._value = x;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    InlineEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // subscribe to cancellations and reset form value
+        if (this.popover) {
+            this.popover.closed.pipe(Object(rxjs_operators_filter__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (val) { return val == null; }))
+                .subscribe(function () { return _this.comment = _this.value || ''; });
+        }
+    };
+    InlineEditComponent.prototype.onSubmit = function () {
+        if (this.popover) {
+            this.popover.close(this.comment);
+        }
+    };
+    InlineEditComponent.prototype.onCancel = function () {
+        if (this.popover) {
+            this.popover.close();
+        }
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String])
+    ], InlineEditComponent.prototype, "value", null);
+    InlineEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'inline-edit',
+            template: "\n    <form (ngSubmit)=\"onSubmit()\">\n      <div class=\"mat-subheading-2\">Add a comment</div>\n      \n      <mat-form-field>\n        <input matInput maxLength=\"140\" name=\"comment\" [(ngModel)]=\"comment\">\n        <mat-hint align=\"end\">{{comment?.length || 0}}/140</mat-hint>\n      </mat-form-field>\n\n      <div class=\"actions\">\n        <button mat-button type=\"button\" color=\"primary\" (click)=\"onCancel()\">CANCEL</button>\n        <button mat-button type=\"submit\" color=\"primary\">SAVE</button>\n      </div>\n    </form>\n  ",
+            styles: [__webpack_require__(/*! ./inline-edit.component.css */ "./src/app/custom/inline-edit/inline-edit.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Host"])()),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ncstate_sat_popover__WEBPACK_IMPORTED_MODULE_2__["SatPopover"]])
+    ], InlineEditComponent);
+    return InlineEditComponent;
+}());
+
+
 
 /***/ }),
 
@@ -609,7 +718,7 @@ module.exports = "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\na
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <mat-toolbar color=\"primary\">\n  <span>\n    <a routerLink=\"/\">MyMessages</a>\n  </span>\n  <span class=\"spacer\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/createtemp\" routerLinkActive=\"mat-accent\">Create Template</a>\n  </li>\n</ul>\n<span class=\"spacerright\"></span>\n  <ul>\n    <li>\n      <a mat-button routerLink=\"/create\" routerLinkActive=\"mat-accent\">New Post</a>\n    </li>\n  </ul>\n  <span class=\"spaceright\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/freetrial\" routerLinkActive=\"mat-accent\">Free trial</a>\n  </li>\n</ul>\n<span class=\"spaceright\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/subscribed\" routerLinkActive=\"mat-accent\">Subscribed User</a>\n  </li>\n</ul>\n</mat-toolbar> -->\n<mat-toolbar color=\"primary\">\n  <ul>\n    <li *ngIf=\"!userIsAuthenticated\">\n      <a mat-button routerLink=\"/\" routerLinkActive=\"mat-accent\">Login</a>\n    </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/createtemp\" routerLinkActive=\"mat-accent\">Create Template</a>\n    </li>\n    <li *ngIf=\"userIsAuthenticated\">\n     <a mat-button routerLink=\"/create\" routerLinkActive=\"mat-accent\">New Post</a>\n      </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/freetrial\" routerLinkActive=\"mat-accent\">Free Trial</a>\n    </li>\n    <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/notfreetrial\" routerLinkActive=\"mat-accent\">Free Trial Pending</a>\n    </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/subscribed\" routerLinkActive=\"mat-accent\">Subscribed User</a>\n    </li>\n  \n  <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n  <a mat-button routerLink=\"/notsubscribed\" routerLinkActive=\"mat-accent\">Subscription Pending</a>\n</li>\n    <li *ngIf=\"userIsAuthenticated\">\n        <a mat-button routerLink=\"/Messages\" routerLinkActive=\"mat-accent\">Messages</a>\n      </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n        <a mat-button routerLink=\"/Admin List\" routerLinkActive=\"mat-accent\">Admin List</a>\n      </li>\n    <li *ngIf=\"userIsAuthenticated\">\n        <button mat-button (click)=\"onLogout()\">Logout</button>\n      </li>\n\n      <li >\n\n     \n    \n  </ul>\n</mat-toolbar>\n"
+module.exports = "<!-- <mat-toolbar color=\"primary\">\n  <span>\n    <a routerLink=\"/\">MyMessages</a>\n  </span>\n  <span class=\"spacer\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/createtemp\" routerLinkActive=\"mat-accent\">Create Template</a>\n  </li>\n</ul>\n<span class=\"spacerright\"></span>\n  <ul>\n    <li>\n      <a mat-button routerLink=\"/create\" routerLinkActive=\"mat-accent\">New Post</a>\n    </li>\n  </ul>\n  <span class=\"spaceright\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/freetrial\" routerLinkActive=\"mat-accent\">Free trial</a>\n  </li>\n</ul>\n<span class=\"spaceright\"></span>\n  <ul>\n    <li>\n    <a mat-button routerLink=\"/subscribed\" routerLinkActive=\"mat-accent\">Subscribed User</a>\n  </li>\n</ul>\n</mat-toolbar> -->\n<mat-toolbar color=\"primary\">\n  <ul>\n    <li *ngIf=\"!userIsAuthenticated\">\n      <a mat-button routerLink=\"/\" routerLinkActive=\"mat-accent\">Login</a>\n    </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/createtemp\" routerLinkActive=\"mat-accent\">Create Template</a>\n    </li>\n    <li *ngIf=\"userIsAuthenticated\">\n     <a mat-button routerLink=\"/create\" routerLinkActive=\"mat-accent\">New Post</a>\n      </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/freetrial\" routerLinkActive=\"mat-accent\">Free Trial</a>\n    </li>\n    <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/notfreetrial\" routerLinkActive=\"mat-accent\">Free Trial Pending</a>\n    </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n      <a mat-button routerLink=\"/subscribed\" routerLinkActive=\"mat-accent\">Subscribed User</a>\n    </li>\n  \n  <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n  <a mat-button routerLink=\"/notsubscribed\" routerLinkActive=\"mat-accent\">Subscription Pending</a>\n</li>\n    <li *ngIf=\"userIsAuthenticated\">\n        <a mat-button routerLink=\"/Messages\" routerLinkActive=\"mat-accent\">Messages</a>\n      </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n        <a mat-button routerLink=\"/Admin List\" routerLinkActive=\"mat-accent\">Admin List</a>\n      </li>\n      <li *ngIf=\"userIsAuthenticated && userIsSadmin\">\n        <a mat-button routerLink=\"/All Users\" routerLinkActive=\"mat-accent\">All Users</a>\n      </li>\n    <li *ngIf=\"userIsAuthenticated\">\n        <button mat-button (click)=\"onLogout()\">Logout</button>\n      </li>\n\n      <li >\n\n     \n    \n  </ul>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -833,7 +942,7 @@ module.exports = ":host {\n  display: block;\n  margin-top: 1rem;\n}\n\nmat-spin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<!-- <mat-accordion multi=\"true\" *ngIf=\"posts.length > 0 && !isLoading\" > -->\n\n\n  <!-- <mat-expansion-panel *ngFor=\"let post of posts\"> -->\n      <!-- <mat-list role=\"list\" *ngFor=\"let post of posts\" >\n          <mat-list-item role=\"listitem\">{{ post.title }}</mat-list-item>\n          <mat-divider></mat-divider>\n        </mat-list> -->\n        <mat-list>\n          <mat-list-item role=\"list\" *ngFor=\"let post of posts\">\n            <h3 matLine> Message: {{post.title}} </h3>\n            <p matLine>\n              <span> Services: {{post.services}} </span>\n            </p>\n          </mat-list-item>\n        </mat-list>\n    <!-- <mat-expansion-panel-header>\n\n    </mat-expansion-panel-header> -->\n    <!-- <p>{{ post.content }}</p> -->\n    <!-- <mat-action-row>\n      <a mat-button color=\"primary\" [routerLink]=\"['/edit', post.id]\">EDIT</a>\n      <button mat-button color=\"warn\" (click)=\"onDelete(post.id)\">DELETE</button>\n    </mat-action-row> -->\n  <!-- </mat-expansion-panel> -->\n<!-- </mat-accordion> -->\n<p class=\"info-text mat-body-1\" *ngIf=\"posts.length <= 0 && !isLoading\">No posts added yet!</p>\n"
+module.exports = "<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n<!-- <mat-accordion multi=\"true\" *ngIf=\"posts.length > 0 && !isLoading\" > -->\n\n\n  <!-- <mat-expansion-panel *ngFor=\"let post of posts\"> -->\n      <!-- <mat-list role=\"list\" *ngFor=\"let post of posts\" >\n          <mat-list-item role=\"listitem\">{{ post.title }}</mat-list-item>\n          <mat-divider></mat-divider>\n        </mat-list> -->\n        <mat-list>\n          <mat-list-item role=\"list\" *ngFor=\"let post of posts\">\n            <h3 matLine> Message: {{post.title}} </h3>\n            <p matLine>\n              <span> Services: {{post.services}} </span>\n            </p>\n            <p matLine>\n                <span> Date: {{post.currentdate}} </span>\n              </p>\n          </mat-list-item>\n        </mat-list>\n    <!-- <mat-expansion-panel-header>\n\n    </mat-expansion-panel-header> -->\n    <!-- <p>{{ post.content }}</p> -->\n    <!-- <mat-action-row>\n      <a mat-button color=\"primary\" [routerLink]=\"['/edit', post.id]\">EDIT</a>\n      <button mat-button color=\"warn\" (click)=\"onDelete(post.id)\">DELETE</button>\n    </mat-action-row> -->\n  <!-- </mat-expansion-panel> -->\n<!-- </mat-accordion> -->\n<p class=\"info-text mat-body-1\" *ngIf=\"posts.length <= 0 && !isLoading\">No posts added yet!</p>\n"
 
 /***/ }),
 
@@ -1076,10 +1185,13 @@ var PostsService = /** @class */ (function () {
         this.posts = [];
         this.posttemplate = [];
         this.userdetails = [];
+        this.userfilterdetails = [];
         this.userdetailUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.userdetailFilterUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.postsUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.postsTemplateUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.Services = [];
+        this.pricing = [];
     }
     PostsService.prototype.getPosts = function () {
         var _this = this;
@@ -1093,13 +1205,43 @@ var PostsService = /** @class */ (function () {
                         console.log(element.toUpperCase());
                         return _this.titleCase(element);
                     }),
-                    id: post._id
+                    id: post._id,
+                    currentdate: _this.datepipe.transform(post.date, 'yyyy-MM-dd')
                 };
             });
         }))
             .subscribe(function (transformedPosts) {
+            _this.getPricing();
             _this.posts = transformedPosts;
             _this.postsUpdated.next(_this.posts.slice());
+        });
+    };
+    PostsService.prototype.getfilterUser = function (qs) {
+        var _this = this;
+        this.http
+            .get("http://75.98.169.159:1000/api/userdetails/filteruser" + qs)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (postData) {
+            return postData.posts.map(function (post) {
+                return {
+                    email: post.Email,
+                    services: post.services,
+                    servicesname: post.services.map(function (model) { return model.name; }),
+                    country: post.Country,
+                    phone: post.PhoneNumber,
+                    issubscribed: post.issubscribed,
+                    isSubscriptionaproove: post.isSubscriptionaproove,
+                    isfreetrailaproove: post.isfreetrailaproove,
+                    isexpire: post.isexpire,
+                    startdate: _this.datepipe.transform(post.startdate, 'yyyy-MM-dd') ? _this.datepipe.transform(post.startdate, 'yyyy-MM-dd') : '',
+                    enddate: _this.datepipe.transform(post.enddate, 'yyyy-MM-dd') ? _this.datepipe.transform(post.enddate, 'yyyy-MM-dd') : '',
+                    IP: post.IP,
+                };
+            });
+        }))
+            .subscribe(function (transformedPosts) {
+            console.log(transformedPosts);
+            _this.userfilterdetails = transformedPosts;
+            _this.userdetailFilterUpdated.next(_this.userfilterdetails.slice());
         });
     };
     PostsService.prototype.titleCase = function (str) {
@@ -1211,6 +1353,26 @@ var PostsService = /** @class */ (function () {
             _this.getSubscribedUserDetail();
         });
     };
+    PostsService.prototype.getPricing = function () {
+        var _this = this;
+        this.http
+            .get("http://75.98.169.159:1000/api/userdetails/servicesweb")
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (postData) {
+            return postData.price.map(function (post) {
+                return {
+                    pricetype: post.pricetype,
+                    price: post.price,
+                    selected: post.selected,
+                    name: post.name,
+                    servicetype: post.servicetype,
+                };
+            });
+        }))
+            .subscribe(function (transformedPosts) {
+            _this.pricing = transformedPosts;
+            console.log(_this.pricing);
+        });
+    };
     PostsService.prototype.sendinitialSubscriptionRequest = function (userdetail) {
         var _this = this;
         this.http
@@ -1234,6 +1396,19 @@ var PostsService = /** @class */ (function () {
             else {
                 alert("record not updated");
             }
+        });
+    };
+    PostsService.prototype.updateservices = function (Email, services, qs) {
+        var _this = this;
+        this.http
+            .post("http://75.98.169.159:1000/api/userdetails/updateservices", { Email: Email,
+            services: services
+        })
+            .subscribe(function (responseData) {
+            console.log(responseData);
+            alert("record updated succesfully");
+            console.log(qs);
+            _this.getfilterUser(qs);
         });
     };
     PostsService.prototype.sendaproovalSubscriptionRequest = function (userdetail) {
@@ -1268,12 +1443,15 @@ var PostsService = /** @class */ (function () {
     PostsService.prototype.getUserDetailListener = function () {
         return this.userdetailUpdated.asObservable();
     };
+    PostsService.prototype.getUserfilterDetailListener = function () {
+        return this.userdetailFilterUpdated.asObservable();
+    };
     PostsService.prototype.getPost = function (id) {
         return this.http.get("http://75.98.169.159:1000/api/posts/" + id);
     };
     PostsService.prototype.addPost = function (title, services) {
         var _this = this;
-        var post = { id: null, title: title, services: this.Services };
+        var post = { id: null, title: title, services: this.Services, currentdate: new Date() };
         console.log({ id: null, title: title, services: this.Services });
         this.http
             .post("http://75.98.169.159:1000/api/posts", post)
@@ -1301,7 +1479,7 @@ var PostsService = /** @class */ (function () {
     };
     PostsService.prototype.updatePost = function (id, title, services) {
         var _this = this;
-        var post = { id: id, title: title, services: [] };
+        var post = { id: id, title: title, services: [], currentdate: new Date() };
         this.http
             .put("http://75.98.169.159:1000/api/posts/" + id, post)
             .subscribe(function (response) {
@@ -1359,7 +1537,7 @@ module.exports = "\n\n<!-- <mat-card  *ngIf=\"isSubscriptionClicked\">\n  <form 
 /*!*****************************************************************************!*\
   !*** ./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts ***!
   \*****************************************************************************/
-/*! exports provided: UserplanFreetrailComponent, DilogSubscribeComponent, DilogDeleteComponent */
+/*! exports provided: UserplanFreetrailComponent, DilogSubscribeComponent, DilogDeleteComponent, DilogUpdateServiceComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1367,6 +1545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserplanFreetrailComponent", function() { return UserplanFreetrailComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DilogSubscribeComponent", function() { return DilogSubscribeComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DilogDeleteComponent", function() { return DilogDeleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DilogUpdateServiceComponent", function() { return DilogUpdateServiceComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _posts_posts_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../posts/posts.service */ "./src/app/posts/posts.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -1603,6 +1782,47 @@ var DilogDeleteComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialogRef"], Object])
     ], DilogDeleteComponent);
     return DilogDeleteComponent;
+}());
+
+var DilogUpdateServiceComponent = /** @class */ (function () {
+    function DilogUpdateServiceComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.selectedOptions = [];
+        this.typesOfService = [];
+        this.message = "Are you sure you want to delete the user?";
+        console.log(data);
+        this.selectedOptions = data.typeservice.filter(function (option) { return data.selectedOptions.find(function (select) { return option.name == select.name && option.servicetype == select.servicetype; }); });
+        this.typesOfService = data.typeservice;
+    }
+    DilogUpdateServiceComponent.prototype.onAreaListControlChanged = function (list) {
+        // let indexelement: number = this.selectedOptions.indexOf(list);
+        // if(indexelement !== -1)
+        // {
+        //   this.selectedOptions.splice(indexelement, 1);
+        // }
+        // else
+        // {
+        // this.selectedOptions.push(list);
+        // }
+    };
+    DilogUpdateServiceComponent.prototype.onNoClick = function () {
+        this.dialogRef.close([]);
+    };
+    DilogUpdateServiceComponent.prototype.saveClick = function () {
+        //alert(this.data.amount)
+        console.log(this.selectedOptions);
+        this.dialogRef.close(this.selectedOptions);
+    };
+    DilogUpdateServiceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-dilog-updateservice',
+            template: __webpack_require__(/*! ../../custom/dilog-updateservice/dilog-updateservice.component.html */ "./src/app/custom/dilog-updateservice/dilog-updateservice.component.html")
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MAT_DIALOG_DATA"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialogRef"], Object])
+    ], DilogUpdateServiceComponent);
+    return DilogUpdateServiceComponent;
 }());
 
 
@@ -1881,7 +2101,7 @@ module.exports = "table {\n    width: 100%;\n  }\n  .filter {\n    font-size: 14
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n\n<mat-card  *ngIf=\"!isLoading\">\n  \n<form>\n<mat-form-field class=\"filter\">\n\n  <input  matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n  \n<button class = \"buttonright2\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"trial()\">Approve Trail</button>\n  <button class = \"buttonright1\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"deleteUser()\">Delete User</button>\n  <button class = \"buttonright3\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"trial\" (click)=\"exportRecord()\">Export All Record</button>\n\n  \n</form>\n\n\n<div class=\"mat-elevation-z8\">\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Checkbox Column -->\n  <ng-container matColumnDef=\"Select\">\n    <th mat-header-cell *matHeaderCellDef>\n      <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n      </mat-checkbox>\n    </th>\n    <td mat-cell *matCellDef=\"let row\">\n      <mat-checkbox (click)=\"$event.stopPropagation()\"\n                    (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\">\n      </mat-checkbox>\n    </td>\n  </ng-container>\n\n  <!-- Position Column -->\n  <!-- <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container> -->\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"Email\">\n    <th mat-header-cell *matHeaderCellDef> Email </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Services\">\n    <th mat-header-cell *matHeaderCellDef> Services </th>\n    <td mat-cell *matCellDef=\"let element\" > {{element.servicesname}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Phone\">\n    <th mat-header-cell *matHeaderCellDef> Phone </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"Country\">\n    <th mat-header-cell *matHeaderCellDef> Country </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.country}} </td>\n  </ng-container>\n   <!-- Symbol Column -->\n\n   <!-- <ng-container matColumnDef=\"Free Trial Aprroved\">\n    <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.isfreetrailaproove}} </td>\n  </ng-container> -->\n  \n  <ng-container matColumnDef=\"IP\">\n    <th mat-header-cell *matHeaderCellDef>IP</th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.IP}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n      (click)=\"selection.toggle(row)\">\n  </tr>\n</table>\n<!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator> -->\n</div>\n</mat-card>\n\n"
+module.exports = "\n\n\n<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n\n<mat-card  *ngIf=\"!isLoading\">\n  \n<form>\n<mat-form-field class=\"filter\">\n  <input  matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<button class = \"buttonright2\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"trial()\">Approve Trail</button>\n  <button class = \"buttonright1\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"deleteUser()\">Delete User</button>\n  <button class = \"buttonright3\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"trial\" (click)=\"exportRecord()\">Export All Record</button>\n</form>\n\n\n<div class=\"mat-elevation-z8\">\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Checkbox Column -->\n  <ng-container matColumnDef=\"Select\">\n    <th mat-header-cell *matHeaderCellDef>\n      <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n      </mat-checkbox>\n    </th>\n    <td mat-cell *matCellDef=\"let row\">\n      <mat-checkbox (click)=\"$event.stopPropagation()\"\n                    (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\">\n      </mat-checkbox>\n    </td>\n  </ng-container>\n\n  <!-- Position Column -->\n  <!-- <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container> -->\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"Email\">\n    <th mat-header-cell *matHeaderCellDef> Email </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Services\">\n    <th mat-header-cell *matHeaderCellDef> Services </th>\n    <td mat-cell *matCellDef=\"let element\" > {{element.servicesname}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Phone\">\n    <th mat-header-cell *matHeaderCellDef> Phone </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"Country\">\n    <th mat-header-cell *matHeaderCellDef> Country </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.country}} </td>\n  </ng-container>\n   <!-- Symbol Column -->\n\n   <!-- <ng-container matColumnDef=\"Free Trial Aprroved\">\n    <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.isfreetrailaproove}} </td>\n  </ng-container> -->\n  \n  <ng-container matColumnDef=\"IP\">\n    <th mat-header-cell *matHeaderCellDef>IP</th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.IP}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n      (click)=\"selection.toggle(row)\">\n  </tr>\n</table>\n<!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator> -->\n</div>\n</mat-card>\n\n"
 
 /***/ }),
 
@@ -1947,7 +2167,7 @@ var UserplannotapprooveFreetrailComponent = /** @class */ (function () {
             .subscribe(function (userdetails) {
             _this.userdetails = userdetails;
             _this.isLoading = false;
-            _this.userdetails = _this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === false; });
+            _this.userdetails = _this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === false && userdetails.isSubscriptionaproove === false && userdetails.issubscribed == false; });
             _this.dataSource.data = _this.userdetails;
             _this.dismiss();
         });
@@ -2637,6 +2857,248 @@ var AdminComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_admin_service__WEBPACK_IMPORTED_MODULE_3__["AdminService"]])
     ], AdminComponent);
     return AdminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/users/client-users/client-users.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/users/client-users/client-users.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "table {\n  margin-top: 50px;\n  width: 100%;\n}\n.filter {\n  font-size: 14px;\n  width: 100%;\n}\n.firstLabel {\n  margin-right: 2px;\n}\n.dismissbutton{\n  left: 10px;\n  margin: 0;\n}\n.buttonfilter\n{\n  position: absolute;\n  right: 150px;\n  margin: 0;\n}\n.buttonright1{\n  position: absolute;\n  right: 20px;\n  margin: 0;\n}\n.buttonright2{\n  position: absolute;\n  right: 150px;\n  margin: 0;\n}\n.buttonright3{\n  position: absolute;\n  right: 270px;\n  margin: 0;\n}\n.spacerright {\n  flex: 10;\n}\n.mat-column-Email {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 15% !important;\n  width: 25% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n.mat-column-Services {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 20% !important;\n  width: 50% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n/* .mat-column-Phone {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 17% !important;\n  width: 17% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -moz-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n */\n.mat-column-Country {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 8% !important;\n  width: 8% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n.mat-column-Select {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 10% !important;\n  width: 10% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n.Free Trial Aprroved {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 3% !important;\n  width: 3% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n.IP {\n  word-wrap: break-word !important;\n  white-space: unset !important;\n  flex: 0 0 3% !important;\n  width: 3% !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n\n  word-break: break-word;\n\n  -ms-hyphens: auto;\n  -webkit-hyphens: auto;\n  hyphens: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlcnMvY2xpZW50LXVzZXJzL2NsaWVudC11c2Vycy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7QUFDYjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsU0FBUztBQUNYO0FBQ0E7O0VBRUUsa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixTQUFTO0FBQ1g7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsU0FBUztBQUNYO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLFNBQVM7QUFDWDtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixTQUFTO0FBQ1g7QUFDQTtFQUNFLFFBQVE7QUFDVjtBQUVBO0VBQ0UsZ0NBQWdDO0VBQ2hDLDZCQUE2QjtFQUM3Qix3QkFBd0I7RUFDeEIscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QixxQkFBcUI7O0VBRXJCLHNCQUFzQjs7RUFFdEIsaUJBQWlCO0VBRWpCLHFCQUFxQjtFQUNyQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGdDQUFnQztFQUNoQyw2QkFBNkI7RUFDN0Isd0JBQXdCO0VBQ3hCLHFCQUFxQjtFQUNyQix5QkFBeUI7RUFDekIscUJBQXFCOztFQUVyQixzQkFBc0I7O0VBRXRCLGlCQUFpQjtFQUVqQixxQkFBcUI7RUFDckIsYUFBYTtBQUNmO0FBSUE7Ozs7Ozs7Ozs7Ozs7OztFQWVFO0FBQ0Y7RUFDRSxnQ0FBZ0M7RUFDaEMsNkJBQTZCO0VBQzdCLHVCQUF1QjtFQUN2QixvQkFBb0I7RUFDcEIseUJBQXlCO0VBQ3pCLHFCQUFxQjs7RUFFckIsc0JBQXNCOztFQUV0QixpQkFBaUI7RUFFakIscUJBQXFCO0VBQ3JCLGFBQWE7QUFDZjtBQUVBO0VBQ0UsZ0NBQWdDO0VBQ2hDLDZCQUE2QjtFQUM3Qix3QkFBd0I7RUFDeEIscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QixxQkFBcUI7O0VBRXJCLHNCQUFzQjs7RUFFdEIsaUJBQWlCO0VBRWpCLHFCQUFxQjtFQUNyQixhQUFhO0FBQ2Y7QUFFQTtFQUNFLGdDQUFnQztFQUNoQyw2QkFBNkI7RUFDN0IsdUJBQXVCO0VBQ3ZCLG9CQUFvQjtFQUNwQix5QkFBeUI7RUFDekIscUJBQXFCOztFQUVyQixzQkFBc0I7O0VBRXRCLGlCQUFpQjtFQUVqQixxQkFBcUI7RUFDckIsYUFBYTtBQUNmO0FBRUE7RUFDRSxnQ0FBZ0M7RUFDaEMsNkJBQTZCO0VBQzdCLHVCQUF1QjtFQUN2QixvQkFBb0I7RUFDcEIseUJBQXlCO0VBQ3pCLHFCQUFxQjs7RUFFckIsc0JBQXNCOztFQUV0QixpQkFBaUI7RUFFakIscUJBQXFCO0VBQ3JCLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL2NsaWVudC11c2Vycy9jbGllbnQtdXNlcnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uZmlsdGVyIHtcbiAgZm9udC1zaXplOiAxNHB4O1xuICB3aWR0aDogMTAwJTtcbn1cbi5maXJzdExhYmVsIHtcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XG59XG4uZGlzbWlzc2J1dHRvbntcbiAgbGVmdDogMTBweDtcbiAgbWFyZ2luOiAwO1xufVxuLmJ1dHRvbmZpbHRlclxue1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAxNTBweDtcbiAgbWFyZ2luOiAwO1xufVxuLmJ1dHRvbnJpZ2h0MXtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMjBweDtcbiAgbWFyZ2luOiAwO1xufVxuXG4uYnV0dG9ucmlnaHQye1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAxNTBweDtcbiAgbWFyZ2luOiAwO1xufVxuXG4uYnV0dG9ucmlnaHQze1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAyNzBweDtcbiAgbWFyZ2luOiAwO1xufVxuLnNwYWNlcnJpZ2h0IHtcbiAgZmxleDogMTA7XG59XG5cbi5tYXQtY29sdW1uLUVtYWlsIHtcbiAgd29yZC13cmFwOiBicmVhay13b3JkICFpbXBvcnRhbnQ7XG4gIHdoaXRlLXNwYWNlOiB1bnNldCAhaW1wb3J0YW50O1xuICBmbGV4OiAwIDAgMTUlICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiAyNSUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3ctd3JhcDogYnJlYWstd29yZDtcbiAgd29yZC13cmFwOiBicmVhay13b3JkO1xuXG4gIHdvcmQtYnJlYWs6IGJyZWFrLXdvcmQ7XG5cbiAgLW1zLWh5cGhlbnM6IGF1dG87XG4gIC1tb3otaHlwaGVuczogYXV0bztcbiAgLXdlYmtpdC1oeXBoZW5zOiBhdXRvO1xuICBoeXBoZW5zOiBhdXRvO1xufVxuLm1hdC1jb2x1bW4tU2VydmljZXMge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQgIWltcG9ydGFudDtcbiAgd2hpdGUtc3BhY2U6IHVuc2V0ICFpbXBvcnRhbnQ7XG4gIGZsZXg6IDAgMCAyMCUgIWltcG9ydGFudDtcbiAgd2lkdGg6IDUwJSAhaW1wb3J0YW50O1xuICBvdmVyZmxvdy13cmFwOiBicmVhay13b3JkO1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG5cbiAgd29yZC1icmVhazogYnJlYWstd29yZDtcblxuICAtbXMtaHlwaGVuczogYXV0bztcbiAgLW1vei1oeXBoZW5zOiBhdXRvO1xuICAtd2Via2l0LWh5cGhlbnM6IGF1dG87XG4gIGh5cGhlbnM6IGF1dG87XG59XG5cblxuXG4vKiAubWF0LWNvbHVtbi1QaG9uZSB7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZCAhaW1wb3J0YW50O1xuICB3aGl0ZS1zcGFjZTogdW5zZXQgIWltcG9ydGFudDtcbiAgZmxleDogMCAwIDE3JSAhaW1wb3J0YW50O1xuICB3aWR0aDogMTclICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93LXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZDtcblxuICB3b3JkLWJyZWFrOiBicmVhay13b3JkO1xuXG4gIC1tcy1oeXBoZW5zOiBhdXRvO1xuICAtbW96LWh5cGhlbnM6IGF1dG87XG4gIC13ZWJraXQtaHlwaGVuczogYXV0bztcbiAgaHlwaGVuczogYXV0bztcbn1cbiAqL1xuLm1hdC1jb2x1bW4tQ291bnRyeSB7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZCAhaW1wb3J0YW50O1xuICB3aGl0ZS1zcGFjZTogdW5zZXQgIWltcG9ydGFudDtcbiAgZmxleDogMCAwIDglICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiA4JSAhaW1wb3J0YW50O1xuICBvdmVyZmxvdy13cmFwOiBicmVhay13b3JkO1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG5cbiAgd29yZC1icmVhazogYnJlYWstd29yZDtcblxuICAtbXMtaHlwaGVuczogYXV0bztcbiAgLW1vei1oeXBoZW5zOiBhdXRvO1xuICAtd2Via2l0LWh5cGhlbnM6IGF1dG87XG4gIGh5cGhlbnM6IGF1dG87XG59XG5cbi5tYXQtY29sdW1uLVNlbGVjdCB7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZCAhaW1wb3J0YW50O1xuICB3aGl0ZS1zcGFjZTogdW5zZXQgIWltcG9ydGFudDtcbiAgZmxleDogMCAwIDEwJSAhaW1wb3J0YW50O1xuICB3aWR0aDogMTAlICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93LXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZDtcblxuICB3b3JkLWJyZWFrOiBicmVhay13b3JkO1xuXG4gIC1tcy1oeXBoZW5zOiBhdXRvO1xuICAtbW96LWh5cGhlbnM6IGF1dG87XG4gIC13ZWJraXQtaHlwaGVuczogYXV0bztcbiAgaHlwaGVuczogYXV0bztcbn1cblxuLkZyZWUgVHJpYWwgQXBycm92ZWQge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQgIWltcG9ydGFudDtcbiAgd2hpdGUtc3BhY2U6IHVuc2V0ICFpbXBvcnRhbnQ7XG4gIGZsZXg6IDAgMCAzJSAhaW1wb3J0YW50O1xuICB3aWR0aDogMyUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3ctd3JhcDogYnJlYWstd29yZDtcbiAgd29yZC13cmFwOiBicmVhay13b3JkO1xuXG4gIHdvcmQtYnJlYWs6IGJyZWFrLXdvcmQ7XG5cbiAgLW1zLWh5cGhlbnM6IGF1dG87XG4gIC1tb3otaHlwaGVuczogYXV0bztcbiAgLXdlYmtpdC1oeXBoZW5zOiBhdXRvO1xuICBoeXBoZW5zOiBhdXRvO1xufVxuXG4uSVAge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQgIWltcG9ydGFudDtcbiAgd2hpdGUtc3BhY2U6IHVuc2V0ICFpbXBvcnRhbnQ7XG4gIGZsZXg6IDAgMCAzJSAhaW1wb3J0YW50O1xuICB3aWR0aDogMyUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3ctd3JhcDogYnJlYWstd29yZDtcbiAgd29yZC13cmFwOiBicmVhay13b3JkO1xuXG4gIHdvcmQtYnJlYWs6IGJyZWFrLXdvcmQ7XG5cbiAgLW1zLWh5cGhlbnM6IGF1dG87XG4gIC1tb3otaHlwaGVuczogYXV0bztcbiAgLXdlYmtpdC1oeXBoZW5zOiBhdXRvO1xuICBoeXBoZW5zOiBhdXRvO1xufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/users/client-users/client-users.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/users/client-users/client-users.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n\n<!-- <mat-card  *ngIf=\"isSubscriptionClicked\">\n  <form (submit) = onsendDetail(postForm)  #postForm=\"ngForm\">\n    <p>\n        <mat-form-field>\n            <input\n        matInput\n        rows=\"1\"\n        type=\"text\"\n            disabled [value] = \"selectedUser.email\" />\n        </mat-form-field>\n        </p>\n  <p>\n<mat-form-field>\n  <input matInput #fromInput [matDatepicker]=\"picker\" placeholder=\"fromdate\"   (dateInput)=\"addStartDate('input', $event)\" (dateChange)=\"addStartDate('change', $event)\" disabled>\n  <mat-datepicker-toggle matSuffix [for]=\"picker\" ></mat-datepicker-toggle>\n  <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\n</mat-form-field>\n</p>\n\n<p>\n<mat-form-field>\n    <input matInput #endInput [min]=\"selectedUser.fromdate\"  [matDatepicker]=\"picker2\" placeholder=\"enddate\" (dateInput)=\"addEnddate('input', $event)\" (dateChange)=\"addEnddate('change', $event)\"disabled>\n    <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n    <mat-datepicker #picker2 disabled=\"false\"></mat-datepicker>\n  </mat-form-field>\n</p>\n\n<p>\n<mat-form-field>\n<input\n[ngModel]=\"selectedUser?.amountrecive\"\nmatInput\nrows=\"1\"\ntype=\"number\"\nname=\"amountrecive\"\nrequired\nplaceholder=\"Amount Recieved\" #amountrecive=\"ngModel\"/>\n<mat-error *ngIf=\"amountrecive.invalid\">Please enter a post title.</mat-error>\n</mat-form-field>\n</p>\n\n<button\nmat-raised-button\ncolor=\"accent\"\ntype=\"submit\">Send Detail</button>\n\n\n<button\nmat-raised-button class = \"dismissbutton\"\ncolor=\"accent\"\ntype=\"dismiss\" (click)=\"dismiss()\">Dismiss</button>\n</form>\n</mat-card> -->\n\n<mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n\n<mat-card  *ngIf=\"!isLoading\">\n  \n<form class=\"filter\">\n    <label class=\"firstLabel\">{{totalrecord}}</label><label class=\"firstLabel\">{{recorddetail}}</label><label>{{selectServices}}</label>\n<button   mat-raised-button\nclass = \"buttonfilter\" color=\"accent\" [matMenuTriggerFor]=\"menu\">Filter Plan</button>\n<mat-menu #menu=\"matMenu\" xPosition=\"before\">\n  <button mat-menu-item (click)=\"selectdMenu('Free Trail Pending')\">Free Trail Pending</button>\n  <button mat-menu-item (click)=\"selectdMenu('Free Trail')\">Free Trail</button>\n  <button mat-menu-item (click)=\"selectdMenu('Subscription Pending')\">Subscription Pending</button>\n  <button mat-menu-item (click)=\"selectdMenu('Subscribed')\">Subscribed</button>\n</mat-menu>\n\n<button mat-raised-button\nclass = \"buttonright1\" color=\"accent\" [matMenuTriggerFor]=\"menuservice\" xPosition=\"after\">Filter Service</button>\n<mat-menu #menuservice=\"matMenu\">\n  <button mat-menu-item (click)=\"selectdServices('Basic Forex Pack')\">Basic Forex Pack</button>\n  <button mat-menu-item (click)=\"selectdServices('Premium Forex Pack')\">Premium Forex Pack</button>\n  <button mat-menu-item (click)=\"selectdServices('HNI Forex Pack')\">HNI Forex Pack</button>\n  <button mat-menu-item (click)=\"selectdServices('Basic Comex Pack')\">Basic Comex Pack</button>\n  <button mat-menu-item (click)=\"selectdServices('Premium Comex Pack')\">Premium Comex Pack</button>\n  <button mat-menu-item (click)=\"selectdServices('HNI Comex Pack')\">HNI Comex Pack</button>\n</mat-menu>\n<button\nclass = \"buttonright3\" mat-raised-button color=\"accent\" (click)=\"updateService()\">Update Service</button>\n<!-- <button class = \"buttonright1\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"deleteUser()\">Filter Service</button> -->\n\n  <!-- <button class = \"buttonright2\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"Subscribe\" (click)=\"subscribe()\">Subscribe</button>\n\n  <button class = \"buttonright3\"\n  mat-raised-button\n  color=\"accent\"\n  type=\"trial\" (click)=\"exportRecord()\">Export All Record</button> -->\n</form>\n\n\n\n<div class=\"mat-elevation-z8\">\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Checkbox Column -->\n  <ng-container matColumnDef=\"Select\">\n    <th mat-header-cell *matHeaderCellDef>\n      <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n      </mat-checkbox>\n    </th>\n    <td mat-cell *matCellDef=\"let row\">\n      <mat-checkbox (click)=\"$event.stopPropagation()\"\n                    (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\">\n      </mat-checkbox>\n    </td>\n  </ng-container>\n\n  <!-- Position Column -->\n  <!-- <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container> -->\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"Email\">\n    <th mat-header-cell *matHeaderCellDef> Email </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Services\">\n    <th mat-header-cell *matHeaderCellDef> Services </th>\n    <td mat-cell *matCellDef=\"let element\" > {{element.servicesname}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Phone\">\n    <th mat-header-cell *matHeaderCellDef> Phone </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <!-- <ng-container matColumnDef=\"Country\">\n    <th mat-header-cell *matHeaderCellDef> Country </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.country}} </td>\n  </ng-container> -->\n   <!-- Symbol Column -->\n\n   <!-- <ng-container matColumnDef=\"Free Trial Aprroved\">\n    <th mat-header-cell *matHeaderCellDef> Free Trial Aprroved </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.isfreetrailaproove}} </td>\n  </!--> -->\n  \n  <!-- <ng-container matColumnDef=\"IP\">\n    <th mat-header-cell *matHeaderCellDef>IP</th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.IP}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"Start Date\">\n    <th mat-header-cell *matHeaderCellDef>Start Date</th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.startdate}} </td>\n  </ng-container>\n  <ng-container matColumnDef=\"End Date\">\n    <th mat-header-cell *matHeaderCellDef>End Date</th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.enddate}} </td>\n  </ng-container> -->\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n      (click)=\"selection.toggle(row)\">\n  </tr>\n</table>\n<!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator> -->\n</div>\n</mat-card>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/users/client-users/client-users.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/users/client-users/client-users.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ClientUsersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClientUsersComponent", function() { return ClientUsersComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _posts_posts_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../posts/posts.service */ "./src/app/posts/posts.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var angular7_csv_dist_Angular_csv__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular7-csv/dist/Angular-csv */ "./node_modules/angular7-csv/dist/Angular-csv.js");
+/* harmony import */ var angular7_csv_dist_Angular_csv__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular7_csv_dist_Angular_csv__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../userplan/userplan-freetrail/userplan-freetrail.component */ "./src/app/userplan/userplan-freetrail/userplan-freetrail.component.ts");
+
+
+
+
+
+
+
+
+var ClientUsersComponent = /** @class */ (function () {
+    function ClientUsersComponent(postsService, dialog) {
+        this.postsService = postsService;
+        this.dialog = dialog;
+        this.isLoading = true;
+        this.recorddetail = "Free Trail and ";
+        this.selectServices = "Basic Forex Pack";
+        this.totalrecord = "Total records 0 for ";
+        this.selectServicesArray = [];
+        this.stardate = "";
+        this.qs = "?isfreetrailaproove=true&";
+        this.isSubscriptionClicked = false;
+        this.userdetails = [];
+        // displayedColumns: string[] = ['Select', 'Email', 'Services', 'Phone', 'Country','IP','Start Date', 'End Date'];
+        this.displayedColumns = ['Select', 'Email', 'Services', 'Phone'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
+    }
+    /** Whether the number of selected elements matches the total number of rows. */
+    ClientUsersComponent.prototype.isAllSelected = function () {
+        var numSelected = this.selection.selected.length;
+        var numRows = this.dataSource.data.length;
+        return numSelected === numRows;
+    };
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    ClientUsersComponent.prototype.masterToggle = function () {
+        var _this = this;
+        this.isAllSelected() ?
+            this.selection.clear() :
+            this.dataSource.data.forEach(function (row) { return _this.selection.select(row); });
+    };
+    ClientUsersComponent.prototype.someMethod = function () {
+        console.log("HI");
+    };
+    ClientUsersComponent.prototype.deleteUser = function () {
+        if (this.selection.selected.length == 0) {
+            alert("Please select record to delete");
+        }
+        else {
+            this.isSubscriptionClicked = true;
+            var res = this.selection.selected;
+            // this.openDialogDelete()
+        }
+    };
+    ClientUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataSource.paginator = this.paginator;
+        console.log(this.qs + 'services=' + this.selectServices);
+        this.postsService.getfilterUser(this.qs + 'services=' + this.selectServices.toLowerCase());
+        this.postsService.getUserfilterDetailListener()
+            .subscribe(function (userdetails) {
+            _this.userdetails = userdetails;
+            _this.isLoading = false;
+            //    this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isSubscriptionaproove === false )
+            // this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.issubscribed === false )
+            _this.totalrecord = "Total " + String(userdetails.length) + " records found for";
+            _this.dataSource.data = _this.userdetails;
+            _this.dismiss();
+        });
+    };
+    ClientUsersComponent.prototype.openDialogUpdate = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(_userplan_userplan_freetrail_userplan_freetrail_component__WEBPACK_IMPORTED_MODULE_7__["DilogUpdateServiceComponent"], {
+            width: '400px',
+            data: { selectedOptions: this.selectServicesArray, typeservice: this.postsService.pricing }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result.length > 0) {
+                _this.selectServicesArray = result;
+                // this.isLoading = true
+                // this.postsService.sendDeleteUsersRequest(this.selection.selected.map(t=>t.email).join(","));
+                _this.isLoading = true;
+                _this.postsService.updateservices(_this.selection.selected[0].email, _this.selectServicesArray, _this.qs + 'services=' + _this.selectServices.toLowerCase());
+                _this.selection.clear();
+            }
+            else {
+                alert("Please select services to update");
+            }
+        });
+    };
+    ClientUsersComponent.prototype.applyFilter = function (filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    };
+    ClientUsersComponent.prototype.edit = function () {
+    };
+    ClientUsersComponent.prototype.exportRecord = function () {
+        var csvOptions = {
+            fieldSeparator: ',',
+            quoteStrings: '"',
+            decimalseparator: '.',
+            showLabels: true,
+            showTitle: true,
+            title: 'Your Holiday List :',
+            useBom: true,
+            noDownload: false,
+            headers: ["Email", "Country", "Phone", "Expire", "Free Trail Aproove", "Subscribed", "Start Date", "End Date", "IP", "Services"]
+        };
+        var arrayfilter = (this.userdetails.filter(function (userdetails) { return userdetails.isfreetrailaproove === true; }));
+        arrayfilter.forEach(function (part, index, theArray) {
+            part.newServices = part.services.join(",");
+            delete part.services;
+            console.log(theArray);
+            console.log(arrayfilter);
+        });
+        delete arrayfilter["services"];
+        console.log(arrayfilter);
+        new angular7_csv_dist_Angular_csv__WEBPACK_IMPORTED_MODULE_5__["AngularCsv"](arrayfilter, "Userdata", csvOptions);
+    };
+    ClientUsersComponent.prototype.updateService = function () {
+        if (this.selection.selected.length == 1) {
+            this.selectServicesArray = this.selection.selected[0].services;
+            console.log(this.selectServicesArray);
+            this.openDialogUpdate();
+        }
+        else if (this.selection.selected.length == 0) {
+            alert("Please select record to updateservices");
+        }
+        else if (this.selection.selected.length > 1) {
+            alert('You can not updateservices of more then 1 record');
+        }
+    };
+    ClientUsersComponent.prototype.selectdMenu = function (pText) {
+        this.recorddetail = pText + " and ";
+        this.createQSFilterUser(pText);
+    };
+    ClientUsersComponent.prototype.createQSFilterUser = function (pText) {
+        this.isLoading = true;
+        // ?isfreetrailaproove=true&services=basic forex pack
+        //issubscribed
+        //isfreetrailaproove
+        //isexpire
+        //isSubscriptionaproove
+        if (pText == "Free Trail Pending") {
+            this.qs = "?isfreetrailaproove=false&isSubscriptionaproove=false&issubscribed=false&";
+        }
+        else if (pText == "Free Trail") {
+            this.qs = "?isfreetrailaproove=true&issubscribed=false&isSubscriptionaproove=false&";
+        }
+        else if (pText == "Subscription Pending") {
+            this.qs = "?isSubscriptionaproove=false&issubscribed=true&";
+        }
+        else if (pText == "Subscribed") {
+            this.qs = "?issubscribed=true&isSubscriptionaproove=true&";
+        }
+        console.log(this.qs + 'services=' + this.selectServices.toLowerCase());
+        this.postsService.getfilterUser(this.qs + 'services=' + this.selectServices.toLowerCase());
+    };
+    ClientUsersComponent.prototype.selectdServices = function (pText) {
+        this.selectServices = pText;
+        this.createQSFilterUser("");
+    };
+    ClientUsersComponent.prototype.onsendDetail = function (form) {
+        if (!this.selectedUser.fromdate) {
+            alert("Please select fromdate");
+        }
+        else if (!this.selectedUser.enddate) {
+            alert("Please select enddate");
+        }
+        else {
+            this.isLoading = true;
+            this.selectedUser.amountrecive = form.value.amountrecive;
+            this.selectedUser.totalamount = form.value.amountrecive;
+            this.postsService.sendinitialSubscriptionRequest(this.selectedUser);
+        }
+    };
+    ClientUsersComponent.prototype.addStartDate = function (type, event) {
+        this.selectedUser.fromdate = event.value;
+    };
+    ClientUsersComponent.prototype.addEnddate = function (type, event) {
+        this.selectedUser.enddate = event.value;
+    };
+    ClientUsersComponent.prototype.dismiss = function () {
+        this.isSubscriptionClicked = false;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
+    ], ClientUsersComponent.prototype, "paginator", void 0);
+    ClientUsersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-client-users',
+            template: __webpack_require__(/*! ./client-users.component.html */ "./src/app/users/client-users/client-users.component.html"),
+            styles: [__webpack_require__(/*! ./client-users.component.css */ "./src/app/users/client-users/client-users.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_posts_posts_service__WEBPACK_IMPORTED_MODULE_1__["PostsService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+    ], ClientUsersComponent);
+    return ClientUsersComponent;
 }());
 
 

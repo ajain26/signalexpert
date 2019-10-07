@@ -53,7 +53,7 @@ export class PostsService {
   
   getfilterUser(qs:string) {
     this.http
-      .get<{ message: string; posts: any }>("https://4f8c1831.ngrok.io/api/userdetails/filteruser" + qs )
+      .get<{ message: string; posts: any }>("http://75.98.169.159:1000/api/userdetails/filteruser" + qs )
       .pipe(
         map(postData => {
           return postData.posts.map(post => {
@@ -213,7 +213,7 @@ export class PostsService {
   {
   
       this.http
-      .get<{price: any }>("https://4f8c1831.ngrok.io/api/userdetails/servicesweb")
+      .get<{price: any }>("http://75.98.169.159:1000/api/userdetails/servicesweb")
       .pipe(
         map(postData => {
           return postData.price.map(post => {
@@ -269,7 +269,7 @@ export class PostsService {
   {
     this.http
       .post<{ message: string; posts: {string} }>(
-        "https://4f8c1831.ngrok.io/api/userdetails/updateservices",
+        "http://75.98.169.159:1000/api/userdetails/updateservices",
        {Email: Email, 
         services: services
         }
