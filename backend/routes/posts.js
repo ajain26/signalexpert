@@ -52,7 +52,6 @@ function sendPushNotificationiOS(title, services)
       emailArray.push(userList[i]["nickname"])
       }
       var query =  {$and:[{"Email" : {$nin : emailArray}},{"devicetype":"ios"},{"services.name":{$in:services}}]};
-  
       if (emailArray.length == 0)
       {
         query =  {$and:[{"devicetype":"ios"},{"services.name":{$in:services}}]}

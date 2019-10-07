@@ -1,7 +1,11 @@
 <div mat-dialog-content>
   <div class="message">
     <p>
-      {{message}}
+      <mat-selection-list #shoes>
+          <mat-list-option *ngFor="let shoe of typesOfService" (click)="onAreaListControlChanged(shoe)" [value]="shoe" checkboxPosition="before">
+            {{shoe.toUpperCase()}}
+          </mat-list-option>
+        </mat-selection-list>
     </p>
   </div>
 </div>

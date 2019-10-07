@@ -5,6 +5,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from "./auth/login/login.component";
 import { PostListComponent } from "./posts/post-list/post-list.component";
+import {  ClientUsersComponent } from "./users/client-users/client-users.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
 import {PostMessagetemplateComponent } from "./posts/post-messagetemplate/post-messagetemplate.component";
 import { UserplanFreetrailComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: 'notsubscribed', component: UserplannotsubscribedSubscribeduserlistComponent, canActivate: [AuthGuard] },
   { path: "", component: LoginComponent },
   { path: 'edit/:postId', component: PostCreateComponent, canActivate: [AuthGuard] },
-  {  path: 'Admin List', component: AdminComponent, canActivate: [AuthGuard] }
-
+  {  path: 'Admin List', component: AdminComponent, canActivate: [AuthGuard] },
+  {  path: 'All Users', component: ClientUsersComponent}
 ];
 
 @NgModule({

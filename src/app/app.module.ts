@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { DatePipe } from '@angular/common';
+import { SatPopoverModule } from '@ncstate/sat-popover';
 import { HttpClientModule } from "@angular/common/http";
 import {
   MatInputModule,
@@ -19,7 +20,9 @@ import {
   MatCheckboxModule,
   MatPaginatorModule,
   MatDatepickerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatMenuModule
+
 } from "@angular/material";
 
 
@@ -30,13 +33,15 @@ import { PostListComponent } from "./posts/post-list/post-list.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { PostSelectionlistComponent } from './posts/post-selectionlist/post-selectionlist.component';
 import { PostMessagetemplateComponent } from './posts/post-messagetemplate/post-messagetemplate.component';
-import { UserplanFreetrailComponent, DilogSubscribeComponent, DilogDeleteComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
+import { UserplanFreetrailComponent, DilogSubscribeComponent, DilogDeleteComponent,DilogUpdateServiceComponent } from './userplan/userplan-freetrail/userplan-freetrail.component';
 import { UserplanStartsubscriptionComponent } from './userplan/userplan-startsubscription/userplan-startsubscription.component';
 import { UserplanSubscribeduserlistComponent} from './userplan/userplan-subscribeduserlist/userplan-subscribeduserlist.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminComponent } from './users/admin/admin/admin.component';
 import { UserplannotapprooveFreetrailComponent, DilogdateStartendComponent } from './userplan/userplannotapproove-freetrail/userplannotapproove-freetrail.component';
 import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/userplannotsubscribed-subscribeduserlist/userplannotsubscribed-subscribeduserlist.component';
+import { ClientUsersComponent } from './users/client-users/client-users.component';
+import { InlineEditComponent } from './custom/inline-edit/inline-edit.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,10 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     UserplannotsubscribedSubscribeduserlistComponent,
     DilogdateStartendComponent,
     DilogSubscribeComponent,
-    DilogDeleteComponent
+    DilogDeleteComponent,
+    DilogUpdateServiceComponent,
+    ClientUsersComponent,
+    InlineEditComponent
     ],
   imports: [
     BrowserModule,
@@ -78,9 +86,11 @@ import { UserplannotsubscribedSubscribeduserlistComponent } from './userplan/use
     MatPaginatorModule,
     MatDatepickerModule,
     MatDialogModule,
+    SatPopoverModule,
+    MatMenuModule
     ],
   providers: [DatePipe],
-  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, UserplannotsubscribedSubscribeduserlistComponent,DilogSubscribeComponent,DilogDeleteComponent],
+  entryComponents: [UserplannotapprooveFreetrailComponent, DilogdateStartendComponent,UserplanFreetrailComponent, UserplannotsubscribedSubscribeduserlistComponent,DilogSubscribeComponent,DilogDeleteComponent,DilogUpdateServiceComponent],
 
   bootstrap: [AppComponent]
 })

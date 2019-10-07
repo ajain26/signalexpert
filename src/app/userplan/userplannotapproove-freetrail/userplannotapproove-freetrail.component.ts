@@ -49,7 +49,7 @@ export class UserplannotapprooveFreetrailComponent implements OnInit {
     .subscribe((userdetails: Userdetails[]) => {
       this.userdetails = userdetails;
       this.isLoading = false
-      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === false)
+      this.userdetails = this.userdetails.filter( (userdetails: Userdetails) => userdetails.isfreetrailaproove === false && userdetails.isSubscriptionaproove === false && userdetails.issubscribed == false )
       this.dataSource.data = this.userdetails
       this.dismiss();
     });

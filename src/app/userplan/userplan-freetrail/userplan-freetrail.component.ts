@@ -1,5 +1,5 @@
 import { PostsService } from './../../posts/posts.service';
-import { Userdetails } from './../userdetai.model';
+import { Userdetails, ServiceModel } from './../userdetai.model';
 import { Component, OnInit, ViewChild, Inject} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatTableDataSource, MatInput} from '@angular/material';
@@ -7,7 +7,6 @@ import { NgForm } from "@angular/forms";
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
 
 @Component({
   selector: 'app-userplan-freetrail',
@@ -234,7 +233,6 @@ export class DilogSubscribeComponent {
 
 export class DilogDeleteComponent {
   message: string;
-
   constructor(
     public dialogRef: MatDialogRef<DilogDeleteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AmountData) {
@@ -248,6 +246,49 @@ export class DilogDeleteComponent {
   {
     //alert(this.data.amount)
     this.dialogRef.close(["OK"]);
+  }
+
+}
+
+
+@Component({
+  selector: 'app-dilog-updateservice',
+  templateUrl: '../../custom/dilog-updateservice/dilog-updateservice.component.html'
+})
+
+
+export class DilogUpdateServiceComponent  {
+  message: string;
+  selectedOptions:ServiceModel[] = []
+  typesOfService: ServiceModel[] = []
+  constructor(
+    public dialogRef: MatDialogRef<DilogUpdateServiceComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      this.message = "Are you sure you want to delete the user?"
+      console.log(data)
+      this.selectedOptions = data.typeservice.filter(option => { return data.selectedOptions.find(select => {return option.name == select.name && option.servicetype == select.servicetype})})
+      this.typesOfService =  data.typeservice
+    }
+    onAreaListControlChanged(list)
+    {
+      // let indexelement: number = this.selectedOptions.indexOf(list);
+      // if(indexelement !== -1)
+      // {
+      //   this.selectedOptions.splice(indexelement, 1);
+      // }
+      // else
+      // {
+      // this.selectedOptions.push(list);
+      // }
+    }
+  onNoClick(): void {
+    this.dialogRef.close([]);
+  }
+  saveClick(): void 
+  {
+    //alert(this.data.amount)
+    console.log(this.selectedOptions)
+    this.dialogRef.close(this.selectedOptions);
   }
 
 }

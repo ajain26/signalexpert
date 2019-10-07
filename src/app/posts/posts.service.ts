@@ -1,4 +1,5 @@
 import { Userdetails } from './../userplan/userdetai.model';
+import {ServiceModel}  from './../userplan/userdetai.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
@@ -14,10 +15,14 @@ export class PostsService {
   private posts: Post[] = [];
   private posttemplate: Posttemplate[] = [];
   private userdetails: Userdetails[] = [];
+  private userfilterdetails: Userdetails[] = [];
   private userdetailUpdated = new Subject<Userdetails[]>();
+  private userdetailFilterUpdated = new Subject<Userdetails[]>();
+
   private postsUpdated = new Subject<Post[]>();
   private postsTemplateUpdated = new Subject<Posttemplate[]>();
   private Services: string[] = [];
+  pricing:ServiceModel[] = [];
 
   constructor(private http: HttpClient, private router: Router,private datepipe: DatePipe) {}
 
@@ -33,17 +38,50 @@ export class PostsService {
                 console.log(element.toUpperCase())
                return this.titleCase(element)
               }),
-              id: post._id
+              id: post._id,
+              currentdate: this.datepipe.transform(post.date, 'yyyy-MM-dd')
             };
           }); 
         })
       )
       .subscribe(transformedPosts => {
+        this.getPricing()
         this.posts = transformedPosts;
         this.postsUpdated.next([...this.posts]);
       });
   }
+  
+  getfilterUser(qs:string) {
+    this.http
+      .get<{ message: string; posts: any }>("https://4f8c1831.ngrok.io/api/userdetails/filteruser" + qs )
+      .pipe(
+        map(postData => {
+          return postData.posts.map(post => {
+            return {
+              email: post.Email,
+              services: post.services,
+              servicesname: post.services.map(model => model.name),
+              country: post.Country,
+              phone: post.PhoneNumber,
+              issubscribed: post.issubscribed,
+              isSubscriptionaproove: post.isSubscriptionaproove,
+              isfreetrailaproove: post.isfreetrailaproove,
+              isexpire: post.isexpire,
+              startdate:this.datepipe.transform(post.startdate, 'yyyy-MM-dd') ? this.datepipe.transform(post.startdate, 'yyyy-MM-dd'):'',
+              enddate: this.datepipe.transform(post.enddate, 'yyyy-MM-dd') ? this.datepipe.transform(post.enddate, 'yyyy-MM-dd'):'',
+              IP: post.IP,
+            };
+          });
+        })
+      )
+      .subscribe(transformedPosts => {
+        console.log(transformedPosts)
+        this.userfilterdetails = transformedPosts;
+        this.userdetailFilterUpdated.next([...this.userfilterdetails]);
+      });
+  }
 
+  
    titleCase(str) {
     str = str.toLowerCase().split(' ');
     for (var i = 0; i < str.length; i++) {
@@ -170,6 +208,31 @@ export class PostsService {
       });
 
   }
+
+  getPricing()
+  {
+  
+      this.http
+      .get<{price: any }>("https://4f8c1831.ngrok.io/api/userdetails/servicesweb")
+      .pipe(
+        map(postData => {
+          return postData.price.map(post => {
+            return {
+              pricetype: post.pricetype,
+              price: post.price,
+              selected: post.selected,
+              name: post.name,
+              servicetype: post.servicetype,
+            };
+          });
+        })
+      )
+      .subscribe(transformedPosts => {
+        this.pricing = transformedPosts;
+        console.log(this.pricing)
+      });
+
+  }
   sendinitialSubscriptionRequest(userdetail: Userdetails)
   {
     this.http
@@ -200,6 +263,23 @@ export class PostsService {
         }
       });
 
+  }
+
+  updateservices(Email: string, services: ServiceModel[], qs: string)
+  {
+    this.http
+      .post<{ message: string; posts: {string} }>(
+        "https://4f8c1831.ngrok.io/api/userdetails/updateservices",
+       {Email: Email, 
+        services: services
+        }
+      )
+      .subscribe(responseData => {
+        console.log(responseData)
+          alert("record updated succesfully");
+          console.log(qs)
+        this.getfilterUser(qs)
+      });
   }
 
   sendaproovalSubscriptionRequest(userdetail: Userdetails)
@@ -241,6 +321,10 @@ export class PostsService {
   getUserDetailListener() {
     return this.userdetailUpdated.asObservable();
   }
+  getUserfilterDetailListener()
+  {
+    return this.userdetailFilterUpdated.asObservable();
+  }
 
 
 
@@ -251,7 +335,7 @@ export class PostsService {
   }
 
   addPost(title: string, services: []) {
-    const post: Post = { id: null, title: title, services: this.Services };
+    const post: Post = { id: null, title: title, services: this.Services , currentdate: new Date()};
     console.log({ id: null, title: title, services: this.Services})
     this.http
       .post<{ message: string; postId: string }>(
@@ -289,7 +373,7 @@ export class PostsService {
   }
 
   updatePost(id: string, title: string, services: []) {
-    const post: Post = { id: id, title: title, services: [] };
+    const post: Post = { id: id, title: title, services: [],currentdate: new Date() };
     this.http
       .put("http://75.98.169.159:1000/api/posts/" + id, post)
       .subscribe(response => {

@@ -57,6 +57,9 @@
       <li *ngIf="userIsAuthenticated && userIsSadmin">
         <a mat-button routerLink="/Admin List" routerLinkActive="mat-accent">Admin List</a>
       </li>
+      <li *ngIf="userIsAuthenticated && userIsSadmin">
+        <a mat-button routerLink="/All Users" routerLinkActive="mat-accent">All Users</a>
+      </li>
     <li *ngIf="userIsAuthenticated">
         <button mat-button (click)="onLogout()">Logout</button>
       </li>

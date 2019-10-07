@@ -11,7 +11,6 @@ var gateway = braintree.connect({
   accessToken: 'access_token$production$jfryxgvkyj5tcv92$dc0ea8a1952f2462f8937e99dc32e9af'
 });
 router.post("/register", (req, res, next) => {
-
   Post.find({Email:req.body.Email}).then(post => {
     if (post.length) {
       res.status(200).json({ message: "user already exists!" });
@@ -41,8 +40,8 @@ router.post("/register", (req, res, next) => {
       });
     }
   });
-
 });
+
 router.post("/registerupdate", (req, res, next) => {
 
   if(req.body.isedit == 1)
@@ -71,6 +70,18 @@ router.post("/registerupdate", (req, res, next) => {
   });
 }
 });
+
+router.post("/updateservices", (req, res, next) => {
+  console.log(req.body.Email)
+  console.log(req.body)
+  Post.updateOne({Email:req.body.Email},{$set:
+    {"services": req.body.services}
+  }).then(result => {
+    res.status(200).json({ message: "ok" 
+  , posts: result});
+  });
+
+});
 router.put("/:id", (req, res, next) => {
   const post = new Post({
     _id: req.body.id,
@@ -89,11 +100,64 @@ router.get("", (req, res, next) => {
     });
   });
 });
+
 router.get("/services", (req, res, next) => {
   Services.find().then(documents => {
     res.send(documents.length > 0 ? documents[0] : [])
   });
 });
+
+router.get("/servicesweb", (req, res, next) => {
+  Services.find().then(documents => {
+   let services = documents[0]["services"]
+    var price = []
+   for (var i=0 ; i<services.length ; i++)
+   {
+     let types = services[i]["types"]
+     for (var j=0 ; j<types.length ; j++)
+     {
+       let pricing = types[j]["price"]
+      for (var d=0 ; d<pricing.length ; d++)
+      {
+        pricing[d]["selected"] = true
+          price.push(pricing[d])
+      }
+     }
+   }
+   res.send(documents.length > 0 ? {price: price} : [])
+  });
+});
+router.get("/filteruser", (req, res, next) => {
+  var q = {};
+  q['$and']=[]; // filter the search by any criteria given by the user
+
+  q['$and'].push({"services.name":{$in:[req.query.services]}})
+  if(req.query.isSubscriptionaproove){
+    q["$and"].push({ isSubscriptionaproove: req.query.isSubscriptionaproove});
+  }
+  if(req.query.isexpire){
+    q["$and"].push({ isexpire: req.query.isexpire});
+  }
+  if(req.query.issubscribed){
+    q["$and"].push({ issubscribed:req.query.issubscribed});
+  }
+  if(req.query.isfreetrailaproove){
+    q["$and"].push({ isfreetrailaproove:req.query.isfreetrailaproove});
+  }
+  if(req.query.isSubscriptionaproove){
+    q["$and"].push({ isSubscriptionaproove:req.query.isSubscriptionaproove});
+  }
+  Post.find(q).then(documents => {
+    res.status(200).json({
+      message: "Posts fetched successfully!",
+      posts: documents.length > 0 ? documents : []
+    });
+  });
+
+  
+})
+
+
 router.get("/pay/client_token", function (req, res) {
   gateway.clientToken.generate({}, function (err, response) {
     res.send({"ct":response.clientToken});
