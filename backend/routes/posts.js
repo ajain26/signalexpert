@@ -139,6 +139,7 @@ router.post("/uniquePost", (req, res, next) => {
   console.log(req.body["services[]"]);
   let servicesArray =  req.body["services[]"]
   var sorted = []
+  
   if(typeof servicesArray != 'string')
   {
     for(var i = 0 ; i < servicesArray.length ; i++)
@@ -148,7 +149,12 @@ router.post("/uniquePost", (req, res, next) => {
   }
   else
   {
+    try {  
+    let array =  JSON.parse(servicesArray)
+    sorted.push({"services.":array})
+    } catch (e) {
     sorted.push({"services.":servicesArray})
+    }
   }
 
 console.log( Date(req.body.date) )
