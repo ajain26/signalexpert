@@ -141,20 +141,15 @@ router.post("/uniquePost", (req, res, next) => {
   var sorted = []
   if(typeof servicesArray != 'string')
   {
-  for(var i = 0 ; i < servicesArray.length ; i++)
-  {
-    sorted.push({"services.":servicesArray[i]})
+    for(var i = 0 ; i < servicesArray.length ; i++)
+    {
+      sorted.push({"services.":servicesArray[i]})
+    }
   }
-}
-else
-{
-
-  let array =  JSON.parse(servicesArray)
-  for(var i = 0 ; i < array.length ; i++)
+  else
   {
-    sorted.push({"services.":array[i]})
+    sorted.push({"services.":servicesArray})
   }
-}
 
 console.log( Date(req.body.date) )
 console.log( sorted )
@@ -163,6 +158,9 @@ console.log( sorted )
   let query =  {$and:[{"date" : { $gte : new Date(req.body.date) }},querysor]};
  // let query = {"date" : { $gte : new Date(req.body.date) }}
   Post.find(query).sort('-date').skip(parseInt(req.body.skipnumber)).limit(parseInt(req.body.limit)).then(documents => {
+    for (i =0 ; i<documents.length; i++){
+        documents[i]["title"] =  documents[i]["title"].replace(/null/g,'');        
+    }
     res.status(200).json({
       message: "Posts fetched successfully!",
       posts: documents
