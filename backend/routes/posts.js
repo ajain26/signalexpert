@@ -151,7 +151,10 @@ router.post("/uniquePost", (req, res, next) => {
   {
     try {  
     let array =  JSON.parse(servicesArray)
-    sorted.push({"services.":array})
+    array.forEach(element => {
+      sorted.push({"services.":element})  
+    });
+    //sorted.push({"services.":array})
     } catch (e) {
     sorted.push({"services.":servicesArray})
     }
